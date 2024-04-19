@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Git tools
+Git_Uploader.py

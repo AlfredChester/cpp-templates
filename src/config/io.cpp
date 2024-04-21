@@ -1,13 +1,33 @@
-#define BUFSIZE 20000000
-char buf[BUFSIZE], *pt = buf;
-#define scan(t) do { \
-  int t = 0; \
-  while (!((*pt) >= '0' && (*pt) <= '9')) pt ++; \
-  while (((*pt) >= '0' && (*pt) <= '9')) t = t * 10 + (*(pt ++)) - '0'; \
-} while (0)
- 
-int main() {
-	fread(buf, 1, BUFSIZE, stdin);
-	scan(N); scan(M); // ...
-}
+#include <cstdio>
 
+namespace fastIO {
+    char c, f, e = 0;
+    namespace usr {
+        template <class _Tp>
+        inline int read(_Tp &x) {
+            x = f = 0, c = getchar();
+            while (!isdigit(c) && !e) f = c == '-', e |= c == EOF, c = getchar();
+            while (isdigit(c) && !e) x = (x << 1) + (x << 3) + (c ^ 48), c = getchar();
+            return (e |= c == EOF) ? 0 : ((f ? x = -x : 0), 1);
+        }
+        template <class _Tp>
+        inline void write(_Tp x) {
+            if (x < 0) putchar('-'), x = -x;
+            if (x > 9) write(x / 10);
+            putchar((x % 10) ^ 48);
+        }
+        template <typename T, typename... V>
+        inline void read(T &t, V &...v) { read(t), read(v...); }
+        template <typename T, typename... V>
+        inline void write(T t, V... v) {
+            write(t), putchar(' '), write(v...);
+        }
+    }
+}
+using namespace fastIO::usr;
+
+int main(int argc, char const *argv[]) {
+    int x;
+    read(x); // ...
+    return 0;
+}

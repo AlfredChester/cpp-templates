@@ -1,6 +1,5 @@
 import re, os, hashlib, yaml
 
-line_count = 1
 
 scl = yaml.safe_load(open("scl.yaml").read())
 
@@ -47,8 +46,10 @@ def gen_section(sect_yaml):
         with open("src/%s/%s" % (dirname, fname), "r") as fp:
             code = fp.read()
 
+        line_count = 1
+
         for line in code.split("\n"):
-            sect.append("\\createlinenumber{%d}{%s}" % (line_count, digest_line(line)))
+            sect.append("\\createlinenumber{%d}{%d}" % (line_count, line_count))
             line_count += 1
 
         if desc:
@@ -59,7 +60,8 @@ def gen_section(sect_yaml):
         # "src/%s/%s"
         sect.append("\\lstinputlisting[")
         sect.append("    caption     =   {\\bf %s}," % fname)
-        sect.append("    label       =   {%s}" % fname)
+        sect.append("    label       =   {%s}," % fname)
+        sect.append("    language    =   %s" % lang(extension))
         sect.append("]{../src/%s%s}" % (dirname, fname))
 
         # sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))

@@ -1,4 +1,4 @@
-\documentclass[landscape]{article}
+\documentclass{article}
 
 \input{format.tex} % formatting template
 
@@ -7,11 +7,11 @@
 \thispagestyle{empty}
 \null\vfill
 \begin{center}
+  \includegraphics[height=10cm]{rhologo.pdf}
+
+  \vspace{1.5cm}
+
   \Huge \textbf{Alfred\\代码模版库}
-
-\vspace{3cm}
-
-\includegraphics[height=6cm]{rhologo.pdf}
 \end{center}
 \vfill
 \clearpage
@@ -24,8 +24,6 @@
 
 \columnseprule=0.25pt
 
-\begin{multicols}{2}
 \input{code.tex}
-\end{multicols}
 
 \end{document}

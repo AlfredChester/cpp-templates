@@ -1,0 +1,8 @@
+set nocompatible
+set number
+set ruler
+set showcmd
+set autoindent
+set cindent
+set smartindent
+set shiftwidth=4

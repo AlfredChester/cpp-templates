@@ -1,0 +1,31 @@
+\documentclass[landscape]{article}
+
+\input{format.tex} % formatting template
+
+\begin{document}
+
+\thispagestyle{empty}
+\null\vfill
+\begin{center}
+  \Huge \textbf{Alfred\\代码模版库}
+
+\vspace{3cm}
+
+\includegraphics[height=6cm]{rhologo.pdf}
+\end{center}
+\vfill
+\clearpage
+
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+
+\newpage
+
+\columnseprule=0.25pt
+
+\begin{multicols}{2}
+\input{code.tex}
+\end{multicols}
+
+\end{document}

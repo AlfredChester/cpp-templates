@@ -27,9 +27,13 @@
 *.lib
 
 # Executables
+build/*
 *.exe
 *.out
 *.app
 
 # Git tools
 Git_Uploader.py
+
+# IDE
+.vscode/*

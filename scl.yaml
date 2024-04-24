@@ -1,43 +1,19 @@
-- name: 比赛配置
-  dir: config/
+- name: 数据结构
+  dir: alfred/data_structure/
   files:
-    - title: 代码库校验和
-      fname: checksum.py
-      desc: |
-        计算每一行忽略空白字符和\texttt{//}注释后内容的MD5 Hash。
-        使用\texttt{python checksum.py < code.cpp}打印校验和,并与代码库侧面的数值比对。
-    - title: Vim配置文件
-      fname: vimrc
-    - title: 堆栈外挂
-      fname: stack.cpp
-      desc: |
-        将堆栈指针指向用户空间的缓存中从而获得无限大的堆栈。注意在返回前将堆栈指针恢复，否则将出现Segmentation Fault。
-    - title: I/O外挂
-      fname: io.cpp
-      desc: |
-        快速整数输入输出，只支持非负整数。
-    - title: 编译优化外挂
-      fname: pragma.cpp
-      desc: |
-        开启GCC的O2编译优化。
-- name: 组合优化
-  dir: opt/
+    - title: 珂朵莉树
+      fname: ChthollyTree.cpp
+      desc: 支持区间推平，颜色段统计，在随机数据下期望复杂度为 $O(n \log n)$ 的暴力数据结构。
+    - title: 树状数组
+      fname: Fenwick.cpp
+      desc: 维护满足结合律且可差分信息的，常数较小的数据结构。
+- name: 比赛配置 and 奇技淫巧
+  dir: alfred/config/
   files:
-    - title: 上下界最小费用可行流
-      fname: costflow.cpp
-      desc: |
-        支持上下界的最小费用S-T可行流，可兼作高效最小费用最大流实现。
-
-        class W: 权值的类型; G.init(源点编号, 汇点编号, 结点数量(0-based), 最小值(整数为0，浮点数为1e-6, 无穷大值); G.insert(u, v, 下界, 上界, 费用); G.work()返回最小代价可行流。
-    - title: 线性规划(单纯形)
-      fname: lp.cpp
-- name: 数论
-  dir: numtheory/
-  files:
-    - title: 二次剩余
-      fname: quadratic-residue.cpp
-      desc: |
-        求最小的$0\le x < p$满足$x^2=n\ (\mathrm{mod}\ p)$ ($p$是素数)。不存在时返回$-1$。
+    - title: 多组数据代码模板
+      fname: Template.cpp
+    - title: 快读快写
+      fname: FastIO.cpp
 - name: Watashi代码库(备用)
   dir: watashi/
   files:

@@ -6,6 +6,7 @@ build/main.pdf: $(SRCS) Makefile scl.yaml
 	cp tex/* build/
 	cd build && xelatex main.tex
 	cd build && xelatex main.tex
+	cp build/main.pdf .
 
 .PHONY: clean check
 check:
@@ -13,3 +14,4 @@ check:
 
 clean:
 	rm -rf build/
+	rm -rf ./main.pdf

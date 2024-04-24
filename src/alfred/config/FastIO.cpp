@@ -1,5 +1,3 @@
-#include <cstdio>
-
 namespace fastIO {
     char c, f, e = 0;
     namespace usr {
@@ -25,9 +23,3 @@ namespace fastIO {
     }
 }
 using namespace fastIO::usr;
-
-int main(int argc, char const *argv[]) {
-    int x;
-    read(x); // ...
-    return 0;
-}

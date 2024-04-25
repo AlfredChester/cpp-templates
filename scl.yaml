@@ -14,6 +14,8 @@
       fname: Template.cpp
     - title: 快读快写
       fname: FastIO.cpp
+    - title: .clang-format
+      fname: .clang-format
 - name: Watashi代码库(备用)
   dir: watashi/
   files:

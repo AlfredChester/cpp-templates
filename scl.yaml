@@ -2,20 +2,38 @@
   dir: alfred/data_structure/
   files:
     - title: 珂朵莉树
-      fname: ChthollyTree.cpp
+      fname: chtholly.cpp
       desc: 支持区间推平，颜色段统计，在随机数据下期望复杂度为 $O(n \log n)$ 的暴力数据结构。
     - title: 树状数组
-      fname: Fenwick.cpp
+      fname: fenwick.cpp
       desc: 维护满足结合律且可差分信息的，常数较小的数据结构。
 - name: 比赛配置 and 奇技淫巧
   dir: alfred/config/
   files:
     - title: 多组数据代码模板
-      fname: Template.cpp
+      fname: template.cpp
     - title: 快读快写
-      fname: FastIO.cpp
+      fname: fast-io.cpp
     - title: .clang-format
       fname: .clang-format
+- name: jiangly代码库(备用，侵权请提出issue)
+  dir: jiangly/
+  files:
+    - title: int128 输出流自定义
+      fname: others/i128-stream.cpp
+    - title: 常用数学运算库函数及 gcd 重载
+      fname: others/clf.cpp
+      # it stands for Common Library Functions.
+    - title: 强连通分量缩点(SCC)
+      fname: graph/scc.cpp
+    - title: 割边与割边缩点(EBCC)
+      fname: graph/ebcc.cpp
+    - title: 二分图最大权匹配(MaxAssignment，基于KM)
+      fname: graph/bigraph-weight-match.cpp
+    - title: 一般图最大匹配(Graph，带花树算法)
+      fname: graph/general-match.cpp
+    - title: 2-SAT
+      fname: graph/2-sat.cpp
 - name: Watashi代码库(备用)
   dir: watashi/
   files:

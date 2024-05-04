@@ -1,3 +1,16 @@
+- name: 比赛配置 and 奇技淫巧
+  dir: alfred/config/
+  files:
+    - title: 多组数据代码模板
+      fname: template.cpp
+    - title: 快读快写
+      fname: fast-io.cpp
+    - title: 关闭流与 C 风格输入输出的同步
+      fname: io-sync-off.cpp
+    - title: .clang-format
+      fname: .clang-format
+    - title: debug.h
+      fname: debug.h
 - name: 数据结构
   dir: alfred/data_structure/
   files:
@@ -7,15 +20,26 @@
     - title: 树状数组
       fname: fenwick.cpp
       desc: 维护满足结合律且可差分信息的，常数较小的数据结构。
-- name: 比赛配置 and 奇技淫巧
-  dir: alfred/config/
+    - title: 静态可重区间信息（支持RMQ）
+      fname: sparse-table.cpp
+      desc: 基于ST表，支持静态数组可重区间信息的数据结构。
+    - title: PBDS 大常数平衡树
+      fname: pbds-balance-tree.cpp
+      desc: GNU PBDS 提供的大常数基于 rb-tree 的平衡树。
+    - title: 离散化容器
+      fname: discretization.cpp
+    - title: 并查集
+      fname: dsu.cpp
+- name: 数学（数论）算法
+  dir: alfred/math/
   files:
-    - title: 多组数据代码模板
-      fname: template.cpp
-    - title: 快读快写
-      fname: fast-io.cpp
-    - title: .clang-format
-      fname: .clang-format
+    - title: 带模整数类
+      fname: mod-int.cpp
+- name: 字符串算法
+  dir: alfred/string/
+  files:
+    - title: 字符串哈希
+      fname: hashed-string.cpp
 - name: jiangly代码库(备用，侵权请提出issue)
   dir: jiangly/
   files:

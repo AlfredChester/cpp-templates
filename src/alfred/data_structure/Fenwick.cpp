@@ -1,10 +1,8 @@
-#include <vector>
-
 template <class T>
 struct Fenwick {
     std::vector<T> c;
     inline int lowbit(int x) { return x & -x; }
-    inline void merge(T &x, T y) { x = x + y; } // remember to modify
+    inline void merge(T &x, T &y) { x = x + y; }
     inline T subtract(T x, T y) { return x - y; }
     inline void update(size_t pos, T x) {
         for (pos++; pos < c.size(); pos += lowbit(pos)) merge(c[pos], x);

@@ -1,3 +1,5 @@
+#include <vector>
+
 template <class _Tp>
 struct Mess {
     std::vector<_Tp> v;

@@ -11,6 +11,8 @@
       fname: .clang-format
     - title: debug.h
       fname: debug.h
+    - title: 火车头
+      fname: optimize-header.h
 - name: 数据结构
   dir: alfred/data_structure/
   files:
@@ -30,6 +32,9 @@
       fname: discretization.cpp
     - title: 并查集
       fname: dsu.cpp
+    - title: 出现次数统计
+      fname: appear-statistics.cpp
+      desc: O(nlogn) 预处理，O(logn) 查找的出现次数在线统计
 - name: 数学（数论）算法
   dir: alfred/math/
   files:
@@ -58,6 +63,34 @@
       fname: graph/general-match.cpp
     - title: 2-SAT
       fname: graph/2-sat.cpp
+    - title: 最大流
+      fname: graph/max-flow.cpp
+    - title: 最小费用可行流（或最大流）
+      fname: graph/max-cost-flow-graph.cpp
+    - title: 树链剖分
+      fname: graph/hld.cpp
+    - title: 快速幂
+      fname: math/fast-pow.cpp
+    - title: 欧拉筛
+      fname: math/euler-sieve.cpp
+    - title: 单点欧拉函数
+      fname: math/phi.cpp
+    - title: exgcd
+      fname: math/exgcd.cpp
+    - title: 组合数
+      fname: math/comb.cpp
+    - title: 树状数组
+      fname: ds/fenwick.cpp
+    - title: Splay
+      fname: ds/splay.cpp
+    - title: 取模类，按需写
+      fname: ds/mod.cpp
+    - title: 马拉车
+      fname: string/manacher.cpp
+    - title: Z 函数
+      fname: string/z-func.cpp
+    - title: SA 后缀数组
+      fname: string/suffix-array.cpp
 - name: Watashi代码库(备用)
   dir: watashi/
   files:

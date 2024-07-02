@@ -6,10 +6,12 @@ scl = yaml.safe_load(open("scl.yaml").read())
 LANGS = {
     "c": "C",
     "cpp": "C++",
+    "h": "C++",
     "py": "Python",
     "pl": "Perl",
     "sh": "sh",
     "java": "Java",
+    "json": "C++",
 }
 
 
@@ -65,7 +67,7 @@ def gen_section(sect_yaml):
         sect.append("]{../src/%s%s}" % (dirname, fname))
 
         # sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))
-        # sect.append(code)
+        # sect.append(code.replace("$", "{dollar}"))
         # sect.append("\\end{lstlisting}")
 
     return "\n".join(sect)

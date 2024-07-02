@@ -13,6 +13,14 @@
       fname: debug.h
     - title: 火车头
       fname: optimize-header.h
+    - title: c-cpp-properties.json
+      fname: c-cpp-properties.json
+    - title: launch.json
+      fname: launch.json
+    - title: settings.json
+      fname: settings.json
+    - title: tasks.json
+      fname: tasks.json
 - name: 数据结构
   dir: alfred/data_structure/
   files:
@@ -40,6 +48,8 @@
   files:
     - title: 带模整数类
       fname: mod-int.cpp
+    - title: 计算几何
+      fname: computation-geometry.cpp
 - name: 字符串算法
   dir: alfred/string/
   files:

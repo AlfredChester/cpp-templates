@@ -44,11 +44,12 @@ inline Line<T> getLine(Point<T> P, Point<T> Q) {
     } else if (P.y == Q.y) {
         return Line<T>(0, -1, P.y);
     } else {
-        const T k = (P.x - Q.x) / (P.y - Q.y);
-        return Line<T>(k, P.y - k * P.x);
+        return Line<T>(
+            Q.y - P.y, P.x - Q.x, P.y * Q.x - P.x * Q.y
+        );
     }
 }
 template <class T>
 inline bool pointOnLine(Point<T> P, Line<T> L) {
-    return L.A * P.x + L.B + P.y + L.C == 0;
+    return L.A * P.x + L.B * P.y + L.C == 0;
 }

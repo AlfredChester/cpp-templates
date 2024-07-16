@@ -43,6 +43,10 @@
     - title: 出现次数统计
       fname: appear-statistics.cpp
       desc: O(nlogn) 预处理，O(logn) 查找的出现次数在线统计
+    - title: 01-Trie
+      fname: binary-trie.cpp
+    - title: 滑动窗口
+      fname: sliding-window.cpp
 - name: 数学（数论）算法
   dir: alfred/math/
   files:
@@ -50,6 +54,10 @@
       fname: mod-int.cpp
     - title: 计算几何
       fname: computation-geometry.cpp
+    - title: 组合数学
+      fname: comb.cpp
+    - title: 拉格朗日插值
+      fname: lagrange.cpp
 - name: 字符串算法
   dir: alfred/string/
   files:

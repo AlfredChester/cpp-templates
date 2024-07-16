@@ -1,5 +1,3 @@
-#include <vector>
-
 template <class _Tp>
 struct Mess {
     std::vector<_Tp> v;
@@ -12,6 +10,7 @@ struct Mess {
         sort(v.begin(), v.end()), initialized = true;
         v.erase(unique(v.begin(), v.end()), v.end());
     }
+    inline void clear(void) { v.clear(), initialized = false; }
     inline int query(_Tp x) {
         if (!initialized) init();
         return lower_bound(v.begin(), v.end(), x) - v.begin() + 1;

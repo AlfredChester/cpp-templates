@@ -37,7 +37,7 @@ inline Point<T> intersect(Line<T> P, Line<T> Q) {
     };
 }
 template <class T>
-inline Line<T> getLine(Point<T> P, Point<T> Q) {
+inline Line<T> get_line(Point<T> P, Point<T> Q) {
     assert(!(P == Q));
     if (P.x == Q.x) {
         return Line<T>(-1, 0, P.x);
@@ -50,6 +50,10 @@ inline Line<T> getLine(Point<T> P, Point<T> Q) {
     }
 }
 template <class T>
-inline bool pointOnLine(Point<T> P, Line<T> L) {
+inline bool point_on_line(Point<T> P, Line<T> L) {
     return L.A * P.x + L.B * P.y + L.C == 0;
+}
+template <class T>
+inline T dis_square(Point<T> P, Point<T> Q) {
+    return (P.x - Q.x) * (P.x - Q.x) + (P.y - Q.y) * (P.y - Q.y);
 }

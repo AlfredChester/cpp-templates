@@ -6,6 +6,9 @@ struct DSU {
     inline int find(int x) {
         return fa[x] == x ? x : fa[x] = find(fa[x]);
     }
+    inline bool same(int x, int y) {
+        return find(x) == find(y);
+    }
     // true if x and y were not in the same set, false otherwise.
     inline bool merge(int x, int y) {
         int fx = find(x), fy = find(y);

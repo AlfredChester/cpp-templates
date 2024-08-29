@@ -1,9 +1,8 @@
-// require: math/mod-int.cpp
 template <class mint>
 struct Comb {
     int n;
     std::vector<mint> _fac, _invfac, _inv;
-    Comb() : n{0}, _fac{1}, _invfac{1}, _inv{0} {}
+    Comb(void) : n{0}, _fac{1}, _invfac{1}, _inv{0} {}
     Comb(int n) : Comb() { init(n); }
     inline void init(int m) {
         _fac.resize(m + 1), _inv.resize(m + 1), _invfac.resize(m + 1);

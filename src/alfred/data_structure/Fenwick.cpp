@@ -16,7 +16,16 @@ struct Fenwick {
         return ans;
     }
     inline T query(size_t l, size_t r) {
-        return subtract(query(r), query(l - 1));
+        return l == 0 ? query(r) : subtract(query(r), query(l - 1));
+    }
+    inline int kth(const T k) {
+        int ans = 0;
+        for (int i = 1 << std::__lg(c.size() - 1); i; i >>= 1) {
+            if (ans + i < (int)c.size() && c[ans + i] <= k) {
+                k -= c[ans + i], ans += i;
+            }
+        }
+        return ans;
     }
     Fenwick(size_t len) : c(len + 2) {}
 };

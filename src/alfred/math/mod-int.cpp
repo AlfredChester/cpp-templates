@@ -3,8 +3,8 @@ inline int64_t down(int64_t x) { return x >= mod ? x - mod : x; }
 template <int mod>
 struct ModInt {
     int64_t x;
-    ModInt() = default;
-    ModInt(int64_t x) : x((x % mod + mod) % mod) {}
+    ModInt(void) = default;
+    ModInt(int64_t x) : x((x % mod + mod) % mod) {} // modify to fast mode if needed.
     friend istream &operator>>(istream &in, ModInt &a) { return in >> a.x; }
     friend ostream &operator<<(ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }

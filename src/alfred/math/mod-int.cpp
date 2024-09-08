@@ -1,10 +1,10 @@
 template <int mod>
-inline int64_t down(int64_t x) { return x >= mod ? x - mod : x; }
+inline int down(int x) { return x >= mod ? x - mod : x; }
 template <int mod>
 struct ModInt {
-    int64_t x;
+    int x;
     ModInt(void) = default;
-    ModInt(int64_t x) : x((x % mod + mod) % mod) {} // modify to fast mode if needed.
+    ModInt(int x) : x(x) {}
     friend istream &operator>>(istream &in, ModInt &a) { return in >> a.x; }
     friend ostream &operator<<(ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }
@@ -40,3 +40,4 @@ struct ModInt {
     friend bool operator!=(ModInt a, ModInt b) { return !(a == b); }
 };
 using mint = ModInt<>;
+inline void __print(mint x) { cerr << x; }

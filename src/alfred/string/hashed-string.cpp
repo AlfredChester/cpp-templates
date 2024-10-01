@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 template <int mod, int seed>
 struct SingleHash {
     int n;

@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 template <class T>
 struct MaxInfo {
     T val;

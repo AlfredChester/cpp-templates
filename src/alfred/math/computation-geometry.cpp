@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+
+// Caution: This computation geometry template is pure shit
+//          because of the terrible math level of the author.
+//          It will be rewritten some time.
 template <class T>
 struct Point {
     T x, y;

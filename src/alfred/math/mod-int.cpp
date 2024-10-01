@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 template <int mod>
 inline int down(int x) { return x >= mod ? x - mod : x; }
 template <int mod>
@@ -5,8 +7,8 @@ struct ModInt {
     int x;
     ModInt(void) = default;
     ModInt(int x) : x(x) {}
-    friend istream &operator>>(istream &in, ModInt &a) { return in >> a.x; }
-    friend ostream &operator<<(ostream &out, ModInt a) { return out << a.x; }
+    friend std::istream &operator>>(std::istream &in, ModInt &a) { return in >> a.x; }
+    friend std::ostream &operator<<(std::ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }
     friend ModInt operator-(ModInt a, ModInt b) { return down<mod>(a.x - b.x + mod); }
     friend ModInt operator*(ModInt a, ModInt b) { return (long long)a.x * b.x % mod; }
@@ -39,5 +41,4 @@ struct ModInt {
     friend bool operator==(ModInt a, ModInt b) { return a.x == b.x; }
     friend bool operator!=(ModInt a, ModInt b) { return !(a == b); }
 };
-using mint = ModInt<>;
-inline void __print(mint x) { cerr << x; }
+inline void __print(mint x) { std::cerr << x; }

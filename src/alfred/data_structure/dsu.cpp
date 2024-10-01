@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 struct DSU {
     std::vector<int> fa, siz;
     DSU(int n) : fa(n + 1), siz(n + 1, 1) {

@@ -1,4 +1,6 @@
 // Thanks neal for this template.
+#include <bits/stdc++.h>
+
 const int BITS = 30;
 const int INF = 1e9 + 7;
 struct BinaryTrie { // 01-Trie

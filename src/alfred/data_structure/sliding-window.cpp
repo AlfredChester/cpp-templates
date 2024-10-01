@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 template <class T> // default max.
 std::vector<T> sliding_window(std::vector<T> A, size_t k) {
     std::vector<T> res;

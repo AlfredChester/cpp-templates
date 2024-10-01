@@ -1,4 +1,7 @@
-// require: math/mod-int.cpp, math/comb.cpp
+#include "comb.h"
+#include "mod-int.h"
+#include <bits/stdc++.h>
+
 inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {
     mint ans = 0, cur;
     const int n = x.size();

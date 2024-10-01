@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 struct CancelDSU {
     std::stack<int> S;
     std::vector<int> fa, siz;

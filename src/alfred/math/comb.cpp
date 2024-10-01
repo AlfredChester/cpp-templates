@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 template <class mint>
 struct Comb {
     int n;

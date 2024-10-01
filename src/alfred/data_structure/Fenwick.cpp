@@ -1,4 +1,5 @@
 #include "fenwick.h"
+#include <bits/stdc++.h>
 
 template <class T>
 struct Fenwick {

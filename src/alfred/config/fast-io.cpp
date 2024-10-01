@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+
 namespace fastIO {
     char c, f, e = 0;
     namespace usr {

@@ -1,7 +1,7 @@
 template <class T>
 struct MaxInfo {
     T val;
-    MaxInfo(void) { val = T(); }
+    MaxInfo(void) { val = std::numeric_limits<T>::min(); }
     template <class InitT>
     MaxInfo(InitT x) { val = x; }
     MaxInfo operator+(MaxInfo &x) {
@@ -11,7 +11,7 @@ struct MaxInfo {
 template <class T>
 struct MinInfo {
     T val;
-    MinInfo(void) { val = T(); }
+    MinInfo(void) { val = std::numeric_limits<T>::max(); }
     template <class InitT>
     MinInfo(InitT x) { val = x; }
     MinInfo operator+(MinInfo &x) {
@@ -25,7 +25,11 @@ struct GcdInfo {
     template <class InitT>
     GcdInfo(InitT x) { val = x; }
     GcdInfo operator+(GcdInfo &x) {
-        return {std::gcd(val, x.val)};
+#if __cplusplus >= 201703L
+        return {std::gcd(x.val, val)};
+#else
+        return {__gcd(x.val, val)};
+#endif
     }
 };
 template <class T>

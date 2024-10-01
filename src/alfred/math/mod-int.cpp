@@ -9,7 +9,7 @@ struct ModInt {
     friend ostream &operator<<(ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }
     friend ModInt operator-(ModInt a, ModInt b) { return down<mod>(a.x - b.x + mod); }
-    friend ModInt operator*(ModInt a, ModInt b) { return (__int128)a.x * b.x % mod; }
+    friend ModInt operator*(ModInt a, ModInt b) { return (long long)a.x * b.x % mod; }
     friend ModInt operator/(ModInt a, ModInt b) { return a * ~b; }
     friend ModInt operator^(ModInt a, long long b) {
         ModInt ans = 1;

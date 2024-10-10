@@ -33,6 +33,9 @@
     - title: 静态可重区间信息（支持RMQ）
       fname: sparse-table.cpp
       desc: 基于ST表，支持静态数组可重区间信息的数据结构。
+    - title: 可删除优先队列
+      fname: priority-set.cpp
+      desc: 基于优先队列，支持查询最大值，在线插入删除的数据结构，常数优于 std::set。
     - title: PBDS 大常数平衡树
       fname: pbds-balance-tree.cpp
       desc: GNU PBDS 提供的大常数基于 rb-tree 的平衡树。

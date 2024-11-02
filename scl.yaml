@@ -45,6 +45,8 @@
       fname: dsu.cpp
     - title: 可撤销并查集
       fname: cancel-dsu.cpp
+    - title: 带权并查集
+      fname: weighted-dsu.cpp
     - title: 出现次数统计
       fname: appear-statistics.cpp
       desc: O(nlogn) 预处理，O(logn) 查找的出现次数在线统计

@@ -15,7 +15,7 @@ struct ModInt {
     friend ModInt operator/(ModInt a, ModInt b) { return a * ~b; }
     friend ModInt operator^(ModInt a, long long b) {
         ModInt ans = 1;
-        for (; b; b >>= 1, a *= a)
+        for (; b > 0; b >>= 1, a *= a)
             if (b & 1) ans *= a;
         return ans;
     }

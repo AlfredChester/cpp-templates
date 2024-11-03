@@ -228,7 +228,7 @@
             "    friend ModInt operator-(ModInt a, ModInt b) {return down<mod>(a.x - b.x + mod);}",
             "    friend ModInt operator*(ModInt a, ModInt b) {return (long long)a.x * b.x % mod;}",
             "    friend ModInt operator/(ModInt a, ModInt b) {return a * ~b;}",
-            "    friend ModInt operator^(ModInt a, long long b) {ModInt ans = 1; for(; b; b >>= 1, a *= a) if(b & 1) ans *= a; return ans;}",
+            "    friend ModInt operator^(ModInt a, long long b) {ModInt ans = 1; for(; b > 0; b >>= 1, a *= a) if(b & 1) ans *= a; return ans;}",
             "    friend ModInt operator~(ModInt a) {return a ^ (mod - 2);}",
             "    friend ModInt operator-(ModInt a) {return down<mod>(mod - a.x);}",
             "    friend ModInt& operator+=(ModInt& a, ModInt b) {return a = a + b;}",

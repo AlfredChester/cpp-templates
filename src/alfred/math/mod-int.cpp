@@ -7,6 +7,7 @@ struct ModInt {
     int x;
     ModInt(void) = default;
     ModInt(int x) : x(x) {}
+    ModInt(long long x) : x(x % mod) {}
     friend std::istream &operator>>(std::istream &in, ModInt &a) { return in >> a.x; }
     friend std::ostream &operator<<(std::ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }

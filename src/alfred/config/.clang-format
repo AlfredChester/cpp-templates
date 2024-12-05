@@ -22,3 +22,4 @@ BraceWrapping:
   AfterClass: true
 AlignConsecutiveMacros: AcrossEmptyLinesAndComments
 AlignTrailingComments: Always
+InsertNewlineAtEOF: true

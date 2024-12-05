@@ -67,6 +67,8 @@
       fname: comb.cpp
     - title: 拉格朗日插值
       fname: lagrange.cpp
+    - title: 光速幂
+      fname: speed-of-light-power.cpp
 - name: 字符串算法
   dir: alfred/string/
   files:

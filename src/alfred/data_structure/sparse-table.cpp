@@ -44,8 +44,14 @@ public:
     SparseTable(void) {}
     SparseTable(int N) : n(N), ST(N, std::vector<T>(std::__lg(N) + 1)) {}
     template <class InitT>
-    SparseTable(std::vector<InitT> &init) : SparseTable(init.size()) {
-        for (int i = 0; i < n; i++) ST[i][0] = T(init[i]);
+    SparseTable(std::vector<InitT> &_init) : SparseTable(_init.size()) { init(_init, true); }
+    template <class InitT>
+    inline void init(std::vector<InitT> &_init, bool internal = false) {
+        if (!internal) {
+            n = _init.size();
+            ST.assign(n, std::vector<int>(std::__lg(n) + 1));
+        }
+        for (int i = 0; i < n; i++) ST[i][0] = T(_init[i]);
         for (int i = 1; (1 << i) <= n; i++) {
             for (int j = 0; j + (1 << i) - 1 < n; j++) {
                 ST[j][i] = ST[j][i - 1] + ST[j + (1 << (i - 1))][i - 1];

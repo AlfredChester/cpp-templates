@@ -74,6 +74,11 @@
   files:
     - title: 字符串哈希
       fname: hashed-string.cpp
+- name: 图论
+  dir: alfred/graph/
+  files:
+    - title: 模块化基本图
+      fname: graph.cpp
 - name: jiangly代码库(备用，侵权请提出issue)
   dir: jiangly/
   files:

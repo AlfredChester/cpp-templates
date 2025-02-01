@@ -79,6 +79,8 @@
   files:
     - title: 模块化基本图
       fname: graph.cpp
+    - title: O(1) LCA
+      fname: lca.cpp
 - name: jiangly代码库(备用，侵权请提出issue)
   dir: jiangly/
   files:

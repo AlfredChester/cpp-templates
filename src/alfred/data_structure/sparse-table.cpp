@@ -49,7 +49,7 @@ public:
     inline void init(std::vector<InitT> &_init, bool internal = false) {
         if (!internal) {
             n = _init.size();
-            ST.assign(n, std::vector<int>(std::__lg(n) + 1));
+            ST.assign(n, std::vector<T>(std::__lg(n) + 1));
         }
         for (int i = 0; i < n; i++) ST[i][0] = T(_init[i]);
         for (int i = 1; (1 << i) <= n; i++) {

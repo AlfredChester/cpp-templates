@@ -9,9 +9,7 @@ private:
 public:
     explicit PrioritySet(void) : data(), erased() {};
     explicit PrioritySet(std::vector<T> &init) {
-        for (auto &v : init) {
-            insert(v);
-        }
+        for (auto &v : init) insert(v);
     }
     inline void insert(const T &&x) { data.push(x); }
     inline void erase(const T &&x) { erased.push(x); }

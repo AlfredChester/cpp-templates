@@ -36,3 +36,4 @@ public:
         return lca.query(dfn[u], dfn[v]).val;
     }
 } LCA;
+std::vector<int> LCAImpl::d;

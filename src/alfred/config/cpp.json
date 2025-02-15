@@ -873,7 +873,8 @@
             "        if (dfn[u] > dfn[v]) std::swap(u, v);",
             "        return lca.query(dfn[u], dfn[v]).val;",
             "    }",
-            "} LCA;"
+            "} LCA;",
+            "std::vector<int> LCAImpl::d;"
         ]
     }
 }

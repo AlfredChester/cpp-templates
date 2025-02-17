@@ -1,9 +1,11 @@
+#pragma once
+
 #include <bits/stdc++.h>
 
 template <int base, int mod>
 struct SOLPower { // Speed Of Light Power.
     // p1 stores base^0  ~ base^sq
-    // p2 stores base^sq ~ base^(sq^2)
+    // ps stores base^sq ~ base^(sq^2)
     std::vector<int> p1, ps;
     static const int sq = std::sqrt(mod);
     SOLPower(void) {

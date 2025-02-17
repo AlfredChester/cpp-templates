@@ -1,4 +1,6 @@
-#include "mod-int.h"
+#pragma once
+
+#include "mod-int.hpp"
 #include <bits/stdc++.h>
 
 template <class mint>

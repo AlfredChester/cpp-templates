@@ -1,5 +1,7 @@
-#include "comb.h"
-#include "mod-int.h"
+#pragma once
+
+#include "comb.hpp"
+#include "mod-int.hpp"
 #include <bits/stdc++.h>
 
 inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {

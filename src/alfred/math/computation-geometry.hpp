@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bits/stdc++.h>
 
 // Caution: This computation geometry template is pure shit

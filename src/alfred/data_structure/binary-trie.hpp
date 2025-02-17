@@ -1,3 +1,5 @@
+#pragma once
+
 // Thanks neal for this template.
 #include <bits/stdc++.h>
 

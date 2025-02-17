@@ -1,3 +1,7 @@
+#pragma once
+
+#include <bits/stdc++.h>
+
 template <class T>
 struct WeightedDSU {
     std::vector<int> fa;

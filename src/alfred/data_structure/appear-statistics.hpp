@@ -1,4 +1,6 @@
-#include "discretization.h"
+#pragma once
+
+#include "discretization.hpp"
 #include <bits/stdc++.h>
 
 template <class T>

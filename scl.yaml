@@ -2,11 +2,11 @@
   dir: alfred/config/
   files:
     - title: 多组数据代码模板
-      fname: template.cpp
+      fname: template.hpp
     - title: 快读快写
-      fname: fast-io.cpp
+      fname: fast-io.hpp
     - title: 关闭流与 C 风格输入输出的同步
-      fname: io-sync-off.cpp
+      fname: io-sync-off.hpp
     - title: .clang-format
       fname: .clang-format
     - title: debug.h
@@ -25,215 +25,215 @@
   dir: alfred/data_structure/
   files:
     - title: 珂朵莉树
-      fname: chtholly.cpp
+      fname: chtholly.hpp
       desc: 支持区间推平，颜色段统计，在随机数据下期望复杂度为 $O(n \log n)$ 的暴力数据结构。
     - title: 树状数组
-      fname: fenwick.cpp
+      fname: fenwick.hpp
       desc: 维护满足结合律且可差分信息的，常数较小的数据结构。
     - title: 静态可重区间信息（支持RMQ）
-      fname: sparse-table.cpp
+      fname: sparse-table.hpp
       desc: 基于ST表，支持静态数组可重区间信息的数据结构。
     - title: 可删除优先队列
-      fname: priority-set.cpp
+      fname: priority-set.hpp
       desc: 基于优先队列，支持查询最大值，在线插入删除的数据结构，常数优于 std::set。
     - title: PBDS 大常数平衡树
-      fname: pbds-balance-tree.cpp
+      fname: pbds-balance-tree.hpp
       desc: GNU PBDS 提供的大常数基于 rb-tree 的平衡树。
     - title: 离散化容器
-      fname: discretization.cpp
+      fname: discretization.hpp
     - title: 并查集
-      fname: dsu.cpp
+      fname: dsu.hpp
     - title: 可撤销并查集
-      fname: cancel-dsu.cpp
+      fname: cancel-dsu.hpp
     - title: 带权并查集
-      fname: weighted-dsu.cpp
+      fname: weighted-dsu.hpp
     - title: 出现次数统计
-      fname: appear-statistics.cpp
+      fname: appear-statistics.hpp
       desc: O(nlogn) 预处理，O(logn) 查找的出现次数在线统计
     - title: 01-Trie
-      fname: binary-trie.cpp
+      fname: binary-trie.hpp
     - title: 滑动窗口
-      fname: sliding-window.cpp
+      fname: sliding-window.hpp
     - title: （二维）前缀和
-      fname: prefix-sum.cpp
+      fname: prefix-sum.hpp
 - name: 数学（数论）算法
   dir: alfred/math/
   files:
     - title: 带模整数类
-      fname: mod-int.cpp
+      fname: mod-int.hpp
     - title: 计算几何
-      fname: computation-geometry.cpp
+      fname: computation-geometry.hpp
     - title: 组合数学
-      fname: comb.cpp
+      fname: comb.hpp
     - title: 拉格朗日插值
-      fname: lagrange.cpp
+      fname: lagrange.hpp
     - title: 光速幂
-      fname: speed-of-light-power.cpp
+      fname: speed-of-light-power.hpp
 - name: 字符串算法
   dir: alfred/string/
   files:
     - title: 字符串哈希
-      fname: hashed-string.cpp
+      fname: hashed-string.hpp
 - name: 图论
   dir: alfred/graph/
   files:
     - title: 模块化基本图
-      fname: graph.cpp
+      fname: graph.hpp
     - title: O(1) LCA
-      fname: lca.cpp
+      fname: lca.hpp
 - name: jiangly代码库(备用，侵权请提出issue)
   dir: jiangly/
   files:
     - title: 01 - int128 库函数自定义
-      fname: others/01-i128-Func.cpp
+      fname: others/01-i128-Func.hpp
     - title: 02 - 常用库函数重载
-      fname: others/02-Math-Func.cpp
+      fname: others/02-Math-Func.hpp
     - title: 03 - 字符调整
-      fname: others/03-Char.cpp
+      fname: others/03-Char.hpp
     - title: 04A - 二分算法（整数域）
-      fname: others/04A-Binary-Search.cpp
+      fname: others/04A-Binary-Search.hpp
     - title: 04B - 二分算法（实数域）
-      fname: others/04B-Binary-Search.cpp
+      fname: others/04B-Binary-Search.hpp
     - title: 01 - 强连通分量缩点（SCC）
-      fname: graph/01-SCC.cpp
+      fname: graph/01-SCC.hpp
     - title: 02 - 割边与割边缩点（EBCC）
-      fname: graph/02-EBCC.cpp
+      fname: graph/02-EBCC.hpp
     - title: 03 - 二分图最大权匹配（MaxAssignment 基于KM）
-      fname: graph/03-Max-Assignment.cpp
+      fname: graph/03-Max-Assignment.hpp
     - title: 04 - 一般图最大匹配（Graph 带花树算法）【久远】
-      fname: graph/04-Graph-Match.cpp
+      fname: graph/04-Graph-Match.hpp
     - title: 05 - TwoSat（2-Sat）
-      fname: graph/05-Two-Sat.cpp
+      fname: graph/05-Two-Sat.hpp
     - title: 06A - 最大流（Flow 旧版其一，整数应用）
-      fname: graph/06A-Max-Flow.cpp
+      fname: graph/06A-Max-Flow.hpp
     - title: 06B - 最大流（Flow 旧版其二，浮点数应用）
-      fname: graph/06B-Max-Flow.cpp
+      fname: graph/06B-Max-Flow.hpp
     - title: 06C - 最大流（MaxFlow 新版）
-      fname: graph/06C-Max-Flow.cpp
+      fname: graph/06C-Max-Flow.hpp
     - title: 07A - 费用流（MCFGraph 旧版）
-      fname: graph/07A-Min-Cost-Flow.cpp
+      fname: graph/07A-Min-Cost-Flow.hpp
     - title: 07B - 费用流（MinCostFlow 新版）
-      fname: graph/07B-Min-Cost-Flow.cpp
+      fname: graph/07B-Min-Cost-Flow.hpp
     - title: 08 - 树链剖分（HLD）
-      fname: graph/08-HLD.cpp
+      fname: graph/08-HLD.hpp
     - title: 01 - 快速幂
-      fname: math/01-Power.cpp
+      fname: math/01-Power.hpp
     - title: 02 - 基姆拉尔森公式
-      fname: math/02-Kim-Larsen.cpp
+      fname: math/02-Kim-Larsen.hpp
     - title: 03 - 欧拉筛
-      fname: math/03-Euler-Sieve.cpp
+      fname: math/03-Euler-Sieve.hpp
     - title: 04 - 莫比乌斯函数筛（莫比乌斯反演）
-      fname: math/04-Mu-Sieve.cpp
+      fname: math/04-Mu-Sieve.hpp
     - title: 05 - 扩展欧几里得（exgcd）
-      fname: math/05-Exgcd.cpp
+      fname: math/05-Exgcd.hpp
     - title: 06A - 欧拉函数（求解单个数的欧拉函数）
-      fname: math/06A-Phi.cpp
+      fname: math/06A-Phi.hpp
     - title: 06B - 欧拉函数（求解全部数的欧拉函数）
-      fname: math/06B-Phi-Sieve.cpp
+      fname: math/06B-Phi-Sieve.hpp
     - title: 07A - 组合数（小范围预处理，逆元+杨辉三角）
-      fname: math/07A-Comb.cpp
+      fname: math/07A-Comb.hpp
     - title: 07B - 组合数（Comb, with. ModIntBase）
-      fname: math/07B-Comb.cpp
+      fname: math/07B-Comb.hpp
     - title: 08 - 素数测试与因式分解（Miller-Rabin and Pollard-Rho）
-      fname: math/08-Prime.cpp
+      fname: math/08-Prime.hpp
     - title: 09A - 平面几何（Point）
-      fname: math/09A-Flat-Geometry.cpp
+      fname: math/09A-Flat-Geometry.hpp
     - title: 09B - 平面几何（with. std::complex）
-      fname: math/09B-Flat-Geometry.cpp
+      fname: math/09B-Flat-Geometry.hpp
     - title: 10 - 立体几何（Point）
-      fname: math/10-Solid-Geometry.cpp
+      fname: math/10-Solid-Geometry.hpp
     - title: 11A - 静态凸包（with. Point，旧版）
-      fname: math/11A-Convex-Hull.cpp
+      fname: math/11A-Convex-Hull.hpp
     - title: 11B - 静态凸包（with. Point，新版）
-      fname: math/11B-Convex-Hull.cpp
+      fname: math/11B-Convex-Hull.hpp
     - title: 11C - 静态凸包（with. std::complex）
-      fname: math/11C-Convex-Hull.cpp
+      fname: math/11C-Convex-Hull.hpp
     - title: 12A - 多项式（Poly, with. Z）
-      fname: math/12A-Poly.cpp
+      fname: math/12A-Poly.hpp
     - title: 12B - 多项式（Poly, with. MInt）
-      fname: math/12B-Poly.cpp
+      fname: math/12B-Poly.hpp
     - title: 12C - 多项式乘法
-      fname: math/12C-Poly.cpp
+      fname: math/12C-Poly.hpp
     - title: 13A - 生成函数（q-int）
-      fname: math/13A-Q-Int.cpp
+      fname: math/13A-Q-Int.hpp
     - title: 13B - 生成函数（q-Binomial）
-      fname: math/13B-Q-Binomial.cpp
+      fname: math/13B-Q-Binomial.hpp
     - title: 13C - 生成函数（Binomial 任意模数二项式）
-      fname: math/13C-Q-Binomial.cpp
+      fname: math/13C-Q-Binomial.hpp
     - title: 14 - 自适应辛普森法 Simpson
-      fname: math/14-Simpson.cpp
+      fname: math/14-Simpson.hpp
     - title: 15 - 矩阵（Matrix）
-      fname: math/15-Matrix.cpp
+      fname: math/15-Matrix.hpp
     - title: 16 - 高斯消元（guess）【久远】
-      fname: math/16-Gauss-Elimination.cpp
+      fname: math/16-Gauss-Elimination.hpp
     - title: 01A - 树状数组（Fenwick 旧版）
-      fname: ds/01A-Fenwick.cpp
+      fname: ds/01A-Fenwick.hpp
     - title: 01B - 树状数组（Fenwick 新版）
-      fname: ds/01B-Fenwick.cpp
+      fname: ds/01B-Fenwick.hpp
     - title: 02 - 并查集（DSU）
-      fname: ds/02-DSU.cpp
+      fname: ds/02-DSU.hpp
     - title: 03A - 线段树（SegmentTree+Info 区间加+单点修改）
-      fname: ds/03A-Segment-Tree.cpp
+      fname: ds/03A-Segment-Tree.hpp
     - title: 03B - 线段树（SegmentTree 区间乘+单点加）
-      fname: ds/03B-Segment-Tree.cpp
+      fname: ds/03B-Segment-Tree.hpp
     - title: 03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）
-      fname: ds/03C-Segment-Tree.cpp
+      fname: ds/03C-Segment-Tree.hpp
     - title: 03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）
-      fname: ds/03D-Segment-Tree.cpp
+      fname: ds/03D-Segment-Tree.hpp
     - title: 04 - 懒标记线段树（LazySegmentTree）
-      fname: ds/04-Lazy-Segt.cpp
+      fname: ds/04-Lazy-Segt.hpp
     - title: 05A - 取模类（Z 旧版）
-      fname: ds/05A-ModInt-Old.cpp
+      fname: ds/05A-ModInt-Old.hpp
     - title: 05B - 取模类（MLong and MInt 新版）
-      fname: ds/05B-ModInt-New.cpp
+      fname: ds/05B-ModInt-New.hpp
     - title: 05C - 动态取模类（ModIntBase）
-      fname: ds/05C-Dynamic-ModInt.cpp
+      fname: ds/05C-Dynamic-ModInt.hpp
     - title: 06 - 状压RMQ（RMQ）
-      fname: ds/06-RMQ.cpp
+      fname: ds/06-RMQ.hpp
     - title: 07A - Splay
-      fname: ds/07A-Splay.cpp
+      fname: ds/07A-Splay.hpp
     - title: 07B - Splay
-      fname: ds/07B-Splay.cpp
+      fname: ds/07B-Splay.hpp
     - title: 07C - Splay
-      fname: ds/07C-Splay.cpp
+      fname: ds/07C-Splay.hpp
     - title: 08A - 其他平衡树
-      fname: ds/08A-Mysterious-Balanced-Tree.cpp
+      fname: ds/08A-Mysterious-Balanced-Tree.hpp
     - title: 08B - 其他平衡树
-      fname: ds/08B-Mysterious-Balanced-Tree.cpp
+      fname: ds/08B-Mysterious-Balanced-Tree.hpp
     - title: 08C - 其他平衡树
-      fname: ds/08C-Mysterious-Balanced-Tree.cpp
+      fname: ds/08C-Mysterious-Balanced-Tree.hpp
     - title: 08D - 其他平衡树
-      fname: ds/08D-Mysterious-Balanced-Tree.cpp
+      fname: ds/08D-Mysterious-Balanced-Tree.hpp
     - title: 09 - 分数四则运算（Frac）
-      fname: ds/09-Frac.cpp
+      fname: ds/09-Frac.hpp
     - title: 10 - 线性基（Basis）
-      fname: ds/10-Basis.cpp
+      fname: ds/10-Basis.hpp
     - title: 143 - 高精度（BigInt）
-      fname: ds/143-BigInt.cpp
+      fname: ds/143-BigInt.hpp
 - name: Watashi代码库(备用)
   dir: watashi/
   files:
     - title: $O(n\log n)-O(1)$ RMQ
-      fname: rmq.cpp
+      fname: rmq.hpp
     - title: $O(n\log n)-O(\log n)$ LCA
-      fname: lca.cpp
+      fname: lca.hpp
     - title: 树状数组
-      fname: bit.cpp
+      fname: bit.hpp
     - title: 并查集
-      fname: union-find.cpp
+      fname: union-find.hpp
     - title: 轻重权树剖分
-      fname: chain-decomp.cpp
+      fname: chain-decomp.hpp
     - title: 强连通分量
-      fname: scc.cpp
+      fname: scc.hpp
     - title: 双连通分量
-      fname: bcc.cpp
+      fname: bcc.hpp
     - title: 二分图匹配
-      fname: bimatch.cpp
+      fname: bimatch.hpp
     - title: 最小费用最大流
-      fname: flow.cpp
+      fname: flow.hpp
     - title: AhoCorasick自动机
-      fname: ac-automata.cpp
+      fname: ac-automata.hpp
     - title: 后缀数组
-      fname: sa.cpp
+      fname: sa.hpp
     - title: LU分解
-      fname: lu.cpp
+      fname: lu.hpp

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bits/extc++.h>
 #include <bits/stdc++.h>
 

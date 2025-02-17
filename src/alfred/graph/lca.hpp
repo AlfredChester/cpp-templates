@@ -1,4 +1,6 @@
-#include "sparse-table.h"
+#pragma once
+
+#include "../data_structure/sparse-table.hpp"
 #include <bits/stdc++.h>
 
 std::vector<int> G[100010]; // requires a previous graph definition.

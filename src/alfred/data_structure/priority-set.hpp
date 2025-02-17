@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bits/stdc++.h>
 
 template <class T, class Comp = std::less<T>>

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/AlfredChester/cpp-templates/workflows/verify/badge.svg)](https://github.com/AlfredChester/cpp-templates/actions)
+
 # Alfred 个人代码库
 
 本仓库借鉴了[南京大学ACM-ICPC代码库](https://github.com/nju-icpc/code-library-legacy/)的结构及相关代码，在此表示由衷感谢。

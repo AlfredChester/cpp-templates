@@ -17,7 +17,7 @@ struct DSU {
     inline bool merge(int x, int y) {
         int fx = find(x), fy = find(y);
         if (fx == fy) return false;
-        if (siz[fx] < siz[fy]) swap(fx, fy);
+        if (siz[fx] < siz[fy]) std::swap(fx, fy);
         fa[fy] = fx, siz[fx] += siz[fy], siz[fy] = 0;
         return true;
     }

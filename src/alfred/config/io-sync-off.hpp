@@ -1,6 +1,8 @@
+#pragma once
+
 #include <bits/stdc++.h>
-using namespace std;
+
 inline void optimizeIO(void) {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL), cout.tie(NULL);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(NULL), std::cout.tie(NULL);
 }

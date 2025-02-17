@@ -2,7 +2,7 @@
 
 # Alfred 个人代码库
 
-本仓库借鉴了[南京大学ACM-ICPC代码库](https://github.com/nju-icpc/code-library-legacy/)的结构及相关代码，在此表示由衷感谢。
+本仓库借鉴了[南京大学 ACM-ICPC 代码库](https://github.com/nju-icpc/code-library-legacy/) 和 [online-judge-tools/verification-helper](https://github.com/online-judge-tools/verification-helper) 的结构及相关代码，在此表示由衷感谢。
 
 ## 重要注意事项及已知的bug
 

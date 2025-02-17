@@ -85,4 +85,4 @@ void _print(T t, V... v) {
 
 #else
 #define dbg(x...)
-#endif
+#endif // !DEBUG

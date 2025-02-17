@@ -2,7 +2,7 @@ SRCS=$(shell find src/) $(shell find tex/)
 
 build/main.pdf: $(SRCS) Makefile scl.yaml src/alfred/config/.clang-format
 	mkdir -p build/
-	python3.11 gen.py > build/code.tex
+	python3.11 pdf/gen.py > build/code.tex
 	cp tex/* build/
 	cd build && xelatex main.tex
 	cd build && xelatex main.tex

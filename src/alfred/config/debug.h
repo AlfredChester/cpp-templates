@@ -61,10 +61,9 @@ void _print(T t, V... v) {
     if (sizeof...(v)) cerr << ", ";
     _print(v...);
 }
-#ifdef DEBUG
 // To customize a struct/class to print, just define the __print function.
 
-#ifndef NO_DBG_COLOR
+#if defined(DEBUG) && !defined(NO_DBG_COLOR)
 #define dbg(x...)                                                             \
     cerr << "\e[91m" << __func__ << ":" << __LINE__ << " [" << #x << "] = ["; \
     _print(x);                                                                \
@@ -74,15 +73,13 @@ void _print(T t, V... v) {
     cerr << "\e[91m[["; \
     _print(x);          \
     cerr << "\e[39m";
-#else
+#elif defined(DEBUG)
 #define dbg(x...)                                                 \
     cerr << __func__ << ":" << __LINE__ << " [" << #x << "] = ["; \
     _print(x);
 #define short_dbg(x...) \
     cerr << "[";        \
     _print(x);
-#endif // !NO_DBG_COLOR
-
 #else
 #define dbg(x...)
 #endif // !DEBUG

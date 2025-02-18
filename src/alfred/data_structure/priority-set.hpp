@@ -9,14 +9,14 @@ private:
     std::priority_queue<T, std::vector<T>, Comp> erased;
 
 public:
-    explicit PrioritySet(void) : data(), erased() {};
-    explicit PrioritySet(std::vector<T> &init) {
+    PrioritySet(void) : data(), erased() {};
+    PrioritySet(std::vector<T> &init) {
         for (auto &v : init) insert(v);
     }
-    inline void insert(const T &&x) { data.push(x); }
-    inline void erase(const T &&x) { erased.push(x); }
-    inline T &top(void) noexcept {
-        assert(data.size() >= erased.size());
+    inline void insert(const T x) { data.push(x); }
+    inline void erase(const T x) { erased.push(x); }
+    inline const T &top(void) noexcept {
+        // assert(data.size() >= erased.size());
         while (!erased.empty() && data.top() == erased.top()) {
             data.pop(), erased.pop();
         }

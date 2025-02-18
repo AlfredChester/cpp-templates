@@ -38,7 +38,7 @@ public:
     }
     inline int count(int l, int r, T x, int base = 0) {
         l -= base, r -= base;
-        if (!M.exist(x)) return 0;
+        if (l > r || !M.exist(x)) return 0;
         std::vector<int> &P = pos[M.query(x) - 1];
         auto L = std::lower_bound(P.begin(), P.end(), l);
         auto R = std::upper_bound(P.begin(), P.end(), r);

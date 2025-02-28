@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 
 template <int base, int mod>
-struct SOLPower { // Speed Of Light Power.
+struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
     // p1 stores base^0  ~ base^sq
     // ps stores base^sq ~ base^(sq^2)
     std::vector<int> p1, ps;

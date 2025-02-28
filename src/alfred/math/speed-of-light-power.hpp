@@ -1,5 +1,6 @@
 #pragma once
 
+#include "prime.hpp"
 #include <bits/stdc++.h>
 
 template <int base, int mod>
@@ -7,6 +8,7 @@ struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
     // p1 stores base^0  ~ base^sq
     // ps stores base^sq ~ base^(sq^2)
     std::vector<int> p1, ps;
+    static const bool P = is_prime(mod);
     static const int sq = std::sqrt(mod);
     SOLPower(void) {
         p1.push_back(1), ps.push_back(1);
@@ -18,14 +20,8 @@ struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
             ps.push_back(1ll * ps.back() * ps[1] % mod);
         }
     }
-    inline int power(int index) {
-#if __cplusplus >= 202002L
-        if (index > mod) [[unlikely]] {
-            index %= mod;
-        }
-#else
-        if (index > mod) index %= mod;
-#endif
+    inline int power(long long index) {
+        if (P && index >= mod) index %= mod;
         return 1ll * ps[index / sq] * p1[index % sq] % mod;
     }
 };

@@ -17,7 +17,7 @@ struct CancelDSU {
     inline void merge(int u, int v) {
         int fu = find(u), fv = find(v);
         if (fu == fv) return S.push(-1);
-        if (siz[fu] < siz[fv]) swap(fu, fv);
+        if (siz[fu] < siz[fv]) std::swap(fu, fv);
         siz[fu] += siz[fv], fa[fv] = fu, S.push(fv);
     }
     inline void _cancel(void) {

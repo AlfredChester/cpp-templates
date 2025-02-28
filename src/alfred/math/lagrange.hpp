@@ -4,6 +4,8 @@
 #include "mod-int.hpp"
 #include <bits/stdc++.h>
 
+using mint = ModInt<998244353>;
+
 inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {
     mint ans = 0, cur;
     const int n = x.size();

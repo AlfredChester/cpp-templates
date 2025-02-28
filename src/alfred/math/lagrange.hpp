@@ -34,7 +34,7 @@ inline mint cont_lagrange(std::vector<mint> &y, mint k) {
     }
     return ans;
 }
-// find 1^k + 2^k + ... + n^k. in O(k) of time complexity.
+// find 1^k + 2^k + ... + n^k. in O(k log k) of time complexity.
 inline mint sum_of_kth_powers(mint n, int k) {
     mint sum = 0;
     std::vector<mint> Y{0};

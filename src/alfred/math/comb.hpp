@@ -38,4 +38,6 @@ struct Comb {
         return fac(n) * invfac(m) * invfac(n - m);
     }
 };
+
+using mint = ModInt<998244353>;
 Comb<mint> comb;

@@ -44,4 +44,7 @@ struct ModInt {
     friend bool operator==(ModInt a, ModInt b) { return a.x == b.x; }
     friend bool operator!=(ModInt a, ModInt b) { return !(a == b); }
 };
-inline void __print(mint x) { std::cerr << x; }
+template <int mod>
+inline void __print(ModInt<mod> x) {
+    std::cerr << x;
+}

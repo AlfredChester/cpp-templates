@@ -1,6 +1,6 @@
 [![Actions Status](https://github.com/AlfredChester/cpp-templates/workflows/verify/badge.svg)](https://github.com/AlfredChester/cpp-templates/actions)
 
-[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://beet-aizu.github.io/library/) 
+[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://alfredchester.github.io/cpp-templates/) 
 
 # Alfred 个人代码库
 

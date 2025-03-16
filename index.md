@@ -42,9 +42,6 @@ data:
       path: src/alfred/data_structure/pbds-balance-tree.hpp
       title: src/alfred/data_structure/pbds-balance-tree.hpp
     - icon: ':heavy_check_mark:'
-      path: src/alfred/data_structure/prefix-sum.hpp
-      title: src/alfred/data_structure/prefix-sum.hpp
-    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/priority-set.hpp
       title: src/alfred/data_structure/priority-set.hpp
     - icon: ':warning:'
@@ -53,6 +50,9 @@ data:
     - icon: ':warning:'
       path: src/alfred/data_structure/sparse-table.hpp
       title: src/alfred/data_structure/sparse-table.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/alfred/data_structure/sum.hpp
+      title: src/alfred/data_structure/sum.hpp
     - icon: ':warning:'
       path: src/alfred/data_structure/weighted-dsu.hpp
       title: src/alfred/data_structure/weighted-dsu.hpp

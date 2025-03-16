@@ -11,17 +11,20 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/alfred/data_structure/prefix-sum.hpp\"\n#include <bits/stdc++.h>\n\
-    \ntemplate <class T>\nclass Sum {\nprivate:\n    size_t n;\n    std::vector<T>\
-    \ sum;\n\npublic:\n    Sum(void) : n(0) {}\n    template <class InitT>\n    Sum(std::vector<InitT>\
+  bundledCode: "#line 2 \"src/alfred/data_structure/sum.hpp\"\n#include <bits/stdc++.h>\n\
+    \ntemplate <class T>\nclass Sum {\nprivate:\n    int n;\n    std::vector<T> _pre,\
+    \ _suf;\n\npublic:\n    Sum(void) : n(0) {}\n    template <class InitT>\n    Sum(std::vector<InitT>\
     \ &init) { _init(init); }\n    template <class InitT>\n    inline void _init(std::vector<InitT>\
-    \ &init) {\n        if (init.empty()) return;\n        sum.resize(n = init.size()),\
-    \ sum[0] = init[0];\n        for (size_t i = 1; i < n; i++) {\n            sum[i]\
-    \ = sum[i - 1] + init[i];\n        }\n    }\n    inline T query(int l, int r)\
-    \ {\n        if (l > r) return T();\n        return l == 0 ? sum[r] : sum[r] -\
-    \ sum[l - 1];\n    }\n};\ntemplate <class T>\nclass GridSum {\nprivate:\n    size_t\
-    \ n, m;\n    std::vector<std::vector<T>> sum;\n\npublic:\n    GridSum(void) :\
-    \ n(0), m(0) {}\n    template <class InitT>\n    GridSum(std::vector<std::vector<InitT>>\
+    \ &init) {\n        if (init.empty()) return;\n        _pre.resize(n = init.size()),\
+    \ _suf.resize(n);\n        _pre[0] = init[0], _suf[n - 1] = init[n - 1];\n   \
+    \     for (int i = 1; i < n; i++) {\n            _pre[i] = _pre[i - 1] + init[i];\n\
+    \        }\n        for (int i = n - 2; i >= 0; i--) {\n            _suf[i] =\
+    \ _suf[i + 1] + init[i];\n        }\n    }\n    inline T query(int l, int r) {\n\
+    \        if (l > r) return T();\n        return l == 0 ? _pre[r] : _pre[r] - _pre[l\
+    \ - 1];\n    }\n    inline const T pre(int x) { return _pre[x]; }\n    inline\
+    \ const T suf(int x) { return _suf[x]; }\n};\ntemplate <class T>\nclass GridSum\
+    \ {\nprivate:\n    size_t n, m;\n    std::vector<std::vector<T>> sum;\n\npublic:\n\
+    \    GridSum(void) : n(0), m(0) {}\n    template <class InitT>\n    GridSum(std::vector<std::vector<InitT>>\
     \ &init) { _init(init); }\n    template <class InitT>\n    inline void _init(std::vector<std::vector<InitT>>\
     \ &init) {\n        if (init.empty()) return;\n        n = init.size(), m = init[0].size();\n\
     \        sum.assign(n, std::vector<T>(m)), sum[0][0] = init[0][0];\n        for\
@@ -35,16 +38,19 @@ data:
     \ - 1];\n        T s3 = x1 == 0 || y1 == 0 ? 0 : sum[x1 - 1][y1 - 1];\n      \
     \  return sum[x2][y2] - s1 - s2 + s3;\n    }\n};\n"
   code: "#pragma once\n#include <bits/stdc++.h>\n\ntemplate <class T>\nclass Sum {\n\
-    private:\n    size_t n;\n    std::vector<T> sum;\n\npublic:\n    Sum(void) : n(0)\
-    \ {}\n    template <class InitT>\n    Sum(std::vector<InitT> &init) { _init(init);\
+    private:\n    int n;\n    std::vector<T> _pre, _suf;\n\npublic:\n    Sum(void)\
+    \ : n(0) {}\n    template <class InitT>\n    Sum(std::vector<InitT> &init) { _init(init);\
     \ }\n    template <class InitT>\n    inline void _init(std::vector<InitT> &init)\
-    \ {\n        if (init.empty()) return;\n        sum.resize(n = init.size()), sum[0]\
-    \ = init[0];\n        for (size_t i = 1; i < n; i++) {\n            sum[i] = sum[i\
-    \ - 1] + init[i];\n        }\n    }\n    inline T query(int l, int r) {\n    \
-    \    if (l > r) return T();\n        return l == 0 ? sum[r] : sum[r] - sum[l -\
-    \ 1];\n    }\n};\ntemplate <class T>\nclass GridSum {\nprivate:\n    size_t n,\
-    \ m;\n    std::vector<std::vector<T>> sum;\n\npublic:\n    GridSum(void) : n(0),\
-    \ m(0) {}\n    template <class InitT>\n    GridSum(std::vector<std::vector<InitT>>\
+    \ {\n        if (init.empty()) return;\n        _pre.resize(n = init.size()),\
+    \ _suf.resize(n);\n        _pre[0] = init[0], _suf[n - 1] = init[n - 1];\n   \
+    \     for (int i = 1; i < n; i++) {\n            _pre[i] = _pre[i - 1] + init[i];\n\
+    \        }\n        for (int i = n - 2; i >= 0; i--) {\n            _suf[i] =\
+    \ _suf[i + 1] + init[i];\n        }\n    }\n    inline T query(int l, int r) {\n\
+    \        if (l > r) return T();\n        return l == 0 ? _pre[r] : _pre[r] - _pre[l\
+    \ - 1];\n    }\n    inline const T pre(int x) { return _pre[x]; }\n    inline\
+    \ const T suf(int x) { return _suf[x]; }\n};\ntemplate <class T>\nclass GridSum\
+    \ {\nprivate:\n    size_t n, m;\n    std::vector<std::vector<T>> sum;\n\npublic:\n\
+    \    GridSum(void) : n(0), m(0) {}\n    template <class InitT>\n    GridSum(std::vector<std::vector<InitT>>\
     \ &init) { _init(init); }\n    template <class InitT>\n    inline void _init(std::vector<std::vector<InitT>>\
     \ &init) {\n        if (init.empty()) return;\n        n = init.size(), m = init[0].size();\n\
     \        sum.assign(n, std::vector<T>(m)), sum[0][0] = init[0][0];\n        for\
@@ -56,19 +62,19 @@ data:
     \  }\n        }\n    }\n    inline T query(int x1, int y1, int x2, int y2) {\n\
     \        T s1 = x1 == 0 ? 0 : sum[x1 - 1][y2];\n        T s2 = y1 == 0 ? 0 : sum[x2][y1\
     \ - 1];\n        T s3 = x1 == 0 || y1 == 0 ? 0 : sum[x1 - 1][y1 - 1];\n      \
-    \  return sum[x2][y2] - s1 - s2 + s3;\n    }\n};"
+    \  return sum[x2][y2] - s1 - s2 + s3;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/alfred/data_structure/prefix-sum.hpp
+  path: src/alfred/data_structure/sum.hpp
   requiredBy: []
-  timestamp: '2025-02-17 23:08:47+08:00'
+  timestamp: '2025-03-16 22:51:58+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
-documentation_of: src/alfred/data_structure/prefix-sum.hpp
+documentation_of: src/alfred/data_structure/sum.hpp
 layout: document
 redirect_from:
-- /library/src/alfred/data_structure/prefix-sum.hpp
-- /library/src/alfred/data_structure/prefix-sum.hpp.html
-title: src/alfred/data_structure/prefix-sum.hpp
+- /library/src/alfred/data_structure/sum.hpp
+- /library/src/alfred/data_structure/sum.hpp.html
+title: src/alfred/data_structure/sum.hpp
 ---

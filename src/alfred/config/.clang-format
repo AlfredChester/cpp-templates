@@ -1,0 +1,25 @@
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: BlockIndent
+# AlignConsecutiveAssignments: Consecutive
+AlignArrayOfStructures: Right
+UseTab: Never
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Attach
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortLoopsOnASingleLine: true
+AllowShortBlocksOnASingleLine: true
+IndentCaseLabels: true
+ColumnLimit: 0
+AccessModifierOffset: -4
+NamespaceIndentation: All
+FixNamespaceComments: false
+AllowShortCaseLabelsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: MultiLine
+BinPackParameters: true
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+AlignConsecutiveMacros: AcrossEmptyLinesAndComments
+AlignTrailingComments: Always
+InsertNewlineAtEOF: true

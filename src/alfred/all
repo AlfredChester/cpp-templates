@@ -13,7 +13,7 @@
 #include "data_structure/weighted-dsu.hpp"
 
 #include "graph/graph.hpp"
-#include "graph/lca.hpp"
+// #include "graph/lca.hpp" Will be included after graph class is implemented well enough
 
 #include "math/comb.hpp"
 #include "math/computation-geometry.hpp"
@@ -23,3 +23,22 @@
 #include "math/speed-of-light-power.hpp"
 
 #include "string/hashed-string.hpp"
+
+// typedefs and constants:
+
+using u32 = unsigned;
+using u64 = unsigned long long;
+using i64 = long long;
+using i128 = __int128;
+using f64 = long double;
+
+constexpr f64 eps = 1e-9; // !!!
+constexpr int inf32 = (1ll << 30) - 1;
+constexpr i64 inf64 = (1ll << 62) - 1;
+
+inline void YES(void) { std::cout << "YES\n"; }
+inline void Yes(void) { std::cout << "Yes\n"; }
+inline void NO(void) { std::cout << "NO\n"; }
+inline void No(void) { std::cout << "No\n"; }
+inline void YES_NO(bool cond) { cond ? YES() : NO(); }
+inline void Yes_No(bool cond) { cond ? Yes() : No(); }

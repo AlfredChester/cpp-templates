@@ -6,10 +6,10 @@
 #include "data_structure/dsu.hpp"
 #include "data_structure/fenwick.hpp"
 #include "data_structure/pbds-balance-tree.hpp"
-#include "data_structure/prefix-sum.hpp"
 #include "data_structure/priority-set.hpp"
 #include "data_structure/sliding-window.hpp"
 #include "data_structure/sparse-table.hpp"
+#include "data_structure/sum.hpp"
 #include "data_structure/weighted-dsu.hpp"
 
 #include "graph/graph.hpp"

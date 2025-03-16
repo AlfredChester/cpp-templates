@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
 #include "../../src/alfred/config/io-sync-off.hpp"
-#include "../../src/alfred/data_structure/prefix-sum.hpp"
+#include "../../src/alfred/data_structure/sum.hpp"
 #include <iostream>
 
 int main(int argc, char const *argv[]) {

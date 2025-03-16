@@ -4,8 +4,8 @@
 template <class T>
 class Sum {
 private:
-    size_t n;
-    std::vector<T> sum;
+    int n;
+    std::vector<T> _pre, _suf;
 
 public:
     Sum(void) : n(0) {}
@@ -14,15 +14,21 @@ public:
     template <class InitT>
     inline void _init(std::vector<InitT> &init) {
         if (init.empty()) return;
-        sum.resize(n = init.size()), sum[0] = init[0];
-        for (size_t i = 1; i < n; i++) {
-            sum[i] = sum[i - 1] + init[i];
+        _pre.resize(n = init.size()), _suf.resize(n);
+        _pre[0] = init[0], _suf[n - 1] = init[n - 1];
+        for (int i = 1; i < n; i++) {
+            _pre[i] = _pre[i - 1] + init[i];
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            _suf[i] = _suf[i + 1] + init[i];
         }
     }
     inline T query(int l, int r) {
         if (l > r) return T();
-        return l == 0 ? sum[r] : sum[r] - sum[l - 1];
+        return l == 0 ? _pre[r] : _pre[r] - _pre[l - 1];
     }
+    inline const T pre(int x) { return _pre[x]; }
+    inline const T suf(int x) { return _suf[x]; }
 };
 template <class T>
 class GridSum {

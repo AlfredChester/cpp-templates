@@ -55,7 +55,7 @@
     - title: 滑动窗口
       fname: sliding-window.hpp
     - title: （二维）前缀和
-      fname: prefix-sum.hpp
+      fname: sum.hpp
 - name: 数学（数论）算法
   dir: alfred/math/
   files:

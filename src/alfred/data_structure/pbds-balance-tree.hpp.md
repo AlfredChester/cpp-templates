@@ -16,16 +16,11 @@ data:
     #line 5 "src/alfred/data_structure/pbds-balance-tree.hpp"
 
 
-    using namespace std;
-
-    using namespace __gnu_pbds;
-
-
     // TreeTag can also be __gnu_pbds::splay_tree_tag
 
-    template <class T, class Cmp, class TreeTag = rb_tree_tag>
+    template <class T, class Cmp, class TreeTag = __gnu_pbds::rb_tree_tag>
 
-    using BalanceTree = tree<T, null_type, Cmp, TreeTag, tree_order_statistics_node_update>;
+    using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
     '
   code: '#pragma once
@@ -36,23 +31,18 @@ data:
     #include <bits/stdc++.h>
 
 
-    using namespace std;
-
-    using namespace __gnu_pbds;
-
-
     // TreeTag can also be __gnu_pbds::splay_tree_tag
 
-    template <class T, class Cmp, class TreeTag = rb_tree_tag>
+    template <class T, class Cmp, class TreeTag = __gnu_pbds::rb_tree_tag>
 
-    using BalanceTree = tree<T, null_type, Cmp, TreeTag, tree_order_statistics_node_update>;
+    using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
     '
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/data_structure/pbds-balance-tree.hpp
   requiredBy: []
-  timestamp: '2025-02-17 23:08:47+08:00'
+  timestamp: '2025-03-16 22:40:01+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/data_structure/pbds-balance-tree.hpp

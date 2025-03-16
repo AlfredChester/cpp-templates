@@ -1,5 +1,7 @@
 [![Actions Status](https://github.com/AlfredChester/cpp-templates/workflows/verify/badge.svg)](https://github.com/AlfredChester/cpp-templates/actions)
 
+[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://beet-aizu.github.io/library/) 
+
 # Alfred 个人代码库
 
 本仓库借鉴了[南京大学 ACM-ICPC 代码库](https://github.com/nju-icpc/code-library-legacy/) 和 [online-judge-tools/verification-helper](https://github.com/online-judge-tools/verification-helper) 的结构及相关代码，在此表示由衷感谢。

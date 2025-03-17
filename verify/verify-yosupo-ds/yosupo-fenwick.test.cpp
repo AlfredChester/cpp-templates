@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
         if (opt == 0) {
             C.update(x, v);
         } else {
-            std::cout << C.query(x, v) << '\n';
+            std::cout << C.query(x, v - 1) << '\n';
         }
     }
 

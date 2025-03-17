@@ -3,7 +3,7 @@
 
 #include "comb.hpp"
 #include "mod-int.hpp"
-#include <bits/stdc++.h>
+#include <vector>
 
 using mint = ModInt<998244353>;
 
@@ -25,6 +25,7 @@ inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {
 inline mint cont_lagrange(std::vector<mint> &y, mint k) {
     mint ans = 0;
     const int n = y.size() - 1;
+    Comb<mint> comb(n);
     std::vector<mint> pre(n + 1, 1), suf(n + 2, 1);
     for (int i = 1; i <= n; i++) pre[i] = pre[i - 1] * (k - i);
     for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] * (k - i);

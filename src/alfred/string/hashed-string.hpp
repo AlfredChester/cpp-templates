@@ -1,7 +1,7 @@
 #ifndef AFSTR_HASHED_STRING
 #define AFSTR_HASHED_STRING
 
-#include <bits/stdc++.h>
+#include <vector>
 
 template <int mod, int seed>
 struct SingleHash {

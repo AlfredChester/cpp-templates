@@ -1,7 +1,7 @@
 #ifndef ALGR_GRAPH
 #define ALGR_GRAPH
 
-#include <bits/stdc++.h>
+#include <vector>
 
 struct NT {}; // null_type
 template <class W = NT>

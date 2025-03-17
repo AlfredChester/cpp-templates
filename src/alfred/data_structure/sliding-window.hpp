@@ -1,7 +1,8 @@
 #ifndef AFDS_SLIDING_WINDOW
 #define AFDS_SLIDING_WINDOW
 
-#include <bits/stdc++.h>
+#include <queue>
+#include <vector>
 
 template <class T> // default max.
 std::vector<T> sliding_window(std::vector<T> A, size_t k) {

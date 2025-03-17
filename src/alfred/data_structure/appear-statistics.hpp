@@ -2,7 +2,7 @@
 #define AFDS_APPEAR_STATISTICS
 
 #include "discretization.hpp"
-#include <bits/stdc++.h>
+#include <vector>
 
 template <class T>
 class AppearStats { // Appear Statistics.

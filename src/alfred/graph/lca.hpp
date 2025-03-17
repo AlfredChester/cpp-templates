@@ -2,9 +2,9 @@
 #define AFGR_LCA
 
 #include "../data_structure/sparse-table.hpp"
-#include <bits/stdc++.h>
+#include <vector>
 
-std::vector<int> G[100010]; // requires a previous graph definition.
+// std::vector<int> G[100010]; // requires a previous graph definition.
 
 class LCAImpl {
 private:

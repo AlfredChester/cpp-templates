@@ -1,7 +1,8 @@
 #ifndef AFMT_COMPUTATION_GEOMETRY
 #define AFMT_COMPUTATION_GEOMETRY
 
-#include <bits/stdc++.h>
+#include <cassert>
+#include <iostream>
 
 // Caution: This computation geometry template is pure shit
 //          because of the terrible math level of the author.

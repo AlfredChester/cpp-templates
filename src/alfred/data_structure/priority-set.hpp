@@ -1,7 +1,8 @@
 #ifndef AFDS_PRIORITY_SET
 #define AFDS_PRIORITY_SET
 
-#include <bits/stdc++.h>
+#include <queue>
+#include <vector>
 
 template <class T, class Comp = std::less<T>>
 class PrioritySet { // warning: all erase operations must be legal.

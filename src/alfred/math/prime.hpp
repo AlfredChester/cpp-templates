@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef AFMT_PRIME
 #define AFMT_PRIME
 

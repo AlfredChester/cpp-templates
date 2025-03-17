@@ -1,7 +1,8 @@
 #ifndef AFDS_SPARSE_TABLE
 #define AFDS_SPARSE_TABLE
 
-#include <bits/stdc++.h>
+#include <numeric>
+#include <vector>
 
 template <class T>
 struct MaxInfo {

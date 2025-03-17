@@ -1,7 +1,9 @@
 #ifndef AFDS_CANCEL_DSU
 #define AFDS_CANCEL_DSU
 
-#include <bits/stdc++.h>
+#include <numeric>
+#include <stack>
+#include <vector>
 
 struct CancelDSU {
     std::stack<int> S;

@@ -3,7 +3,7 @@
 #ifndef AFMT_MOD_INT
 #define AFMT_MOD_INT
 
-#include <bits/stdc++.h>
+#include <iostream>
 
 template <int mod>
 inline int down(int x) { return x >= mod ? x - mod : x; }

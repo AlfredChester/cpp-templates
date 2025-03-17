@@ -16,7 +16,7 @@
 #include "data_structure/weighted-dsu.hpp"
 
 #include "graph/graph.hpp"
-// #include "graph/lca.hpp" Will be included after graph class is implemented well enough
+// #include "graph/lca.hpp" // Will be included after graph class is implemented well enough
 
 #include "math/comb.hpp"
 #include "math/computation-geometry.hpp"
@@ -38,6 +38,8 @@ using f64 = long double;
 constexpr f64 eps = 1e-9; // !!!
 constexpr int inf32 = (1ll << 30) - 1;
 constexpr i64 inf64 = (1ll << 62) - 1;
+
+#include <iostream>
 
 inline void YES(void) { std::cout << "YES\n"; }
 inline void Yes(void) { std::cout << "Yes\n"; }

@@ -1,8 +1,8 @@
 #ifndef AFDS_PBDS_BALANCE_TREE
 #define AFDS_PBDS_BALANCE_TREE
 
-#include <bits/extc++.h>
-#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
 // TreeTag can also be __gnu_pbds::splay_tree_tag
 template <class T, class Cmp, class TreeTag = __gnu_pbds::rb_tree_tag>

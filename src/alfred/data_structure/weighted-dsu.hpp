@@ -1,7 +1,8 @@
 #ifndef AFDS_WEIGHTED_DSU
 #define AFDS_WEIGHTED_DSU
 
-#include <bits/stdc++.h>
+#include <numeric>
+#include <vector>
 
 template <class T>
 struct WeightedDSU {

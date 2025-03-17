@@ -1,7 +1,8 @@
 #ifndef AFDS_DSU
 #define AFDS_DSU
 
-#include <bits/stdc++.h>
+#include <numeric>
+#include <vector>
 
 struct DSU {
     std::vector<int> fa, siz;

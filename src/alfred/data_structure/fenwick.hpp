@@ -1,7 +1,7 @@
 #ifndef AFDS_FENWICK
 #define AFDS_FENWICK
 
-#include <bits/stdc++.h>
+#include <vector>
 
 template <class T>
 struct Fenwick {

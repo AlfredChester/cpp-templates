@@ -2,7 +2,7 @@
 #define AFMT_SPEED_OF_LIGHT_POWER
 
 #include "prime.hpp"
-#include <bits/stdc++.h>
+#include <vector>
 
 template <int base, int mod>
 struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)

@@ -3,7 +3,9 @@
 
 // TODO: Require to be rewritten.
 // Thanks neal for this template.
-#include <bits/stdc++.h>
+#include <array>
+#include <cstdint>
+#include <vector>
 
 const int BITS = 30;
 const int INF = 1e9 + 7;

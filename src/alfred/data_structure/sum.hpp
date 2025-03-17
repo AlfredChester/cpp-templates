@@ -1,7 +1,7 @@
 #ifndef AFDS_SUM
 #define AFDS_SUM
 
-#include <bits/stdc++.h>
+#include <vector>
 
 template <class T>
 class Sum {

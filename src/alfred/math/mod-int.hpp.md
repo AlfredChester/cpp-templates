@@ -15,10 +15,10 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/math/mod-int.hpp\"\n\n\n#ifndef AFMT_MOD_INT\n\
-    #define AFMT_MOD_INT\n\n#include <bits/stdc++.h>\n\ntemplate <int mod>\ninline\
-    \ int down(int x) { return x >= mod ? x - mod : x; }\ntemplate <int mod>\nstruct\
-    \ ModInt {\n    int x;\n    ModInt(void) = default;\n    ModInt(int x) : x(x)\
-    \ {}\n    ModInt(long long x) : x(x % mod) {}\n    friend std::istream &operator>>(std::istream\
+    #define AFMT_MOD_INT\n\n#include <iostream>\n\ntemplate <int mod>\ninline int\
+    \ down(int x) { return x >= mod ? x - mod : x; }\ntemplate <int mod>\nstruct ModInt\
+    \ {\n    int x;\n    ModInt(void) = default;\n    ModInt(int x) : x(x) {}\n  \
+    \  ModInt(long long x) : x(x % mod) {}\n    friend std::istream &operator>>(std::istream\
     \ &in, ModInt &a) { return in >> a.x; }\n    friend std::ostream &operator<<(std::ostream\
     \ &out, ModInt a) { return out << a.x; }\n    friend ModInt operator+(ModInt a,\
     \ ModInt b) { return down<mod>(a.x + b.x); }\n    friend ModInt operator-(ModInt\
@@ -41,9 +41,9 @@ data:
     \ operator==(ModInt a, ModInt b) { return a.x == b.x; }\n    friend bool operator!=(ModInt\
     \ a, ModInt b) { return !(a == b); }\n};\ntemplate <int mod>\ninline void __print(ModInt<mod>\
     \ x) {\n    std::cerr << x;\n}\n\n#endif // AFMT_MOD_INT\n"
-  code: "\n\n#ifndef AFMT_MOD_INT\n#define AFMT_MOD_INT\n\n#include <bits/stdc++.h>\n\
-    \ntemplate <int mod>\ninline int down(int x) { return x >= mod ? x - mod : x;\
-    \ }\ntemplate <int mod>\nstruct ModInt {\n    int x;\n    ModInt(void) = default;\n\
+  code: "\n\n#ifndef AFMT_MOD_INT\n#define AFMT_MOD_INT\n\n#include <iostream>\n\n\
+    template <int mod>\ninline int down(int x) { return x >= mod ? x - mod : x; }\n\
+    template <int mod>\nstruct ModInt {\n    int x;\n    ModInt(void) = default;\n\
     \    ModInt(int x) : x(x) {}\n    ModInt(long long x) : x(x % mod) {}\n    friend\
     \ std::istream &operator>>(std::istream &in, ModInt &a) { return in >> a.x; }\n\
     \    friend std::ostream &operator<<(std::ostream &out, ModInt a) { return out\
@@ -74,7 +74,7 @@ data:
   requiredBy:
   - src/alfred/math/lagrange.hpp
   - src/alfred/math/comb.hpp
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/math/mod-int.hpp

@@ -9,9 +9,9 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/data_structure/chtholly.hpp\"\n\n\n\n#include\
-    \ <bits/stdc++.h>\n\nstruct ChthollyTree {\n    using i64 = long long;\n    struct\
-    \ Node {\n        mutable i64 l, r, v;\n        inline bool operator<(const Node\
-    \ &x) const { return l < x.l; }\n    };\n    std::set<Node> tr;\n    using iterator\
+    \ <set>\n\nstruct ChthollyTree {\n    using i64 = long long;\n    struct Node\
+    \ {\n        mutable i64 l, r, v;\n        inline bool operator<(const Node &x)\
+    \ const { return l < x.l; }\n    };\n    std::set<Node> tr;\n    using iterator\
     \ = std::set<Node>::iterator;\n    ChthollyTree(void) = default;\n    ChthollyTree(int\
     \ rng, int val) { init(rng, val); }\n    inline void init(i64 rng, i64 val) noexcept\
     \ {\n        tr.insert({1, rng, val}), tr.insert({rng + 1, rng + 1, 0});\n   \
@@ -29,10 +29,10 @@ data:
     \ l, i64 r, _Functor func) {\n        i64 ans = 0;\n        auto R = split(r +\
     \ 1);\n        for (auto it = split(l); it != R; it++) func(ans, it);\n      \
     \  return ans;\n    }\n};\n\n\n"
-  code: "#ifndef AFDS_CHTHOLLY\n#define AFDS_CHTHOLLY\n\n#include <bits/stdc++.h>\n\
-    \nstruct ChthollyTree {\n    using i64 = long long;\n    struct Node {\n     \
-    \   mutable i64 l, r, v;\n        inline bool operator<(const Node &x) const {\
-    \ return l < x.l; }\n    };\n    std::set<Node> tr;\n    using iterator = std::set<Node>::iterator;\n\
+  code: "#ifndef AFDS_CHTHOLLY\n#define AFDS_CHTHOLLY\n\n#include <set>\n\nstruct\
+    \ ChthollyTree {\n    using i64 = long long;\n    struct Node {\n        mutable\
+    \ i64 l, r, v;\n        inline bool operator<(const Node &x) const { return l\
+    \ < x.l; }\n    };\n    std::set<Node> tr;\n    using iterator = std::set<Node>::iterator;\n\
     \    ChthollyTree(void) = default;\n    ChthollyTree(int rng, int val) { init(rng,\
     \ val); }\n    inline void init(i64 rng, i64 val) noexcept {\n        tr.insert({1,\
     \ rng, val}), tr.insert({rng + 1, rng + 1, 0});\n    }\n    inline iterator begin(void)\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: src/alfred/data_structure/chtholly.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/data_structure/chtholly.hpp

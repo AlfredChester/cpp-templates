@@ -12,9 +12,9 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/graph/lca.hpp\"\n\n\n\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\
-    \n\n\n\n#include <bits/stdc++.h>\n\ntemplate <class T>\nstruct MaxInfo {\n   \
-    \ T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min(); }\n    template\
-    \ <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo operator+(MaxInfo\
+    \n\n\n\n#include <numeric>\n#include <vector>\n\ntemplate <class T>\nstruct MaxInfo\
+    \ {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min(); }\n\
+    \    template <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo operator+(MaxInfo\
     \ &x) {\n        return {std::max(val, x.val)};\n    }\n};\ntemplate <class T>\n\
     struct MinInfo {\n    T val;\n    MinInfo(void) { val = std::numeric_limits<T>::max();\
     \ }\n    template <class InitT>\n    MinInfo(InitT x) { val = x; }\n    MinInfo\
@@ -39,7 +39,7 @@ data:
     \      T ans = T();\n        for (int i = l; i <= r; i += (1 << std::__lg(r -\
     \ i + 1))) {\n            ans = ans + ST[i][std::__lg(r - i + 1)];\n        }\n\
     \        return ans;\n    }\n};\n\n\n#line 6 \"src/alfred/graph/lca.hpp\"\n\n\
-    std::vector<int> G[100010]; // requires a previous graph definition.\n\nclass\
+    // std::vector<int> G[100010]; // requires a previous graph definition.\n\nclass\
     \ LCAImpl {\nprivate:\n    std::vector<int> dfn, seq; // dfn and seq are (internally)\
     \ zero indexed.\n    static std::vector<int> d;\n    struct EulerTourInfo {\n\
     \        int val;\n        EulerTourInfo(void) : val(0) {}\n        EulerTourInfo(int\
@@ -54,9 +54,9 @@ data:
     \ u | v;\n        if (dfn[u] > dfn[v]) std::swap(u, v);\n        return lca.query(dfn[u],\
     \ dfn[v]).val;\n    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\n\n"
   code: "#ifndef AFGR_LCA\n#define AFGR_LCA\n\n#include \"../data_structure/sparse-table.hpp\"\
-    \n#include <bits/stdc++.h>\n\nstd::vector<int> G[100010]; // requires a previous\
-    \ graph definition.\n\nclass LCAImpl {\nprivate:\n    std::vector<int> dfn, seq;\
-    \ // dfn and seq are (internally) zero indexed.\n    static std::vector<int> d;\n\
+    \n#include <vector>\n\n// std::vector<int> G[100010]; // requires a previous graph\
+    \ definition.\n\nclass LCAImpl {\nprivate:\n    std::vector<int> dfn, seq; //\
+    \ dfn and seq are (internally) zero indexed.\n    static std::vector<int> d;\n\
     \    struct EulerTourInfo {\n        int val;\n        EulerTourInfo(void) : val(0)\
     \ {}\n        EulerTourInfo(int x) : val(x) {}\n        EulerTourInfo operator+(EulerTourInfo\
     \ &x) {\n            return d[val] < d[x.val] ? val : x.val;\n        }\n    };\n\
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: src/alfred/graph/lca.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/lca.hpp

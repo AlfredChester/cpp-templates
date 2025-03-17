@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/alfred/string/hashed-string.hpp\"\n\n\n\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"src/alfred/string/hashed-string.hpp\"\n\n\n\n#include <vector>\n\
     \ntemplate <int mod, int seed>\nstruct SingleHash {\n    int n;\n    std::vector<int>\
     \ pow, h;\n    SingleHash(void) = default;\n    SingleHash(std::string &s) { init(s);\
     \ }\n    inline void init(std::string &s) {\n        n = s.size(), h.assign(n\
@@ -28,7 +28,7 @@ data:
     \      return H1.check_same(l1, r1, l2, r2) && H2.check_same(l1, r1, l2, r2);\n\
     \    }\n    inline bool check_period(int l, int r, int p) {\n        return check_same(l,\
     \ r - p, l + p, r);\n    }\n};\n\n\n"
-  code: "#ifndef AFSTR_HASHED_STRING\n#define AFSTR_HASHED_STRING\n\n#include <bits/stdc++.h>\n\
+  code: "#ifndef AFSTR_HASHED_STRING\n#define AFSTR_HASHED_STRING\n\n#include <vector>\n\
     \ntemplate <int mod, int seed>\nstruct SingleHash {\n    int n;\n    std::vector<int>\
     \ pow, h;\n    SingleHash(void) = default;\n    SingleHash(std::string &s) { init(s);\
     \ }\n    inline void init(std::string &s) {\n        n = s.size(), h.assign(n\
@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: src/alfred/string/hashed-string.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/string/hashed-string.hpp

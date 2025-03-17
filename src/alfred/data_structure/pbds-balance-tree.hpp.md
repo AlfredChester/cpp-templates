@@ -13,9 +13,9 @@ data:
 
 
 
-    #include <bits/extc++.h>
+    #include <ext/pb_ds/assoc_container.hpp>
 
-    #line 6 "src/alfred/data_structure/pbds-balance-tree.hpp"
+    #include <ext/pb_ds/tree_policy.hpp>
 
 
     // TreeTag can also be __gnu_pbds::splay_tree_tag
@@ -32,9 +32,9 @@ data:
     #define AFDS_PBDS_BALANCE_TREE
 
 
-    #include <bits/extc++.h>
+    #include <ext/pb_ds/assoc_container.hpp>
 
-    #include <bits/stdc++.h>
+    #include <ext/pb_ds/tree_policy.hpp>
 
 
     // TreeTag can also be __gnu_pbds::splay_tree_tag
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: src/alfred/data_structure/pbds-balance-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/data_structure/pbds-balance-tree.hpp

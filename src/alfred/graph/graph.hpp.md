@@ -8,8 +8,8 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/alfred/graph/graph.hpp\"\n\n\n\n#include <bits/stdc++.h>\n\
-    \nstruct NT {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n\
+  bundledCode: "#line 1 \"src/alfred/graph/graph.hpp\"\n\n\n\n#include <vector>\n\n\
+    struct NT {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n\
     \    struct Edge {\n        int to;\n        W w;\n    };\n    std::vector<std::vector<Edge>>\
     \ G; // (to, E)\n\npublic:\n    Graph(void) {}\n    Graph(int n) : G(n + 1) {}\n\
     \    inline void clear(void) { G.clear(); }\n    inline void resize(int n) { G.resize(n\
@@ -27,8 +27,8 @@ data:
     \    dis[edge.to] = t.first + edge.w;\n                    heap.push({dis[edge.to],\
     \ edge.to});\n                }\n            }\n        }\n        return dis;\n\
     \    }\n};\n\n\n"
-  code: "#ifndef ALGR_GRAPH\n#define ALGR_GRAPH\n\n#include <bits/stdc++.h>\n\nstruct\
-    \ NT {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n    struct\
+  code: "#ifndef ALGR_GRAPH\n#define ALGR_GRAPH\n\n#include <vector>\n\nstruct NT\
+    \ {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n    struct\
     \ Edge {\n        int to;\n        W w;\n    };\n    std::vector<std::vector<Edge>>\
     \ G; // (to, E)\n\npublic:\n    Graph(void) {}\n    Graph(int n) : G(n + 1) {}\n\
     \    inline void clear(void) { G.clear(); }\n    inline void resize(int n) { G.resize(n\
@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: src/alfred/graph/graph.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/graph.hpp

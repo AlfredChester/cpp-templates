@@ -22,7 +22,7 @@ data:
     \n\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\n\
     inline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
     \ std::cout.tie(NULL);\n}\n#line 1 \"src/alfred/data_structure/priority-set.hpp\"\
-    \n\n\n\n#line 5 \"src/alfred/data_structure/priority-set.hpp\"\n\ntemplate <class\
+    \n\n\n\n#line 6 \"src/alfred/data_structure/priority-set.hpp\"\n\ntemplate <class\
     \ T, class Comp = std::less<T>>\nclass PrioritySet { // warning: all erase operations\
     \ must be legal.\nprivate:\n    std::priority_queue<T, std::vector<T>, Comp> data;\n\
     \    std::priority_queue<T, std::vector<T>, Comp> erased;\n\npublic:\n    PrioritySet(void)\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp

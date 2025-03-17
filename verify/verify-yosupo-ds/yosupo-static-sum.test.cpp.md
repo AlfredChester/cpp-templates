@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp

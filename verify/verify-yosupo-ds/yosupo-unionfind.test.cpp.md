@@ -21,7 +21,7 @@ data:
     \ PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\
     \n#include <bits/stdc++.h>\n\ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n\
     \    std::cin.tie(NULL), std::cout.tie(NULL);\n}\n#line 1 \"src/alfred/data_structure/dsu.hpp\"\
-    \n\n\n\n#line 5 \"src/alfred/data_structure/dsu.hpp\"\n\nstruct DSU {\n    std::vector<int>\
+    \n\n\n\n#line 6 \"src/alfred/data_structure/dsu.hpp\"\n\nstruct DSU {\n    std::vector<int>\
     \ fa, siz;\n    DSU(int n) : fa(n + 1), siz(n + 1, 1) {\n        std::iota(fa.begin(),\
     \ fa.end(), 0);\n    }\n    inline int find(int x) {\n        return fa[x] ==\
     \ x ? x : fa[x] = find(fa[x]);\n    }\n    inline bool same(int x, int y) {\n\
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 21:42:09+08:00'
+  timestamp: '2025-03-17 21:57:32+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp

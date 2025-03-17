@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/data_structure/fenwick.hpp\"\n\n\n\n#include\
@@ -41,8 +44,9 @@ data:
   path: src/alfred/data_structure/fenwick.hpp
   requiredBy: []
   timestamp: '2025-03-17 21:57:32+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
 documentation_of: src/alfred/data_structure/fenwick.hpp
 layout: document
 redirect_from:

@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/data_structure/fenwick.hpp
     title: src/alfred/data_structure/fenwick.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
@@ -39,8 +39,8 @@ data:
     \ std::cin >> n >> q;\n\n    Fenwick<long long> C(n);\n    for (int i = 0; i <\
     \ n; i++) {\n        std::cin >> x, C.update(i, x);\n    }\n\n    while (q--)\
     \ {\n        std::cin >> opt >> x >> v;\n        if (opt == 0) {\n           \
-    \ C.update(x, v);\n        } else {\n            std::cout << C.query(x, v) <<\
-    \ '\\n';\n        }\n    }\n\n    return 0;\n}\n"
+    \ C.update(x, v);\n        } else {\n            std::cout << C.query(x, v - 1)\
+    \ << '\\n';\n        }\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
     \n#include \"../../src/alfred/config/io-sync-off.hpp\"\n#include \"../../src/alfred/data_structure/fenwick.hpp\"\
     \n#include <iostream>\n\nint main(int argc, char const *argv[]) {\n    int n,\
@@ -48,15 +48,16 @@ data:
     \ C(n);\n    for (int i = 0; i < n; i++) {\n        std::cin >> x, C.update(i,\
     \ x);\n    }\n\n    while (q--) {\n        std::cin >> opt >> x >> v;\n      \
     \  if (opt == 0) {\n            C.update(x, v);\n        } else {\n          \
-    \  std::cout << C.query(x, v) << '\\n';\n        }\n    }\n\n    return 0;\n}\n"
+    \  std::cout << C.query(x, v - 1) << '\\n';\n        }\n    }\n\n    return 0;\n\
+    }\n"
   dependsOn:
   - src/alfred/config/io-sync-off.hpp
   - src/alfred/data_structure/fenwick.hpp
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:05:47+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-17 22:07:10+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
 layout: document

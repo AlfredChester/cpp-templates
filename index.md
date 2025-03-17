@@ -9,7 +9,7 @@ data:
     - icon: ':warning:'
       path: src/alfred/config/fast-io.hpp
       title: src/alfred/config/fast-io.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/config/io-sync-off.hpp
       title: src/alfred/config/io-sync-off.hpp
     - icon: ':warning:'
@@ -35,7 +35,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/dsu.hpp
       title: src/alfred/data_structure/dsu.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/fenwick.hpp
       title: src/alfred/data_structure/fenwick.hpp
     - icon: ':warning:'
@@ -380,7 +380,7 @@ data:
   verificationCategories:
   - name: verify/verify-yosupo-ds
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
       title: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
     - icon: ':heavy_check_mark:'

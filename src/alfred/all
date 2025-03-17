@@ -1,3 +1,6 @@
+#ifndef ALFRED_ALL
+#define ALFRED_ALL
+
 #include "data_structure/appear-statistics.hpp"
 #include "data_structure/binary-trie.hpp"
 #include "data_structure/cancel-dsu.hpp"
@@ -42,3 +45,5 @@ inline void NO(void) { std::cout << "NO\n"; }
 inline void No(void) { std::cout << "No\n"; }
 inline void YES_NO(bool cond) { cond ? YES() : NO(); }
 inline void Yes_No(bool cond) { cond ? Yes() : No(); }
+
+#endif // ALFRED_ALL

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFMT_COMPUTATION_GEOMETRY
+#define AFMT_COMPUTATION_GEOMETRY
 
 #include <bits/stdc++.h>
 
@@ -64,3 +65,5 @@ template <class T>
 inline T dis_square(Point<T> P, Point<T> Q) {
     return (P.x - Q.x) * (P.x - Q.x) + (P.y - Q.y) * (P.y - Q.y);
 }
+
+#endif // AFMT_COMPUTATION_GEOMETRY

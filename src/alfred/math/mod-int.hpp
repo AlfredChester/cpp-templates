@@ -1,4 +1,7 @@
-#pragma once
+
+
+#ifndef AFMT_MOD_INT
+#define AFMT_MOD_INT
 
 #include <bits/stdc++.h>
 
@@ -48,3 +51,5 @@ template <int mod>
 inline void __print(ModInt<mod> x) {
     std::cerr << x;
 }
+
+#endif // AFMT_MOD_INT

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_DSU
+#define AFDS_DSU
 
 #include <bits/stdc++.h>
 
@@ -29,3 +30,5 @@ struct DSU {
         return true;
     }
 };
+
+#endif // AFDS_DSU

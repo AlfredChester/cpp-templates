@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_APPEAR_STATISTICS
+#define AFDS_APPEAR_STATISTICS
 
 #include "discretization.hpp"
 #include <bits/stdc++.h>
@@ -47,3 +48,5 @@ public:
         return R - L;
     }
 };
+
+#endif // AFDS_APPEAR_STATISTICS

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_SPARSE_TABLE
+#define AFDS_SPARSE_TABLE
 
 #include <bits/stdc++.h>
 
@@ -73,3 +74,5 @@ public:
         return ans;
     }
 };
+
+#endif // AFDS_SPARSE_TABLE

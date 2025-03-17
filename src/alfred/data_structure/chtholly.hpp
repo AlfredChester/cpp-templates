@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_CHTHOLLY
+#define AFDS_CHTHOLLY
 
 #include <bits/stdc++.h>
 
@@ -41,3 +42,5 @@ struct ChthollyTree {
         return ans;
     }
 };
+
+#endif // AFDS_CHTHOLLY

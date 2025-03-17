@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_DISCRETIZATION
+#define AFDS_DISCRETIZATION
 
 #include <bits/stdc++.h>
 
@@ -21,3 +22,5 @@ struct Mess {
     }
     inline bool exist(_Tp x) { return origin(query(x)) == x; }
 };
+
+#endif // AFDS_DISCRETIZATION

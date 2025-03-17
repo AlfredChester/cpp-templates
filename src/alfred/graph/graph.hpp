@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALGR_GRAPH
+#define ALGR_GRAPH
 
 #include <bits/stdc++.h>
 
@@ -46,3 +47,5 @@ public:
         return dis;
     }
 };
+
+#endif // ALGR_GRAPH

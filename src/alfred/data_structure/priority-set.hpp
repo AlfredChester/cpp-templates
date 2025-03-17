@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_PRIORITY_SET
+#define AFDS_PRIORITY_SET
 
 #include <bits/stdc++.h>
 
@@ -26,3 +27,5 @@ public:
         return data.size() - erased.size();
     }
 };
+
+#endif // AFDS_PRIORITY_SET

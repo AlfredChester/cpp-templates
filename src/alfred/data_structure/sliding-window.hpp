@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_SLIDING_WINDOW
+#define AFDS_SLIDING_WINDOW
 
 #include <bits/stdc++.h>
 
@@ -41,3 +42,5 @@ std::vector<std::vector<T>> grid_sliding_window(
     }
     return ans;
 }
+
+#endif // AFDS_SLIDING_WINDOW

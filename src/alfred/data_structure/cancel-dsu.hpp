@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_CANCEL_DSU
+#define AFDS_CANCEL_DSU
 
 #include <bits/stdc++.h>
 
@@ -30,3 +31,5 @@ struct CancelDSU {
         while (t--) _cancel();
     }
 };
+
+#endif // AFDS_CANCEL_DSU

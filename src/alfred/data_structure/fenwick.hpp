@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_FENWICK
+#define AFDS_FENWICK
 
 #include <bits/stdc++.h>
 
@@ -33,3 +34,5 @@ struct Fenwick {
     }
     Fenwick(size_t len) : c(len + 2) {}
 };
+
+#endif // AFDS_FENWICK

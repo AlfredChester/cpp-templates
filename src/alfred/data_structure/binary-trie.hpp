@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_BINARY_TRIE
+#define AFDS_BINARY_TRIE
 
 // TODO: Require to be rewritten.
 // Thanks neal for this template.
@@ -111,3 +112,5 @@ struct BinaryTrie { // 01-Trie
         return {mn, mx};
     }
 };
+
+#endif // AFDS_BINARY_TRIE

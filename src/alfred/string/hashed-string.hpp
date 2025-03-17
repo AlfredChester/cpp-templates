@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFSTR_HASHED_STRING
+#define AFSTR_HASHED_STRING
 
 #include <bits/stdc++.h>
 
@@ -42,3 +43,5 @@ struct HashedString {
         return check_same(l, r - p, l + p, r);
     }
 };
+
+#endif // AFSTR_HASHED_STRING

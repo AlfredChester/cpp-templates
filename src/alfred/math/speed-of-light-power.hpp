@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFMT_SPEED_OF_LIGHT_POWER
+#define AFMT_SPEED_OF_LIGHT_POWER
 
 #include "prime.hpp"
 #include <bits/stdc++.h>
@@ -25,3 +26,5 @@ struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
         return 1ll * ps[index / sq] * p1[index % sq] % mod;
     }
 };
+
+#endif // AFMT_SPEED_OF_LIGHT_POWER

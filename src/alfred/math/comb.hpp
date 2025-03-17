@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFMT_COMB
+#define AFMT_COMB
 
 #include "mod-int.hpp"
 #include <bits/stdc++.h>
@@ -41,3 +42,5 @@ struct Comb {
 
 using mint = ModInt<998244353>;
 Comb<mint> comb;
+
+#endif // AFMT_COMB

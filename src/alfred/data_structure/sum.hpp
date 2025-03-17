@@ -1,4 +1,6 @@
-#pragma once
+#ifndef AFDS_SUM
+#define AFDS_SUM
+
 #include <bits/stdc++.h>
 
 template <class T>
@@ -30,6 +32,7 @@ public:
     inline const T pre(int x) { return _pre[x]; }
     inline const T suf(int x) { return _suf[x]; }
 };
+
 template <class T>
 class GridSum {
 private:
@@ -64,3 +67,5 @@ public:
         return sum[x2][y2] - s1 - s2 + s3;
     }
 };
+
+#endif // AFDS_SUM

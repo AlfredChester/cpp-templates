@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFDS_WEIGHTED_DSU
+#define AFDS_WEIGHTED_DSU
 
 #include <bits/stdc++.h>
 
@@ -31,3 +32,5 @@ struct WeightedDSU {
         return find(x), find(y), w[y] - w[x];
     }
 };
+
+#endif // AFDS_WEIGHTED_DSU

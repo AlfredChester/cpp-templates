@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFGR_LCA
+#define AFGR_LCA
 
 #include "../data_structure/sparse-table.hpp"
 #include <bits/stdc++.h>
@@ -39,3 +40,5 @@ public:
     }
 } LCA;
 std::vector<int> LCAImpl::d;
+
+#endif // AFGR_LCA

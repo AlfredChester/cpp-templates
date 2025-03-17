@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef AFMT_PRIME
+#define AFMT_PRIME
+
 // O(sqrt(x)) to judge if x is a prime.
 // It will be re-written in Miller-rabin sometime.
 constexpr bool is_prime(long long x) {
@@ -9,3 +12,5 @@ constexpr bool is_prime(long long x) {
     }
     return true;
 }
+
+#endif // AFMT_PRIME

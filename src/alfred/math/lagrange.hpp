@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFMT_LAGRANGE
+#define AFMT_LAGRANGE
 
 #include "comb.hpp"
 #include "mod-int.hpp"
@@ -43,3 +44,5 @@ inline mint sum_of_kth_powers(mint n, int k) {
     }
     return cont_lagrange(Y, n);
 }
+
+#endif // AFMT_LAGRANGE

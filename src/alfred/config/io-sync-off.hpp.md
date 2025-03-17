@@ -20,17 +20,16 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/alfred/config/io-sync-off.hpp\"\n\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\
     \ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
     \ std::cout.tie(NULL);\n}\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\n\ninline void optimizeIO(void)\
-    \ {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL), std::cout.tie(NULL);\n\
-    }\n"
+  code: "#include <bits/stdc++.h>\n\ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(NULL), std::cout.tie(NULL);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/config/io-sync-off.hpp
   requiredBy: []
-  timestamp: '2025-02-17 23:16:32+08:00'
+  timestamp: '2025-03-17 21:42:09+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-yosupo-ds/yosupo-static-sum.test.cpp

@@ -8,12 +8,14 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: '#line 2 "src/alfred/data_structure/pbds-balance-tree.hpp"
+  bundledCode: '#line 1 "src/alfred/data_structure/pbds-balance-tree.hpp"
+
+
 
 
     #include <bits/extc++.h>
 
-    #line 5 "src/alfred/data_structure/pbds-balance-tree.hpp"
+    #line 6 "src/alfred/data_structure/pbds-balance-tree.hpp"
 
 
     // TreeTag can also be __gnu_pbds::splay_tree_tag
@@ -22,8 +24,12 @@ data:
 
     using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
+
+
     '
-  code: '#pragma once
+  code: '#ifndef AFDS_PBDS_BALANCE_TREE
+
+    #define AFDS_PBDS_BALANCE_TREE
 
 
     #include <bits/extc++.h>
@@ -37,12 +43,15 @@ data:
 
     using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
+
+    #endif // AFDS_PBDS_BALANCE_TREE
+
     '
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/data_structure/pbds-balance-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-16 22:40:01+08:00'
+  timestamp: '2025-03-17 21:42:09+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/data_structure/pbds-balance-tree.hpp

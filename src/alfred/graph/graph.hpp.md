@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/alfred/graph/graph.hpp\"\n\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"src/alfred/graph/graph.hpp\"\n\n\n\n#include <bits/stdc++.h>\n\
     \nstruct NT {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n\
     \    struct Edge {\n        int to;\n        W w;\n    };\n    std::vector<std::vector<Edge>>\
     \ G; // (to, E)\n\npublic:\n    Graph(void) {}\n    Graph(int n) : G(n + 1) {}\n\
@@ -26,15 +26,15 @@ data:
     \ {\n                if (dis[edge.to] > t.first + edge.w) {\n                \
     \    dis[edge.to] = t.first + edge.w;\n                    heap.push({dis[edge.to],\
     \ edge.to});\n                }\n            }\n        }\n        return dis;\n\
-    \    }\n};\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\n\nstruct NT {}; // null_type\n\
-    template <class W = NT>\nclass Graph {\nprivate:\n    struct Edge {\n        int\
-    \ to;\n        W w;\n    };\n    std::vector<std::vector<Edge>> G; // (to, E)\n\
-    \npublic:\n    Graph(void) {}\n    Graph(int n) : G(n + 1) {}\n    inline void\
-    \ clear(void) { G.clear(); }\n    inline void resize(int n) { G.resize(n + 1);\
-    \ }\n    std::vector<Edge> &operator[](int x) { return G[x]; }\n    inline void\
-    \ add_directed(int u, int v, W w = W{}) {\n        G[u].push_back({v, w});\n \
-    \   }\n    inline void add_undirected(int u, int v, W w = W{}) {\n        G[u].push_back({v,\
+    \    }\n};\n\n\n"
+  code: "#ifndef ALGR_GRAPH\n#define ALGR_GRAPH\n\n#include <bits/stdc++.h>\n\nstruct\
+    \ NT {}; // null_type\ntemplate <class W = NT>\nclass Graph {\nprivate:\n    struct\
+    \ Edge {\n        int to;\n        W w;\n    };\n    std::vector<std::vector<Edge>>\
+    \ G; // (to, E)\n\npublic:\n    Graph(void) {}\n    Graph(int n) : G(n + 1) {}\n\
+    \    inline void clear(void) { G.clear(); }\n    inline void resize(int n) { G.resize(n\
+    \ + 1); }\n    std::vector<Edge> &operator[](int x) { return G[x]; }\n    inline\
+    \ void add_directed(int u, int v, W w = W{}) {\n        G[u].push_back({v, w});\n\
+    \    }\n    inline void add_undirected(int u, int v, W w = W{}) {\n        G[u].push_back({v,\
     \ w});\n        G[v].push_back({u, w});\n    }\n    std::vector<W> dijkstra(int\
     \ s) { // by default the shortest path.\n        using Node = std::pair<W, int>;\n\
     \        std::vector<W> dis(G.size(), std::numeric_limits<W>::max());\n      \
@@ -45,12 +45,12 @@ data:
     \ {\n                if (dis[edge.to] > t.first + edge.w) {\n                \
     \    dis[edge.to] = t.first + edge.w;\n                    heap.push({dis[edge.to],\
     \ edge.to});\n                }\n            }\n        }\n        return dis;\n\
-    \    }\n};"
+    \    }\n};\n\n#endif // ALGR_GRAPH"
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/graph/graph.hpp
   requiredBy: []
-  timestamp: '2025-02-17 23:08:47+08:00'
+  timestamp: '2025-03-17 21:42:09+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/graph.hpp

@@ -19,10 +19,10 @@ data:
     - https://judge.yosupo.jp/problem/double_ended_priority_queue
   bundledCode: "#line 1 \"verify/verify-yosupo-ds/yosupo-priority-set.test.cpp\"\n\
     #define PROBLEM \"https://judge.yosupo.jp/problem/double_ended_priority_queue\"\
-    \n\n#line 2 \"src/alfred/config/io-sync-off.hpp\"\n\n#include <bits/stdc++.h>\n\
-    \ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
-    \ std::cout.tie(NULL);\n}\n#line 2 \"src/alfred/data_structure/priority-set.hpp\"\
-    \n\n#line 4 \"src/alfred/data_structure/priority-set.hpp\"\n\ntemplate <class\
+    \n\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\n\
+    inline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
+    \ std::cout.tie(NULL);\n}\n#line 1 \"src/alfred/data_structure/priority-set.hpp\"\
+    \n\n\n\n#line 5 \"src/alfred/data_structure/priority-set.hpp\"\n\ntemplate <class\
     \ T, class Comp = std::less<T>>\nclass PrioritySet { // warning: all erase operations\
     \ must be legal.\nprivate:\n    std::priority_queue<T, std::vector<T>, Comp> data;\n\
     \    std::priority_queue<T, std::vector<T>, Comp> erased;\n\npublic:\n    PrioritySet(void)\
@@ -32,7 +32,7 @@ data:
     \ &top(void) noexcept {\n        // assert(data.size() >= erased.size());\n  \
     \      while (!erased.empty() && data.top() == erased.top()) {\n            data.pop(),\
     \ erased.pop();\n        }\n        return data.top();\n    }\n    inline size_t\
-    \ size(void) {\n        return data.size() - erased.size();\n    }\n};\n#line\
+    \ size(void) {\n        return data.size() - erased.size();\n    }\n};\n\n\n#line\
     \ 6 \"verify/verify-yosupo-ds/yosupo-priority-set.test.cpp\"\n\nint main(int argc,\
     \ char const *argv[]) {\n    int n, q, opt, x;\n    optimizeIO(), std::cin >>\
     \ n >> q;\n    PrioritySet<int, std::less<int>> P1;\n    PrioritySet<int, std::greater<int>>\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
   requiredBy: []
-  timestamp: '2025-02-18 14:24:19+08:00'
+  timestamp: '2025-03-17 21:42:09+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp

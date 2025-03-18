@@ -53,7 +53,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/sum.hpp
       title: src/alfred/data_structure/sum.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/weighted-dsu.hpp
       title: src/alfred/data_structure/weighted-dsu.hpp
   - name: src/alfred/graph
@@ -75,7 +75,7 @@ data:
     - icon: ':warning:'
       path: src/alfred/math/lagrange.hpp
       title: src/alfred/math/lagrange.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/math/mod-int.hpp
       title: src/alfred/math/mod-int.hpp
     - icon: ':warning:'
@@ -404,5 +404,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
       title: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
+      title: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
 layout: toppage
 ---

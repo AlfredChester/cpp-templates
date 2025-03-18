@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: src/alfred/math/comb.hpp
     title: src/alfred/math/comb.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/math/mod-int.hpp
     title: src/alfred/math/mod-int.hpp
   _extendedRequiredBy: []

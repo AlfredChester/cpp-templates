@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/data_structure/weighted-dsu.hpp\"\n\n\n\n#include\
@@ -39,8 +42,9 @@ data:
   path: src/alfred/data_structure/weighted-dsu.hpp
   requiredBy: []
   timestamp: '2025-03-17 21:57:32+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
 documentation_of: src/alfred/data_structure/weighted-dsu.hpp
 layout: document
 redirect_from:

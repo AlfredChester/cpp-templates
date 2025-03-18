@@ -27,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
     title: verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -52,6 +55,7 @@ data:
   - verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
   - verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
   - verify/verify-yosupo-ds/yosupo-bitset.test.cpp
+  - verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
 documentation_of: src/alfred/config/io-sync-off.hpp
 layout: document
 redirect_from:

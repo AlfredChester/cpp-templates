@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 1 "src/alfred/data_structure/pbds-balance-tree.hpp"
@@ -20,7 +23,7 @@ data:
 
     // TreeTag can also be __gnu_pbds::splay_tree_tag
 
-    template <class T, class Cmp, class TreeTag = __gnu_pbds::rb_tree_tag>
+    template <class T, class Cmp = std::less_equal<int>, class TreeTag = __gnu_pbds::rb_tree_tag>
 
     using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
@@ -39,7 +42,7 @@ data:
 
     // TreeTag can also be __gnu_pbds::splay_tree_tag
 
-    template <class T, class Cmp, class TreeTag = __gnu_pbds::rb_tree_tag>
+    template <class T, class Cmp = std::less_equal<int>, class TreeTag = __gnu_pbds::rb_tree_tag>
 
     using BalanceTree = __gnu_pbds::tree<T, __gnu_pbds::null_type, Cmp, TreeTag, __gnu_pbds::tree_order_statistics_node_update>;
 
@@ -51,9 +54,10 @@ data:
   isVerificationFile: false
   path: src/alfred/data_structure/pbds-balance-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:57:32+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2025-03-18 20:36:59+08:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/verify-yosupo-ds/yosupo-pbds.test.cpp
 documentation_of: src/alfred/data_structure/pbds-balance-tree.hpp
 layout: document
 redirect_from:

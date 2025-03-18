@@ -4,8 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
     title: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
     title: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
@@ -36,10 +42,12 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
+  - verify/verify-yosupo-ds/yosupo-pbds.test.cpp
   - verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
   - verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
   - verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
   - verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
+  - verify/verify-yosupo-ds/yosupo-bitset.test.cpp
 documentation_of: src/alfred/config/io-sync-off.hpp
 layout: document
 redirect_from:

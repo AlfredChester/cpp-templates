@@ -12,9 +12,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/alfred/config/io-sync-off.hpp
       title: src/alfred/config/io-sync-off.hpp
-    - icon: ':warning:'
-      path: src/alfred/config/template.hpp
-      title: src/alfred/config/template.hpp
   - name: src/alfred/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -36,9 +33,12 @@ data:
       path: src/alfred/data_structure/dsu.hpp
       title: src/alfred/data_structure/dsu.hpp
     - icon: ':heavy_check_mark:'
+      path: src/alfred/data_structure/dynamic-bitset.hpp
+      title: src/alfred/data_structure/dynamic-bitset.hpp
+    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/fenwick.hpp
       title: src/alfred/data_structure/fenwick.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/pbds-balance-tree.hpp
       title: src/alfred/data_structure/pbds-balance-tree.hpp
     - icon: ':heavy_check_mark:'
@@ -381,8 +381,14 @@ data:
   - name: verify/verify-yosupo-ds
     pages:
     - icon: ':heavy_check_mark:'
+      path: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
+      title: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
       title: verify/verify-yosupo-ds/yosupo-fenwick.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
+      title: verify/verify-yosupo-ds/yosupo-pbds.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
       title: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp

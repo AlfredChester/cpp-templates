@@ -7,6 +7,7 @@
 #include "data_structure/chtholly.hpp"
 #include "data_structure/discretization.hpp"
 #include "data_structure/dsu.hpp"
+#include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
 #include "data_structure/pbds-balance-tree.hpp"
 #include "data_structure/priority-set.hpp"

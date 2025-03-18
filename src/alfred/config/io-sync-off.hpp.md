@@ -16,6 +16,9 @@ data:
     path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
     title: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
+    title: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
     title: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
   - icon: ':heavy_check_mark:'
@@ -47,6 +50,7 @@ data:
   - verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
   - verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
   - verify/verify-yosupo-ds/yosupo-unionfind.test.cpp
+  - verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
   - verify/verify-yosupo-ds/yosupo-bitset.test.cpp
 documentation_of: src/alfred/config/io-sync-off.hpp
 layout: document

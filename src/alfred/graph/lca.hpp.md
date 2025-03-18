@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/data_structure/sparse-table.hpp
     title: src/alfred/data_structure/sparse-table.hpp
   _extendedRequiredBy: []

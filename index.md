@@ -47,7 +47,7 @@ data:
     - icon: ':warning:'
       path: src/alfred/data_structure/sliding-window.hpp
       title: src/alfred/data_structure/sliding-window.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/data_structure/sparse-table.hpp
       title: src/alfred/data_structure/sparse-table.hpp
     - icon: ':heavy_check_mark:'
@@ -392,6 +392,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
       title: verify/verify-yosupo-ds/yosupo-priority-set.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
+      title: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
       title: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp

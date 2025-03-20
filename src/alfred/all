@@ -9,12 +9,16 @@
 #include "data_structure/dsu.hpp"
 #include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
-#include "data_structure/pbds-balance-tree.hpp"
 #include "data_structure/priority-set.hpp"
 #include "data_structure/sliding-window.hpp"
 #include "data_structure/sparse-table.hpp"
 #include "data_structure/sum.hpp"
 #include "data_structure/weighted-dsu.hpp"
+
+// check if is gcc
+#if defined(__GNUC__)
+#include "data_structure/pbds-balance-tree.hpp"
+#endif
 
 #include "graph/graph.hpp"
 // #include "graph/lca.hpp" // Will be included after graph class is implemented well enough

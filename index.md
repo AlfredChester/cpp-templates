@@ -4,9 +4,6 @@ data:
   - name: src/alfred/config
     pages:
     - icon: ':warning:'
-      path: src/alfred/config/debug.h
-      title: Local Debug Printer
-    - icon: ':warning:'
       path: src/alfred/config/fast-io.hpp
       title: src/alfred/config/fast-io.hpp
     - icon: ':heavy_check_mark:'

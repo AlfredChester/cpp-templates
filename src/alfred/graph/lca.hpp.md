@@ -12,11 +12,11 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/graph/lca.hpp\"\n\n\n\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\
-    \n\n\n\n#include <numeric>\n#include <vector>\n\ntemplate <class T>\nstruct MaxInfo\
-    \ {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min(); }\n\
-    \    template <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo operator+(MaxInfo\
-    \ &x) {\n        return {std::max(val, x.val)};\n    }\n};\ntemplate <class T>\n\
-    struct MinInfo {\n    T val;\n    MinInfo(void) { val = std::numeric_limits<T>::max();\
+    \n\n\n\n#include <limits>\n#include <numeric>\n#include <vector>\n\ntemplate <class\
+    \ T>\nstruct MaxInfo {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min();\
+    \ }\n    template <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo\
+    \ operator+(MaxInfo &x) {\n        return {std::max(val, x.val)};\n    }\n};\n\
+    template <class T>\nstruct MinInfo {\n    T val;\n    MinInfo(void) { val = std::numeric_limits<T>::max();\
     \ }\n    template <class InitT>\n    MinInfo(InitT x) { val = x; }\n    MinInfo\
     \ operator+(MinInfo &x) {\n        return {std::min(val, x.val)};\n    }\n};\n\
     template <class T>\nstruct GcdInfo {\n    T val;\n    GcdInfo(void) { val = T();\
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: src/alfred/graph/lca.hpp
   requiredBy: []
-  timestamp: '2025-03-17 21:57:32+08:00'
+  timestamp: '2025-03-20 21:53:18+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/lca.hpp

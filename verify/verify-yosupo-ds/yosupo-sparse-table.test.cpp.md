@@ -21,7 +21,7 @@ data:
     #define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\
     \n#include <bits/stdc++.h>\n\ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n\
     \    std::cin.tie(NULL), std::cout.tie(NULL);\n}\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\
-    \n\n\n\n#line 6 \"src/alfred/data_structure/sparse-table.hpp\"\n\ntemplate <class\
+    \n\n\n\n#line 7 \"src/alfred/data_structure/sparse-table.hpp\"\n\ntemplate <class\
     \ T>\nstruct MaxInfo {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min();\
     \ }\n    template <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo\
     \ operator+(MaxInfo &x) {\n        return {std::max(val, x.val)};\n    }\n};\n\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
   requiredBy: []
-  timestamp: '2025-03-18 23:27:12+08:00'
+  timestamp: '2025-03-20 21:53:18+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp

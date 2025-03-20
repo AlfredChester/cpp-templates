@@ -11,6 +11,7 @@
 
 #include <bits/stdc++.h>
 
+#ifdef DEBUG
 using std::cerr;
 using std::pair;
 using std::string;
@@ -61,6 +62,10 @@ void _print(T t, V... v) {
     if (sizeof...(v)) cerr << ", ";
     _print(v...);
 }
+#else
+#define dbg(x...)
+void dbgEndl(void) {}
+#endif // DEBUG
 // To customize a struct/class to print, just define the __print function.
 
 #if defined(DEBUG) && !defined(NO_DBG_COLOR)

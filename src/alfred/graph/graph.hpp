@@ -1,6 +1,8 @@
 #ifndef ALGR_GRAPH
 #define ALGR_GRAPH
 
+#include <limits>
+#include <numeric>
 #include <vector>
 
 struct NT {}; // null_type

@@ -1,6 +1,7 @@
 #ifndef AFDS_SPARSE_TABLE
 #define AFDS_SPARSE_TABLE
 
+#include <limits>
 #include <numeric>
 #include <vector>
 

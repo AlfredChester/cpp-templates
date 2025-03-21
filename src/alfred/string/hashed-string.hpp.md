@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
+    title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/string/hashed-string.hpp\"\n\n\n\n#include <vector>\n\
@@ -53,8 +56,9 @@ data:
   path: src/alfred/string/hashed-string.hpp
   requiredBy: []
   timestamp: '2025-03-17 21:57:32+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/verify-aizu-string/aizu-hashed-string.test.cpp
 documentation_of: src/alfred/string/hashed-string.hpp
 layout: document
 redirect_from:

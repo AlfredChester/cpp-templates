@@ -83,7 +83,7 @@ data:
       title: src/alfred/math/speed-of-light-power.hpp
   - name: src/alfred/string
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/string/hashed-string.hpp
       title: src/alfred/string/hashed-string.hpp
   - name: src/jiangly/ds
@@ -375,6 +375,11 @@ data:
       path: src/watashi/union-find.hpp
       title: src/watashi/union-find.hpp
   verificationCategories:
+  - name: verify/verify-aizu-string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
+      title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   - name: verify/verify-yosupo-ds
     pages:
     - icon: ':heavy_check_mark:'

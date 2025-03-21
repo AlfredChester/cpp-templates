@@ -5,7 +5,13 @@ data:
   - icon: ':warning:'
     path: src/alfred/graph/lca.hpp
     title: src/alfred/graph/lca.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/alfred/string/suffix-array.hpp
+    title: src/alfred/string/suffix-array.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-aizu-string/aizu-suffix-array.test.cpp
+    title: verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
     title: verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
@@ -74,10 +80,12 @@ data:
   isVerificationFile: false
   path: src/alfred/data_structure/sparse-table.hpp
   requiredBy:
+  - src/alfred/string/suffix-array.hpp
   - src/alfred/graph/lca.hpp
   timestamp: '2025-03-20 21:53:18+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
 documentation_of: src/alfred/data_structure/sparse-table.hpp
 layout: document

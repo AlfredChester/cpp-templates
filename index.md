@@ -86,6 +86,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/alfred/string/hashed-string.hpp
       title: src/alfred/string/hashed-string.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/alfred/string/suffix-array.hpp
+      title: src/alfred/string/suffix-array.hpp
   - name: src/jiangly/ds
     pages:
     - icon: ':warning:'
@@ -380,6 +383,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
       title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-aizu-string/aizu-suffix-array.test.cpp
+      title: verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - name: verify/verify-yosupo-ds
     pages:
     - icon: ':heavy_check_mark:'

@@ -7,6 +7,9 @@ data:
     path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
     title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/verify-aizu-string/aizu-suffix-array.test.cpp
+    title: verify/verify-aizu-string/aizu-suffix-array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
     title: verify/verify-yosupo-ds/yosupo-bitset.test.cpp
   - icon: ':heavy_check_mark:'
@@ -50,6 +53,7 @@ data:
   timestamp: '2025-03-17 21:42:09+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - verify/verify-aizu-string/aizu-hashed-string.test.cpp
   - verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
   - verify/verify-yosupo-ds/yosupo-pbds.test.cpp

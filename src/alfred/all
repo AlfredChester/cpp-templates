@@ -26,6 +26,7 @@
 #include "math/speed-of-light-power.hpp"
 
 #include "string/hashed-string.hpp"
+#include "string/suffix-array.hpp"
 
 // typedefs and constants:
 

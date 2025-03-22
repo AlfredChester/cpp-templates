@@ -38,6 +38,9 @@ public:
         if (dfn[u] > dfn[v]) std::swap(u, v);
         return lca.query(dfn[u], dfn[v]).val;
     }
+    inline int dis(int u, int v) {
+        return d[u] + d[v] - 2 * d[LCA(u, v)];
+    }
 } LCA;
 std::vector<int> LCAImpl::d;
 

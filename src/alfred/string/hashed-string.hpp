@@ -1,6 +1,7 @@
 #ifndef AFSTR_HASHED_STRING
 #define AFSTR_HASHED_STRING
 
+#include <algorithm>
 #include <vector>
 
 template <int mod, int seed>
@@ -28,7 +29,11 @@ struct HashedString {
     SingleHash<1000000007, 233> H2;
     HashedString(void) = default;
     HashedString(std::string s) : H1(s), H2(s) {}
+    HashedString(std::string &&s) : H1(s), H2(s) {}
     inline void init(std::string s) {
+        H1.init(s), H2.init(s);
+    }
+    inline void init(std::string &&s) {
         H1.init(s), H2.init(s);
     }
     std::pair<int, int> get_hash(int l, int r) { // not recommended.
@@ -41,6 +46,22 @@ struct HashedString {
     }
     inline bool check_period(int l, int r, int p) {
         return check_same(l, r - p, l + p, r);
+    }
+};
+
+struct PalindromeCheck {
+    int n;
+    HashedString H1, H2;
+    PalindromeCheck(void) = default;
+    PalindromeCheck(std::string s) : n(s.size()), H1(s) {
+        std::reverse(s.begin(), s.end()), H2.init(s);
+    }
+    inline void init(std::string s) {
+        n = s.size(), H1.init(s);
+        std::reverse(s.begin(), s.end()), H2.init(s);
+    }
+    inline bool check(int l, int r) {
+        return H1.get_hash(l, r) == H2.get_hash(n - 1 - r, n - 1 - l);
     }
 };
 

@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: src/alfred/config/fast-io.hpp
+    title: src/alfred/config/fast-io.hpp
+  - icon: ':heavy_check_mark:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
   - icon: ':heavy_check_mark:'
@@ -22,9 +25,24 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
   bundledCode: "#line 1 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\n\n#line\
-    \ 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\ninline\
-    \ void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
-    \ std::cout.tie(NULL);\n}\n#line 5 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
+    \ 1 \"src/alfred/config/fast-io.hpp\"\n#include <iostream>\n\nclass FastIO {\n\
+    private:\n    int siz = 100000;\n    char *buf, *p1, *p2;\n\npublic:\n    inline\
+    \ char nc(void) {\n        return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1,\
+    \ siz, stdin), p1 == p2) ? EOF : *p1++;\n    }\n    FastIO(void) { buf = (char\
+    \ *)malloc(siz); }\n    FastIO(int n) : siz(n) { buf = (char *)malloc(siz); }\
+    \ // n characters.\n    ~FastIO(void) { free(buf); }\n    inline void resize(int\
+    \ n) {\n        siz = n;\n        buf = (char *)realloc(buf, siz);\n    }\n} __buf;\n\
+    \ninline void reset_size(int siz) {\n    __buf.resize(siz);\n}\n\ntemplate <class\
+    \ T>\ninline void fast_read(T &x) {\n    x = 0;\n    static char c = __buf.nc();\n\
+    \    while (c < '0' || c > '9') c = __buf.nc();\n    while (c >= '0' && c <= '9')\
+    \ {\n        x = (x << 1) + (x << 3) + (c ^ 48), c = __buf.nc();\n    }\n}\ntemplate\
+    \ <class T>\ninline void write(T x) {\n    if (x < 0) putchar('-'), x = -x;\n\
+    \    if (x > 9) write(x / 10);\n    putchar((x % 10) ^ 48);\n}\ntemplate <class\
+    \ T>\ninline void writeln(T x) { write(x), puts(\"\"); }\ntemplate <typename T,\
+    \ typename... V>\ninline void fast_read(T &t, V &...v) { fast_read(t), fast_read(v...);\
+    \ }\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\
+    \ninline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
+    \ std::cout.tie(NULL);\n}\n#line 6 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
     \n\nint n, k, c, q, u, v;\nstd::vector<int> G[100010];\n\n#line 1 \"src/alfred/graph/lca.hpp\"\
     \n\n\n\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\n\n\n\n#line 7\
     \ \"src/alfred/data_structure/sparse-table.hpp\"\n\ntemplate <class T>\nstruct\
@@ -73,30 +91,30 @@ data:
     \    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\nstruct LCAInfo {\n    int val;\n\
     \    LCAInfo(void) : val(-1) {}\n    template <class InitT>\n    LCAInfo(InitT\
     \ x) { val = x; }\n    LCAInfo operator+(LCAInfo &x) {\n        return {LCA.LCA(val,\
-    \ x.val)};\n    }\n}; // for range lca.\n\n\n#line 10 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
-    \n\nint main(int argc, char const *argv[]) {\n    optimizeIO(), std::cin >> n;\n\
-    \    for (int i = 0; i < n; i++) {\n        std::cin >> k;\n        while (k--)\
-    \ {\n            std::cin >> c;\n            G[i].push_back(c);\n        }\n \
-    \   }\n    LCA.init(n, 0), std::cin >> q;\n    while (q--) {\n        std::cin\
-    \ >> u >> v;\n        std::cout << LCA.LCA(u, v) << '\\n';\n    }\n    return\
-    \ 0;\n}\n"
+    \ x.val)};\n    }\n}; // for range lca.\n\n\n#line 11 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
+    \n\nint main(int argc, char const *argv[]) {\n    optimizeIO(), fast_read(n);\n\
+    \    for (int i = 0; i < n; i++) {\n        fast_read(k);\n        while (k--)\
+    \ {\n            fast_read(c);\n            G[i].push_back(c);\n        }\n  \
+    \  }\n    LCA.init(n, 0);\n    fast_read(q);\n    while (q--) {\n        fast_read(u,\
+    \ v);\n        writeln(LCA.LCA(u, v));\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \n\n#include \"../../src/alfred/config/io-sync-off.hpp\"\n#include <iostream>\n\
-    \nint n, k, c, q, u, v;\nstd::vector<int> G[100010];\n\n#include \"../../src/alfred/graph/lca.hpp\"\
-    \n\nint main(int argc, char const *argv[]) {\n    optimizeIO(), std::cin >> n;\n\
-    \    for (int i = 0; i < n; i++) {\n        std::cin >> k;\n        while (k--)\
-    \ {\n            std::cin >> c;\n            G[i].push_back(c);\n        }\n \
-    \   }\n    LCA.init(n, 0), std::cin >> q;\n    while (q--) {\n        std::cin\
-    \ >> u >> v;\n        std::cout << LCA.LCA(u, v) << '\\n';\n    }\n    return\
-    \ 0;\n}\n"
+    \n\n#include \"../../src/alfred/config/fast-io.hpp\"\n#include \"../../src/alfred/config/io-sync-off.hpp\"\
+    \n#include <iostream>\n\nint n, k, c, q, u, v;\nstd::vector<int> G[100010];\n\n\
+    #include \"../../src/alfred/graph/lca.hpp\"\n\nint main(int argc, char const *argv[])\
+    \ {\n    optimizeIO(), fast_read(n);\n    for (int i = 0; i < n; i++) {\n    \
+    \    fast_read(k);\n        while (k--) {\n            fast_read(c);\n       \
+    \     G[i].push_back(c);\n        }\n    }\n    LCA.init(n, 0);\n    fast_read(q);\n\
+    \    while (q--) {\n        fast_read(u, v);\n        writeln(LCA.LCA(u, v));\n\
+    \    }\n    return 0;\n}\n"
   dependsOn:
+  - src/alfred/config/fast-io.hpp
   - src/alfred/config/io-sync-off.hpp
   - src/alfred/graph/lca.hpp
   - src/alfred/data_structure/sparse-table.hpp
   isVerificationFile: true
   path: verify/verify-aizu-graph/aizu-lca.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 22:16:15+08:00'
+  timestamp: '2025-03-22 23:25:30+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-aizu-graph/aizu-lca.test.cpp

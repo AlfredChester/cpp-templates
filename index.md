@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: src/alfred/config
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/config/fast-io.hpp
       title: src/alfred/config/fast-io.hpp
     - icon: ':heavy_check_mark:'

@@ -45,9 +45,10 @@ data:
     \    }\n    inline T query(int l, int r) { // 0 based\n        if (l > r) return\
     \ T();\n        int w = std::__lg(r - l + 1);\n        return ST[l][w] + ST[r\
     \ - (1 << w) + 1][w];\n    }\n    inline T disjoint_query(int l, int r) {\n  \
-    \      T ans = T();\n        for (int i = l; i <= r; i += (1 << std::__lg(r -\
-    \ i + 1))) {\n            ans = ans + ST[i][std::__lg(r - i + 1)];\n        }\n\
-    \        return ans;\n    }\n};\n\n\n"
+    \      if (l > r) return T();\n        T ans = T();\n        for (int i = std::__lg(r\
+    \ - l + 1); i >= 0; i--) {\n            if ((1 << i) <= r - l + 1) {\n       \
+    \         ans = ans + ST[l][i];\n                l += 1 << i;\n            }\n\
+    \        }\n        return ans;\n    }\n};\n\n\n"
   code: "#ifndef AFDS_SPARSE_TABLE\n#define AFDS_SPARSE_TABLE\n\n#include <limits>\n\
     #include <numeric>\n#include <vector>\n\ntemplate <class T>\nstruct MaxInfo {\n\
     \    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min(); }\n    template\
@@ -73,16 +74,17 @@ data:
     \    }\n    inline T query(int l, int r) { // 0 based\n        if (l > r) return\
     \ T();\n        int w = std::__lg(r - l + 1);\n        return ST[l][w] + ST[r\
     \ - (1 << w) + 1][w];\n    }\n    inline T disjoint_query(int l, int r) {\n  \
-    \      T ans = T();\n        for (int i = l; i <= r; i += (1 << std::__lg(r -\
-    \ i + 1))) {\n            ans = ans + ST[i][std::__lg(r - i + 1)];\n        }\n\
-    \        return ans;\n    }\n};\n\n#endif // AFDS_SPARSE_TABLE\n"
+    \      if (l > r) return T();\n        T ans = T();\n        for (int i = std::__lg(r\
+    \ - l + 1); i >= 0; i--) {\n            if ((1 << i) <= r - l + 1) {\n       \
+    \         ans = ans + ST[l][i];\n                l += 1 << i;\n            }\n\
+    \        }\n        return ans;\n    }\n};\n\n#endif // AFDS_SPARSE_TABLE\n"
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/data_structure/sparse-table.hpp
   requiredBy:
   - src/alfred/string/suffix-array.hpp
   - src/alfred/graph/lca.hpp
-  timestamp: '2025-03-20 21:53:18+08:00'
+  timestamp: '2025-03-22 09:26:13+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-aizu-string/aizu-suffix-array.test.cpp

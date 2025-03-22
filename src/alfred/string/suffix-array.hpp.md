@@ -40,16 +40,18 @@ data:
     \ (i - 1))][i - 1];\n            }\n        }\n    }\n    inline T query(int l,\
     \ int r) { // 0 based\n        if (l > r) return T();\n        int w = std::__lg(r\
     \ - l + 1);\n        return ST[l][w] + ST[r - (1 << w) + 1][w];\n    }\n    inline\
-    \ T disjoint_query(int l, int r) {\n        T ans = T();\n        for (int i =\
-    \ l; i <= r; i += (1 << std::__lg(r - i + 1))) {\n            ans = ans + ST[i][std::__lg(r\
-    \ - i + 1)];\n        }\n        return ans;\n    }\n};\n\n\n#line 9 \"src/alfred/string/suffix-array.hpp\"\
-    \n\nclass SuffixArray {\nprivate:\n    int n;\n    std::string s; // internal\
-    \ is 1-index, access is 0-indexed.\n    SparseTable<MinInfo<int>> ST;\n    std::vector<int>\
-    \ sa, rnk, old, h;\n\npublic:\n    SuffixArray(std::string S) : n(S.size()), s(S)\
-    \ {\n        const int m = n + 1;\n        s.insert(s.begin(), ' '), sa.assign(m,\
-    \ 0);\n        rnk.assign(m, 0), old.assign(m, 0), h.assign(m, 0);\n        for\
-    \ (int i = 1; i <= n; i++) sa[i] = i, rnk[i] = s[i];\n\n        for (int w = 1;\
-    \ w < n; w *= 2) {\n            std::copy(rnk.begin(), rnk.end(), old.begin());\n\
+    \ T disjoint_query(int l, int r) {\n        if (l > r) return T();\n        T\
+    \ ans = T();\n        for (int i = std::__lg(r - l + 1); i >= 0; i--) {\n    \
+    \        if ((1 << i) <= r - l + 1) {\n                ans = ans + ST[l][i];\n\
+    \                l += 1 << i;\n            }\n        }\n        return ans;\n\
+    \    }\n};\n\n\n#line 9 \"src/alfred/string/suffix-array.hpp\"\n\nclass SuffixArray\
+    \ {\nprivate:\n    int n;\n    std::string s; // internal is 1-index, access is\
+    \ 0-indexed.\n    SparseTable<MinInfo<int>> ST;\n    std::vector<int> sa, rnk,\
+    \ old, h;\n\npublic:\n    SuffixArray(std::string S) : n(S.size()), s(S) {\n \
+    \       const int m = n + 1;\n        s.insert(s.begin(), ' '), sa.assign(m, 0);\n\
+    \        rnk.assign(m, 0), old.assign(m, 0), h.assign(m, 0);\n        for (int\
+    \ i = 1; i <= n; i++) sa[i] = i, rnk[i] = s[i];\n\n        for (int w = 1; w <\
+    \ n; w *= 2) {\n            std::copy(rnk.begin(), rnk.end(), old.begin());\n\
     \            auto cmp = [&](int x, int y) {\n                if (old[x] != old[y])\
     \ return old[x] < old[y];\n                if (y + w > n) return false;\n    \
     \            if (x + w > n) return true;\n                return old[x + w] <\
@@ -96,7 +98,7 @@ data:
   isVerificationFile: false
   path: src/alfred/string/suffix-array.hpp
   requiredBy: []
-  timestamp: '2025-03-21 23:00:50+08:00'
+  timestamp: '2025-03-22 09:26:13+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-aizu-string/aizu-suffix-array.test.cpp

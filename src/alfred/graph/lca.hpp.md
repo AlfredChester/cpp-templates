@@ -36,11 +36,12 @@ data:
     \    }\n    inline T query(int l, int r) { // 0 based\n        if (l > r) return\
     \ T();\n        int w = std::__lg(r - l + 1);\n        return ST[l][w] + ST[r\
     \ - (1 << w) + 1][w];\n    }\n    inline T disjoint_query(int l, int r) {\n  \
-    \      T ans = T();\n        for (int i = l; i <= r; i += (1 << std::__lg(r -\
-    \ i + 1))) {\n            ans = ans + ST[i][std::__lg(r - i + 1)];\n        }\n\
-    \        return ans;\n    }\n};\n\n\n#line 6 \"src/alfred/graph/lca.hpp\"\n\n\
-    // std::vector<int> G[100010]; // requires a previous graph definition.\n\nclass\
-    \ LCAImpl {\nprivate:\n    std::vector<int> dfn, seq; // dfn and seq are (internally)\
+    \      if (l > r) return T();\n        T ans = T();\n        for (int i = std::__lg(r\
+    \ - l + 1); i >= 0; i--) {\n            if ((1 << i) <= r - l + 1) {\n       \
+    \         ans = ans + ST[l][i];\n                l += 1 << i;\n            }\n\
+    \        }\n        return ans;\n    }\n};\n\n\n#line 6 \"src/alfred/graph/lca.hpp\"\
+    \n\n// std::vector<int> G[100010]; // requires a previous graph definition.\n\n\
+    class LCAImpl {\nprivate:\n    std::vector<int> dfn, seq; // dfn and seq are (internally)\
     \ zero indexed.\n    static std::vector<int> d;\n    struct EulerTourInfo {\n\
     \        int val;\n        EulerTourInfo(void) : val(0) {}\n        EulerTourInfo(int\
     \ x) : val(x) {}\n        EulerTourInfo operator+(EulerTourInfo &x) {\n      \
@@ -74,7 +75,7 @@ data:
   isVerificationFile: false
   path: src/alfred/graph/lca.hpp
   requiredBy: []
-  timestamp: '2025-03-20 21:53:18+08:00'
+  timestamp: '2025-03-22 09:26:13+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/lca.hpp

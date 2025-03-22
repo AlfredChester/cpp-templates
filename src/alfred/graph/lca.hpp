@@ -4,8 +4,7 @@
 #include "../data_structure/sparse-table.hpp"
 #include <vector>
 
-// std::vector<int> G[100010]; // requires a previous graph definition.
-
+// requires a previous graph definition.
 class LCAImpl {
 private:
     std::vector<int> dfn, seq; // dfn and seq are (internally) zero indexed.
@@ -29,12 +28,13 @@ private:
     }
 
 public:
-    inline void init(int n) {
+    inline void init(int n, int rt = 1) {
         d.assign(n + 1, 0), dfn.assign(n + 1, 0);
-        seq.clear(), _dfs(1, 0), lca.init(seq);
+        seq.clear(), _dfs(rt, 0), lca.init(seq);
     }
     inline int LCA(int u, int v) {
-        if (u == 0 || v == 0) return u | v;
+        if (u == -1) return v;
+        if (v == -1) return u;
         if (dfn[u] > dfn[v]) std::swap(u, v);
         return lca.query(dfn[u], dfn[v]).val;
     }
@@ -43,5 +43,15 @@ public:
     }
 } LCA;
 std::vector<int> LCAImpl::d;
+
+struct LCAInfo {
+    int val;
+    LCAInfo(void) : val(-1) {}
+    template <class InitT>
+    LCAInfo(InitT x) { val = x; }
+    LCAInfo operator+(LCAInfo &x) {
+        return {LCA.LCA(val, x.val)};
+    }
+}; // for range lca.
 
 #endif // AFGR_LCA

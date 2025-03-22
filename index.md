@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: src/alfred/config/fast-io.hpp
       title: src/alfred/config/fast-io.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/config/io-sync-off.hpp
       title: src/alfred/config/io-sync-off.hpp
   - name: src/alfred/data_structure
@@ -83,7 +83,7 @@ data:
       title: src/alfred/math/utils.hpp
   - name: src/alfred/string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/string/hashed-string.hpp
       title: src/alfred/string/hashed-string.hpp
     - icon: ':heavy_check_mark:'
@@ -380,7 +380,7 @@ data:
   verificationCategories:
   - name: verify/verify-aizu-string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
       title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
     - icon: ':heavy_check_mark:'

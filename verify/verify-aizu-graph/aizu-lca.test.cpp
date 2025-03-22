@@ -1,5 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
+#include "../../src/alfred/config/fast-io.hpp"
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include <iostream>
 
@@ -9,18 +10,19 @@ std::vector<int> G[100010];
 #include "../../src/alfred/graph/lca.hpp"
 
 int main(int argc, char const *argv[]) {
-    optimizeIO(), std::cin >> n;
+    optimizeIO(), fast_read(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> k;
+        fast_read(k);
         while (k--) {
-            std::cin >> c;
+            fast_read(c);
             G[i].push_back(c);
         }
     }
-    LCA.init(n, 0), std::cin >> q;
+    LCA.init(n, 0);
+    fast_read(q);
     while (q--) {
-        std::cin >> u >> v;
-        std::cout << LCA.LCA(u, v) << '\n';
+        fast_read(u, v);
+        writeln(LCA.LCA(u, v));
     }
     return 0;
 }

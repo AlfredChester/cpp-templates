@@ -2,21 +2,33 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: src/alfred/config/io-sync-off.hpp
+    title: src/alfred/config/io-sync-off.hpp
+  - icon: ':heavy_check_mark:'
     path: src/alfred/data_structure/sparse-table.hpp
     title: src/alfred/data_structure/sparse-table.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/verify-aizu-graph/aizu-lca.test.cpp
-    title: verify/verify-aizu-graph/aizu-lca.test.cpp
+    path: src/alfred/graph/lca.hpp
+    title: src/alfred/graph/lca.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"src/alfred/graph/lca.hpp\"\n\n\n\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\
-    \n\n\n\n#include <limits>\n#include <numeric>\n#include <vector>\n\ntemplate <class\
-    \ T>\nstruct MaxInfo {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min();\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
+    links:
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
+  bundledCode: "#line 1 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\n\n#line\
+    \ 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\ninline\
+    \ void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
+    \ std::cout.tie(NULL);\n}\n#line 5 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
+    \n\nint n, k, c, q, u, v;\nstd::vector<int> G[100010];\n\n#line 1 \"src/alfred/graph/lca.hpp\"\
+    \n\n\n\n#line 1 \"src/alfred/data_structure/sparse-table.hpp\"\n\n\n\n#line 7\
+    \ \"src/alfred/data_structure/sparse-table.hpp\"\n\ntemplate <class T>\nstruct\
+    \ MaxInfo {\n    T val;\n    MaxInfo(void) { val = std::numeric_limits<T>::min();\
     \ }\n    template <class InitT>\n    MaxInfo(InitT x) { val = x; }\n    MaxInfo\
     \ operator+(MaxInfo &x) {\n        return {std::max(val, x.val)};\n    }\n};\n\
     template <class T>\nstruct MinInfo {\n    T val;\n    MinInfo(void) { val = std::numeric_limits<T>::max();\
@@ -61,40 +73,36 @@ data:
     \    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\nstruct LCAInfo {\n    int val;\n\
     \    LCAInfo(void) : val(-1) {}\n    template <class InitT>\n    LCAInfo(InitT\
     \ x) { val = x; }\n    LCAInfo operator+(LCAInfo &x) {\n        return {LCA.LCA(val,\
-    \ x.val)};\n    }\n}; // for range lca.\n\n\n"
-  code: "#ifndef AFGR_LCA\n#define AFGR_LCA\n\n#include \"../data_structure/sparse-table.hpp\"\
-    \n#include <vector>\n\n// requires a previous graph definition.\nclass LCAImpl\
-    \ {\nprivate:\n    std::vector<int> dfn, seq; // dfn and seq are (internally)\
-    \ zero indexed.\n    static std::vector<int> d;\n    struct EulerTourInfo {\n\
-    \        int val;\n        EulerTourInfo(void) : val(0) {}\n        EulerTourInfo(int\
-    \ x) : val(x) {}\n        EulerTourInfo operator+(EulerTourInfo &x) {\n      \
-    \      return d[val] < d[x.val] ? val : x.val;\n        }\n    };\n    SparseTable<EulerTourInfo>\
-    \ lca; // 0 indexed.\n    inline void _dfs(int x, int fa) {\n        dfn[x] =\
-    \ seq.size();\n        seq.push_back(x), d[x] = d[fa] + 1;\n        for (auto\
-    \ &y : G[x]) {\n            if (y == fa) continue;\n            _dfs(y, x), seq.push_back(x);\n\
-    \        }\n    }\n\npublic:\n    inline void init(int n, int rt = 1) {\n    \
-    \    d.assign(n + 1, 0), dfn.assign(n + 1, 0);\n        seq.clear(), _dfs(rt,\
-    \ 0), lca.init(seq);\n    }\n    inline int LCA(int u, int v) {\n        if (u\
-    \ == -1) return v;\n        if (v == -1) return u;\n        if (dfn[u] > dfn[v])\
-    \ std::swap(u, v);\n        return lca.query(dfn[u], dfn[v]).val;\n    }\n   \
-    \ inline int dis(int u, int v) {\n        return d[u] + d[v] - 2 * d[LCA(u, v)];\n\
-    \    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\nstruct LCAInfo {\n    int val;\n\
-    \    LCAInfo(void) : val(-1) {}\n    template <class InitT>\n    LCAInfo(InitT\
-    \ x) { val = x; }\n    LCAInfo operator+(LCAInfo &x) {\n        return {LCA.LCA(val,\
-    \ x.val)};\n    }\n}; // for range lca.\n\n#endif // AFGR_LCA\n"
+    \ x.val)};\n    }\n}; // for range lca.\n\n\n#line 10 \"verify/verify-aizu-graph/aizu-lca.test.cpp\"\
+    \n\nint main(int argc, char const *argv[]) {\n    optimizeIO(), std::cin >> n;\n\
+    \    for (int i = 0; i < n; i++) {\n        std::cin >> k;\n        while (k--)\
+    \ {\n            std::cin >> c;\n            G[i].push_back(c);\n        }\n \
+    \   }\n    LCA.init(n, 0), std::cin >> q;\n    while (q--) {\n        std::cin\
+    \ >> u >> v;\n        std::cout << LCA.LCA(u, v) << '\\n';\n    }\n    return\
+    \ 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n\n#include \"../../src/alfred/config/io-sync-off.hpp\"\n#include <iostream>\n\
+    \nint n, k, c, q, u, v;\nstd::vector<int> G[100010];\n\n#include \"../../src/alfred/graph/lca.hpp\"\
+    \n\nint main(int argc, char const *argv[]) {\n    optimizeIO(), std::cin >> n;\n\
+    \    for (int i = 0; i < n; i++) {\n        std::cin >> k;\n        while (k--)\
+    \ {\n            std::cin >> c;\n            G[i].push_back(c);\n        }\n \
+    \   }\n    LCA.init(n, 0), std::cin >> q;\n    while (q--) {\n        std::cin\
+    \ >> u >> v;\n        std::cout << LCA.LCA(u, v) << '\\n';\n    }\n    return\
+    \ 0;\n}\n"
   dependsOn:
+  - src/alfred/config/io-sync-off.hpp
+  - src/alfred/graph/lca.hpp
   - src/alfred/data_structure/sparse-table.hpp
-  isVerificationFile: false
-  path: src/alfred/graph/lca.hpp
+  isVerificationFile: true
+  path: verify/verify-aizu-graph/aizu-lca.test.cpp
   requiredBy: []
   timestamp: '2025-03-22 22:16:15+08:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/verify-aizu-graph/aizu-lca.test.cpp
-documentation_of: src/alfred/graph/lca.hpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: verify/verify-aizu-graph/aizu-lca.test.cpp
 layout: document
 redirect_from:
-- /library/src/alfred/graph/lca.hpp
-- /library/src/alfred/graph/lca.hpp.html
-title: src/alfred/graph/lca.hpp
+- /verify/verify/verify-aizu-graph/aizu-lca.test.cpp
+- /verify/verify/verify-aizu-graph/aizu-lca.test.cpp.html
+title: verify/verify-aizu-graph/aizu-lca.test.cpp
 ---

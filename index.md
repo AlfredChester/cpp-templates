@@ -58,7 +58,7 @@ data:
     - icon: ':warning:'
       path: src/alfred/graph/graph.hpp
       title: src/alfred/graph/graph.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/alfred/graph/lca.hpp
       title: src/alfred/graph/lca.hpp
   - name: src/alfred/math
@@ -378,6 +378,11 @@ data:
       path: src/watashi/union-find.hpp
       title: src/watashi/union-find.hpp
   verificationCategories:
+  - name: verify/verify-aizu-graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/verify-aizu-graph/aizu-lca.test.cpp
+      title: verify/verify-aizu-graph/aizu-lca.test.cpp
   - name: verify/verify-aizu-string
     pages:
     - icon: ':heavy_check_mark:'

@@ -31,7 +31,7 @@ data:
     \        }\n    }\n    inline int get_hash(int l, int r) {\n        return (h[r\
     \ + 1] - 1ll * h[l] * pow[r - l + 1] % mod + mod) % mod;\n    }\n    inline bool\
     \ check_same(int l1, int r1, int l2, int r2) {\n        return get_hash(l1, r1)\
-    \ == get_hash(l2, r2);\n    }\n};\nstruct HashedString {\n    SingleHash<998244353,\
+    \ == get_hash(l2, r2);\n    }\n};\n\nstruct HashedString {\n    SingleHash<998244353,\
     \ 477> H1;\n    SingleHash<1000000007, 233> H2;\n    HashedString(void) = default;\n\
     \    HashedString(std::string s) : H1(s), H2(s) {}\n    inline void init(std::string\
     \ s) {\n        H1.init(s), H2.init(s);\n    }\n    std::pair<int, int> get_hash(int\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 21:54:53+08:00'
+  timestamp: '2025-03-22 22:03:01+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-aizu-string/aizu-hashed-string.test.cpp

@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/verify-aizu-graph/aizu-lca.test.cpp
+    title: verify/verify-aizu-graph/aizu-lca.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
     title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   - icon: ':heavy_check_mark:'
@@ -64,6 +67,7 @@ data:
   - verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
   - verify/verify-yosupo-ds/yosupo-bitset.test.cpp
   - verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
+  - verify/verify-aizu-graph/aizu-lca.test.cpp
 documentation_of: src/alfred/config/io-sync-off.hpp
 layout: document
 redirect_from:

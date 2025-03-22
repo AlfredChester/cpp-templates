@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/graph/lca.hpp
     title: src/alfred/graph/lca.hpp
   - icon: ':heavy_check_mark:'
     path: src/alfred/string/suffix-array.hpp
     title: src/alfred/string/suffix-array.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/verify-aizu-graph/aizu-lca.test.cpp
+    title: verify/verify-aizu-graph/aizu-lca.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/verify-aizu-string/aizu-suffix-array.test.cpp
     title: verify/verify-aizu-string/aizu-suffix-array.test.cpp
@@ -89,6 +92,7 @@ data:
   verifiedWith:
   - verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - verify/verify-yosupo-ds/yosupo-sparse-table.test.cpp
+  - verify/verify-aizu-graph/aizu-lca.test.cpp
 documentation_of: src/alfred/data_structure/sparse-table.hpp
 layout: document
 redirect_from:

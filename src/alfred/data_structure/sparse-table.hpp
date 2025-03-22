@@ -69,9 +69,13 @@ public:
         return ST[l][w] + ST[r - (1 << w) + 1][w];
     }
     inline T disjoint_query(int l, int r) {
+        if (l > r) return T();
         T ans = T();
-        for (int i = l; i <= r; i += (1 << std::__lg(r - i + 1))) {
-            ans = ans + ST[i][std::__lg(r - i + 1)];
+        for (int i = std::__lg(r - l + 1); i >= 0; i--) {
+            if ((1 << i) <= r - l + 1) {
+                ans = ans + ST[l][i];
+                l += 1 << i;
+            }
         }
         return ans;
     }

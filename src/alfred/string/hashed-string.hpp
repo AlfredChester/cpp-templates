@@ -29,11 +29,7 @@ struct HashedString {
     SingleHash<1000000007, 233> H2;
     HashedString(void) = default;
     HashedString(std::string s) : H1(s), H2(s) {}
-    HashedString(std::string &&s) : H1(s), H2(s) {}
     inline void init(std::string s) {
-        H1.init(s), H2.init(s);
-    }
-    inline void init(std::string &&s) {
         H1.init(s), H2.init(s);
     }
     std::pair<int, int> get_hash(int l, int r) { // not recommended.

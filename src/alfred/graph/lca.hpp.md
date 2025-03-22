@@ -53,7 +53,8 @@ data:
     \ + 1, 0), dfn.assign(n + 1, 0);\n        seq.clear(), _dfs(1, 0), lca.init(seq);\n\
     \    }\n    inline int LCA(int u, int v) {\n        if (u == 0 || v == 0) return\
     \ u | v;\n        if (dfn[u] > dfn[v]) std::swap(u, v);\n        return lca.query(dfn[u],\
-    \ dfn[v]).val;\n    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\n\n"
+    \ dfn[v]).val;\n    }\n    inline int dis(int u, int v) {\n        return d[u]\
+    \ + d[v] - 2 * d[LCA(u, v)];\n    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\n\n"
   code: "#ifndef AFGR_LCA\n#define AFGR_LCA\n\n#include \"../data_structure/sparse-table.hpp\"\
     \n#include <vector>\n\n// std::vector<int> G[100010]; // requires a previous graph\
     \ definition.\n\nclass LCAImpl {\nprivate:\n    std::vector<int> dfn, seq; //\
@@ -69,13 +70,14 @@ data:
     \    seq.clear(), _dfs(1, 0), lca.init(seq);\n    }\n    inline int LCA(int u,\
     \ int v) {\n        if (u == 0 || v == 0) return u | v;\n        if (dfn[u] >\
     \ dfn[v]) std::swap(u, v);\n        return lca.query(dfn[u], dfn[v]).val;\n  \
-    \  }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\n#endif // AFGR_LCA"
+    \  }\n    inline int dis(int u, int v) {\n        return d[u] + d[v] - 2 * d[LCA(u,\
+    \ v)];\n    }\n} LCA;\nstd::vector<int> LCAImpl::d;\n\n#endif // AFGR_LCA"
   dependsOn:
   - src/alfred/data_structure/sparse-table.hpp
   isVerificationFile: false
   path: src/alfred/graph/lca.hpp
   requiredBy: []
-  timestamp: '2025-03-22 09:26:13+08:00'
+  timestamp: '2025-03-22 21:51:57+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/graph/lca.hpp

@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/alfred/string/hashed-string.hpp
     title: src/alfred/string/hashed-string.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0528
@@ -22,7 +22,7 @@ data:
     \n\n#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\n\
     inline void optimizeIO(void) {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(NULL),\
     \ std::cout.tie(NULL);\n}\n#line 1 \"src/alfred/string/hashed-string.hpp\"\n\n\
-    \n\n#line 5 \"src/alfred/string/hashed-string.hpp\"\n\ntemplate <int mod, int\
+    \n\n#line 6 \"src/alfred/string/hashed-string.hpp\"\n\ntemplate <int mod, int\
     \ seed>\nstruct SingleHash {\n    int n;\n    std::vector<int> pow, h;\n    SingleHash(void)\
     \ = default;\n    SingleHash(std::string &s) { init(s); }\n    inline void init(std::string\
     \ &s) {\n        n = s.size(), h.assign(n + 2, 0), pow.assign(n + 2, 1);\n   \
@@ -33,14 +33,22 @@ data:
     \ check_same(int l1, int r1, int l2, int r2) {\n        return get_hash(l1, r1)\
     \ == get_hash(l2, r2);\n    }\n};\nstruct HashedString {\n    SingleHash<998244353,\
     \ 477> H1;\n    SingleHash<1000000007, 233> H2;\n    HashedString(void) = default;\n\
-    \    HashedString(std::string s) : H1(s), H2(s) {}\n    inline void init(std::string\
-    \ s) {\n        H1.init(s), H2.init(s);\n    }\n    std::pair<int, int> get_hash(int\
-    \ l, int r) { // not recommended.\n        return {H1.get_hash(l, r), H2.get_hash(l,\
-    \ r)};\n    }\n    // caution: index begins with zero.\n    // If index beginning\
-    \ with one is wanted, use s = ' ' + s\n    inline bool check_same(int l1, int\
-    \ r1, int l2, int r2) {\n        return H1.check_same(l1, r1, l2, r2) && H2.check_same(l1,\
+    \    HashedString(std::string s) : H1(s), H2(s) {}\n    HashedString(std::string\
+    \ &&s) : H1(s), H2(s) {}\n    inline void init(std::string s) {\n        H1.init(s),\
+    \ H2.init(s);\n    }\n    inline void init(std::string &&s) {\n        H1.init(s),\
+    \ H2.init(s);\n    }\n    std::pair<int, int> get_hash(int l, int r) { // not\
+    \ recommended.\n        return {H1.get_hash(l, r), H2.get_hash(l, r)};\n    }\n\
+    \    // caution: index begins with zero.\n    // If index beginning with one is\
+    \ wanted, use s = ' ' + s\n    inline bool check_same(int l1, int r1, int l2,\
+    \ int r2) {\n        return H1.check_same(l1, r1, l2, r2) && H2.check_same(l1,\
     \ r1, l2, r2);\n    }\n    inline bool check_period(int l, int r, int p) {\n \
-    \       return check_same(l, r - p, l + p, r);\n    }\n};\n\n\n#line 6 \"verify/verify-aizu-string/aizu-hashed-string.test.cpp\"\
+    \       return check_same(l, r - p, l + p, r);\n    }\n};\n\nstruct PalindromeCheck\
+    \ {\n    int n;\n    HashedString H1, H2;\n    PalindromeCheck(void) = default;\n\
+    \    PalindromeCheck(std::string s) : n(s.size()), H1(s) {\n        std::reverse(s.begin(),\
+    \ s.end()), H2.init(s);\n    }\n    inline void init(std::string s) {\n      \
+    \  n = s.size(), H1.init(s);\n        std::reverse(s.begin(), s.end()), H2.init(s);\n\
+    \    }\n    inline bool check(int l, int r) {\n        return H1.get_hash(l, r)\
+    \ == H2.get_hash(n - 1 - r, n - 1 - l);\n    }\n};\n\n\n#line 6 \"verify/verify-aizu-string/aizu-hashed-string.test.cpp\"\
     \n\nstd::string S, T;\n\ninline void solve(void) {\n    HashedString H(S + T);\n\
     \    int ans = 0, L, R, mid;\n    int n = S.size(), m = T.size();\n    for (int\
     \ i = 0; i < n; i++) {\n        for (int j = 0; j < m; j++) {\n            if\
@@ -71,8 +79,8 @@ data:
   isVerificationFile: true
   path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   requiredBy: []
-  timestamp: '2025-03-21 21:25:33+08:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-03-22 21:51:57+08:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/verify-aizu-string/aizu-hashed-string.test.cpp
 layout: document

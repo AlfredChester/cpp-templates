@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/verify-aizu-string/aizu-hashed-string.test.cpp
     title: verify/verify-aizu-string/aizu-hashed-string.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,9 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
     title: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\
@@ -51,7 +51,7 @@ data:
   path: src/alfred/config/io-sync-off.hpp
   requiredBy: []
   timestamp: '2025-03-17 21:42:09+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - verify/verify-aizu-string/aizu-hashed-string.test.cpp

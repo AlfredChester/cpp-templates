@@ -63,7 +63,8 @@ data:
     \     ModInt x = a;\n        a -= 1;\n        return x;\n    }\n    friend bool\
     \ operator==(ModInt a, ModInt b) { return a.x == b.x; }\n    friend bool operator!=(ModInt\
     \ a, ModInt b) { return !(a == b); }\n};\ntemplate <int mod>\ninline void __print(ModInt<mod>\
-    \ x) {\n    std::cerr << x;\n}\n\n#endif // AFMT_MOD_INT\n#line 7 \"verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp\"\
+    \ x) {\n    std::cerr << x;\n}\n\nusing m998 = ModInt<998244353>;\nusing m107\
+    \ = ModInt<1000000007>;\n\n#endif // AFMT_MOD_INT\n#line 7 \"verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp\"\
     \n\nint n, q, opt, u, v, x;\nusing mint = ModInt<998244353>;\n\nint main(int argc,\
     \ char const *argv[]) {\n    optimizeIO(), std::cin >> n >> q;\n\n    WeightedDSU<mint>\
     \ dsu(n);\n\n    while (q--) {\n        std::cin >> opt >> u >> v;\n        if\
@@ -88,7 +89,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
   requiredBy: []
-  timestamp: '2025-03-18 23:35:37+08:00'
+  timestamp: '2025-03-22 17:56:06+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp

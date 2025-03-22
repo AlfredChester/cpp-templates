@@ -76,11 +76,11 @@ data:
       path: src/alfred/math/mod-int.hpp
       title: src/alfred/math/mod-int.hpp
     - icon: ':warning:'
-      path: src/alfred/math/prime.hpp
-      title: src/alfred/math/prime.hpp
-    - icon: ':warning:'
       path: src/alfred/math/speed-of-light-power.hpp
       title: src/alfred/math/speed-of-light-power.hpp
+    - icon: ':warning:'
+      path: src/alfred/math/utils.hpp
+      title: src/alfred/math/utils.hpp
   - name: src/alfred/string
     pages:
     - icon: ':heavy_check_mark:'

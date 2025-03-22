@@ -43,7 +43,8 @@ data:
     \     ModInt x = a;\n        a -= 1;\n        return x;\n    }\n    friend bool\
     \ operator==(ModInt a, ModInt b) { return a.x == b.x; }\n    friend bool operator!=(ModInt\
     \ a, ModInt b) { return !(a == b); }\n};\ntemplate <int mod>\ninline void __print(ModInt<mod>\
-    \ x) {\n    std::cerr << x;\n}\n\n#endif // AFMT_MOD_INT\n"
+    \ x) {\n    std::cerr << x;\n}\n\nusing m998 = ModInt<998244353>;\nusing m107\
+    \ = ModInt<1000000007>;\n\n#endif // AFMT_MOD_INT\n"
   code: "\n\n#ifndef AFMT_MOD_INT\n#define AFMT_MOD_INT\n\n#include <iostream>\n\n\
     template <int mod>\ninline int down(int x) { return x >= mod ? x - mod : x; }\n\
     template <int mod>\nstruct ModInt {\n    int x;\n    ModInt(void) = default;\n\
@@ -70,14 +71,15 @@ data:
     \       a -= 1;\n        return x;\n    }\n    friend bool operator==(ModInt a,\
     \ ModInt b) { return a.x == b.x; }\n    friend bool operator!=(ModInt a, ModInt\
     \ b) { return !(a == b); }\n};\ntemplate <int mod>\ninline void __print(ModInt<mod>\
-    \ x) {\n    std::cerr << x;\n}\n\n#endif // AFMT_MOD_INT\n"
+    \ x) {\n    std::cerr << x;\n}\n\nusing m998 = ModInt<998244353>;\nusing m107\
+    \ = ModInt<1000000007>;\n\n#endif // AFMT_MOD_INT\n"
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/math/mod-int.hpp
   requiredBy:
   - src/alfred/math/lagrange.hpp
   - src/alfred/math/comb.hpp
-  timestamp: '2025-03-17 21:57:32+08:00'
+  timestamp: '2025-03-22 17:56:06+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp

@@ -41,7 +41,8 @@ data:
     \       a -= 1;\n        return x;\n    }\n    friend bool operator==(ModInt a,\
     \ ModInt b) { return a.x == b.x; }\n    friend bool operator!=(ModInt a, ModInt\
     \ b) { return !(a == b); }\n};\ntemplate <int mod>\ninline void __print(ModInt<mod>\
-    \ x) {\n    std::cerr << x;\n}\n\n#endif // AFMT_MOD_INT\n#line 5 \"src/alfred/math/comb.hpp\"\
+    \ x) {\n    std::cerr << x;\n}\n\nusing m998 = ModInt<998244353>;\nusing m107\
+    \ = ModInt<1000000007>;\n\n#endif // AFMT_MOD_INT\n#line 5 \"src/alfred/math/comb.hpp\"\
     \n#include <vector>\n\ntemplate <class mint>\nstruct Comb {\n    int n;\n    std::vector<mint>\
     \ _fac, _invfac, _inv;\n    Comb(void) : n{0}, _fac{1}, _invfac{1}, _inv{0} {}\n\
     \    Comb(int n) : Comb() { init(n); }\n    inline void init(int m) {\n      \
@@ -77,7 +78,7 @@ data:
   path: src/alfred/math/comb.hpp
   requiredBy:
   - src/alfred/math/lagrange.hpp
-  timestamp: '2025-03-17 21:57:32+08:00'
+  timestamp: '2025-03-22 17:56:06+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/math/comb.hpp

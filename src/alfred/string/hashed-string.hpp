@@ -24,6 +24,7 @@ struct SingleHash {
         return get_hash(l1, r1) == get_hash(l2, r2);
     }
 };
+
 struct HashedString {
     SingleHash<998244353, 477> H1;
     SingleHash<1000000007, 233> H2;

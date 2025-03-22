@@ -11,4 +11,14 @@ constexpr bool is_prime(long long x) {
     return true;
 }
 
+template <class T>
+inline T gcd(T a, T b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+template <class T>
+inline T lcm(T a, T b) {
+    return a / gcd(a, b) * b;
+}
+
 #endif // AFMT_PRIME

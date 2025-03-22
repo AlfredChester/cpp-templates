@@ -1,7 +1,8 @@
 #ifndef AFMT_SPEED_OF_LIGHT_POWER
 #define AFMT_SPEED_OF_LIGHT_POWER
 
-#include "prime.hpp"
+#include "utils.hpp"
+#include <cmath>
 #include <vector>
 
 template <int base, int mod>

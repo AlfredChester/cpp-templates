@@ -52,4 +52,7 @@ inline void __print(ModInt<mod> x) {
     std::cerr << x;
 }
 
+using m998 = ModInt<998244353>;
+using m107 = ModInt<1000000007>;
+
 #endif // AFMT_MOD_INT

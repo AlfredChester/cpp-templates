@@ -22,8 +22,8 @@
 #include "math/computation-geometry.hpp"
 #include "math/lagrange.hpp"
 #include "math/mod-int.hpp"
-#include "math/prime.hpp"
 #include "math/speed-of-light-power.hpp"
+#include "math/utils.hpp"
 
 #include "string/hashed-string.hpp"
 #include "string/suffix-array.hpp"

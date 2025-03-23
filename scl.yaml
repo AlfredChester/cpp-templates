@@ -1,16 +1,10 @@
 - name: 比赛配置 and 奇技淫巧
   dir: alfred/config/
   files:
-    - title: 多组数据代码模板
-      fname: template.hpp
     - title: 快读快写
       fname: fast-io.hpp
     - title: 关闭流与 C 风格输入输出的同步
       fname: io-sync-off.hpp
-    - title: .clang-format
-      fname: .clang-format
-    - title: debug.h
-      fname: debug.h
     - title: 火车头
       fname: optimize-header.h
     - title: c-cpp-properties.json
@@ -79,8 +73,8 @@
   files:
     - title: 模块化基本图
       fname: graph.hpp
-    - title: O(1) LCA
-      fname: lca.hpp
+    # - title: O(1) LCA
+    #   fname: lca.hpp
 - name: jiangly代码库(备用，侵权请提出issue)
   dir: jiangly/
   files:

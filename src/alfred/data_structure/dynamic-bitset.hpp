@@ -1,6 +1,7 @@
 #ifndef AFDS_DYNAMIC_BITSET
 #define AFDS_DYNAMIC_BITSET
 
+#include <limits>
 #include <numeric>
 #include <vector>
 
@@ -10,6 +11,7 @@ class DynamicBitset {
 private:
     using Word_t = unsigned long long;
     constexpr static int bw = sizeof(Word_t) * 8;
+    constexpr static Word_t WORD_MAX = std::numeric_limits<Word_t>::max();
     size_t n, cnt;
     std::vector<Word_t> bits;
 
@@ -42,12 +44,16 @@ public:
     inline int pre(size_t i, bool contain = false, bool val = true) {
         Word_t cur = bits[i / bw];
         for (int j = (int)(i % bw) - (!contain); j >= 0; j--) {
-            if (cur >> j & 1) return i - (i % bw - j);
+            if ((cur >> j & 1) == val) {
+                return i - (i % bw - j);
+            }
         }
         for (int j = i / bw - 1; j >= 0; j--) {
-            if (bits[j] == 0) continue;
+            if (bits[j] == (val ? 0 : WORD_MAX)) continue;
             for (int k = bw - 1; k >= 0; k--) {
-                if (bits[j] >> k & 1) return j * bw + k;
+                if ((bits[j] >> k & 1) == val) {
+                    return j * bw + k;
+                }
             }
         }
         return -1;
@@ -55,13 +61,17 @@ public:
     inline int suf(size_t i, bool contain = false, bool val = true) {
         Word_t cur = bits[i / bw];
         for (int j = i % bw + (!contain); j < bw; j++) {
-            if (cur >> j & 1) return i + (j - i % bw);
+            if ((cur >> j & 1) == val) {
+                return i + (j - i % bw);
+            }
         }
         const int len = calc_len();
         for (int j = i / bw + 1; j < len; j++) {
-            if (bits[j] == 0) continue;
+            if (bits[j] == (val ? 0 : WORD_MAX)) continue;
             for (int k = 0; k < bw; k++) {
-                if (bits[j] >> k & 1) return j * bw + k;
+                if ((bits[j] >> k & 1) == val) {
+                    return j * bw + k;
+                }
             }
         }
         return -1;

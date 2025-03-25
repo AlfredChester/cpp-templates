@@ -2,7 +2,6 @@
 #define AFMT_LAGRANGE
 
 #include "comb.hpp"
-#include "mod-int.hpp"
 #include <cassert>
 #include <vector>
 
@@ -61,7 +60,7 @@ std::vector<mint> find_coefficient(
     for (i = 0, F[0] = 1; i < n; i++) {
         for (int j = 0; j <= i; j++) nF[j] = 0;
         for (int j = 0; j <= i + 1; j++) {
-            nF[j] += F[j] * (-x[j]);
+            nF[j] += F[j] * (-x[i]);
             if (j) nF[j] += F[j - 1];
         }
         F = nF;
@@ -70,7 +69,7 @@ std::vector<mint> find_coefficient(
         std::vector<mint> res(n), G = F;
         for (int i = n; i > 0; i--) {
             res[i - 1] = G[i];
-            G[i - 1] -= G[i] * xi;
+            G[i - 1] += G[i] * xi;
         }
         assert(G[0] == 0);
         return res;

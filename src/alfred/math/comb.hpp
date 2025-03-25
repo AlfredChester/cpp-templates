@@ -1,7 +1,6 @@
 #ifndef AFMT_COMB
 #define AFMT_COMB
 
-#include "mod-int.hpp"
 #include <vector>
 
 template <class mint>

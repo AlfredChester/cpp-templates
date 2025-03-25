@@ -3,11 +3,11 @@
 
 #include "comb.hpp"
 #include "mod-int.hpp"
+#include <cassert>
 #include <vector>
 
-using mint = ModInt<998244353>;
-
-inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {
+template <class mint>
+inline mint lagrange(std::vector<mint> x, std::vector<mint> y, mint k) {
     mint ans = 0, cur;
     const int n = x.size();
     for (int i = 0; i < n; i++) {
@@ -20,9 +20,11 @@ inline mint lagrange(std::vector<mint> &x, std::vector<mint> &y, mint k) {
     }
     return ans;
 }
+
 // y[0] is placeholder.
 // If for all integer x_i in [1, n], we have f(x_i) = y_i (mod p), find f(k) mod p.
-inline mint cont_lagrange(std::vector<mint> &y, mint k) {
+template <class mint>
+inline mint cont_lagrange(std::vector<mint> y, mint k) {
     mint ans = 0;
     const int n = y.size() - 1;
     Comb<mint> comb(n);
@@ -36,7 +38,9 @@ inline mint cont_lagrange(std::vector<mint> &y, mint k) {
     }
     return ans;
 }
+
 // find 1^k + 2^k + ... + n^k. in O(k log k) of time complexity.
+template <class mint>
 inline mint sum_of_kth_powers(mint n, int k) {
     mint sum = 0;
     std::vector<mint> Y{0};
@@ -44,6 +48,45 @@ inline mint sum_of_kth_powers(mint n, int k) {
         Y.push_back(sum += (mint)i ^ k);
     }
     return cont_lagrange(Y, n);
+}
+
+template <class mint>
+std::vector<mint> find_coefficient(
+    std::vector<mint> x, std::vector<mint> y
+) {
+    // F(k) = \prod (k - x_i): n degree, n + 1 coefficients.
+    int n = x.size(), i;
+    assert(n == (int)y.size());
+    std::vector<mint> F(n + 1), nF(n + 1);
+    for (i = 0, F[0] = 1; i < n; i++) {
+        for (int j = 0; j <= i; j++) nF[j] = 0;
+        for (int j = 0; j <= i + 1; j++) {
+            nF[j] += F[j] * (-x[j]);
+            if (j) nF[j] += F[j - 1];
+        }
+        F = nF;
+    }
+    auto div = [&](mint xi) {
+        std::vector<mint> res(n), G = F;
+        for (int i = n; i > 0; i--) {
+            res[i - 1] = G[i];
+            G[i - 1] -= G[i] * xi;
+        }
+        assert(G[0] == 0);
+        return res;
+    };
+    std::vector<mint> ans(n);
+    for (int i = 0; i < n; i++) {
+        mint c = y[i];
+        for (int j = 0; j < n; j++) {
+            if (i != j) c /= x[i] - x[j];
+        }
+        nF = div(x[i]);
+        for (int j = 0; j < n; j++) {
+            ans[j] += c * nF[j];
+        }
+    }
+    return ans;
 }
 
 #endif // AFMT_LAGRANGE

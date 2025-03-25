@@ -8,16 +8,18 @@
 template <int mod>
 inline int down(int x) { return x >= mod ? x - mod : x; }
 template <int mod>
+inline int up(int x) { return x < 0 ? x + mod : x; }
+template <int mod>
 struct ModInt {
     int x;
     ModInt(void) = default;
-    ModInt(int x) : x(x) {}
+    ModInt(int x) : x(up<mod>(x)) {}
     ModInt(long long x) : x(x % mod) {}
     friend std::istream &operator>>(std::istream &in, ModInt &a) { return in >> a.x; }
     friend std::ostream &operator<<(std::ostream &out, ModInt a) { return out << a.x; }
     friend ModInt operator+(ModInt a, ModInt b) { return down<mod>(a.x + b.x); }
     friend ModInt operator-(ModInt a, ModInt b) { return down<mod>(a.x - b.x + mod); }
-    friend ModInt operator*(ModInt a, ModInt b) { return (long long)a.x * b.x % mod; }
+    friend ModInt operator*(ModInt a, ModInt b) { return (long long)a.x * b.x; }
     friend ModInt operator/(ModInt a, ModInt b) { return a * ~b; }
     friend ModInt operator^(ModInt a, long long b) {
         ModInt ans = 1;

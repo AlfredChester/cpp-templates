@@ -1,13 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: src/alfred/math/comb.hpp
-    title: src/alfred/math/comb.hpp
-  - icon: ':warning:'
-    path: src/alfred/math/lagrange.hpp
-    title: src/alfred/math/lagrange.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
@@ -77,9 +71,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/math/mod-int.hpp
-  requiredBy:
-  - src/alfred/math/lagrange.hpp
-  - src/alfred/math/comb.hpp
+  requiredBy: []
   timestamp: '2025-03-25 20:32:19+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -39,14 +39,15 @@ data:
     \ x, int y) {\n        return find(x), find(y), w[y] - w[x];\n    }\n};\n\n\n\
     #line 1 \"src/alfred/math/mod-int.hpp\"\n\n\n#ifndef AFMT_MOD_INT\n#define AFMT_MOD_INT\n\
     \n#include <iostream>\n\ntemplate <int mod>\ninline int down(int x) { return x\
-    \ >= mod ? x - mod : x; }\ntemplate <int mod>\nstruct ModInt {\n    int x;\n \
-    \   ModInt(void) = default;\n    ModInt(int x) : x(x) {}\n    ModInt(long long\
-    \ x) : x(x % mod) {}\n    friend std::istream &operator>>(std::istream &in, ModInt\
+    \ >= mod ? x - mod : x; }\ntemplate <int mod>\ninline int up(int x) { return x\
+    \ < 0 ? x + mod : x; }\ntemplate <int mod>\nstruct ModInt {\n    int x;\n    ModInt(void)\
+    \ = default;\n    ModInt(int x) : x(up<mod>(x)) {}\n    ModInt(long long x) :\
+    \ x(x % mod) {}\n    friend std::istream &operator>>(std::istream &in, ModInt\
     \ &a) { return in >> a.x; }\n    friend std::ostream &operator<<(std::ostream\
     \ &out, ModInt a) { return out << a.x; }\n    friend ModInt operator+(ModInt a,\
     \ ModInt b) { return down<mod>(a.x + b.x); }\n    friend ModInt operator-(ModInt\
     \ a, ModInt b) { return down<mod>(a.x - b.x + mod); }\n    friend ModInt operator*(ModInt\
-    \ a, ModInt b) { return (long long)a.x * b.x % mod; }\n    friend ModInt operator/(ModInt\
+    \ a, ModInt b) { return (long long)a.x * b.x; }\n    friend ModInt operator/(ModInt\
     \ a, ModInt b) { return a * ~b; }\n    friend ModInt operator^(ModInt a, long\
     \ long b) {\n        ModInt ans = 1;\n        for (; b > 0; b >>= 1, a *= a)\n\
     \            if (b & 1) ans *= a;\n        return ans;\n    }\n    friend ModInt\
@@ -89,7 +90,7 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
   requiredBy: []
-  timestamp: '2025-03-22 17:56:06+08:00'
+  timestamp: '2025-03-25 20:32:19+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp

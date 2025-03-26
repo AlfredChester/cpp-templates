@@ -26,15 +26,15 @@ data:
     \        return _inv[m];\n    }\n    inline mint binom(int n, int m) {\n     \
     \   if (n < m || m < 0) return 0;\n        return fac(n) * invfac(m) * invfac(n\
     \ - m);\n    }\n};\n\n\n#line 5 \"src/alfred/math/lagrange.hpp\"\n#include <cassert>\n\
-    #line 7 \"src/alfred/math/lagrange.hpp\"\n\ntemplate <class mint>\ninline mint\
-    \ lagrange(std::vector<mint> x, std::vector<mint> y, mint k) {\n    mint ans =\
-    \ 0, cur;\n    const int n = x.size();\n    for (int i = 0; i < n; i++) {\n  \
-    \      cur = y[i];\n        for (int j = 0; j < n; j++) {\n            if (j ==\
-    \ i) continue;\n            cur *= (k - x[j]) / (x[i] - x[j]);\n        }\n  \
-    \      ans += cur;\n    }\n    return ans;\n}\n\n// y[0] is placeholder.\n// If\
-    \ for all integer x_i in [1, n], we have f(x_i) = y_i (mod p), find f(k) mod p.\n\
-    template <class mint>\ninline mint cont_lagrange(std::vector<mint> y, mint k)\
-    \ {\n    mint ans = 0;\n    const int n = y.size() - 1;\n    Comb<mint> comb(n);\n\
+    #include <iostream>\n#line 8 \"src/alfred/math/lagrange.hpp\"\n\ntemplate <class\
+    \ mint>\ninline mint lagrange(std::vector<mint> x, std::vector<mint> y, mint k)\
+    \ {\n    mint ans = 0, cur;\n    const int n = x.size();\n    for (int i = 0;\
+    \ i < n; i++) {\n        cur = y[i];\n        for (int j = 0; j < n; j++) {\n\
+    \            if (j == i) continue;\n            cur *= (k - x[j]) / (x[i] - x[j]);\n\
+    \        }\n        ans += cur;\n    }\n    return ans;\n}\n\n// y[0] is placeholder.\n\
+    // If for all integer x_i in [1, n], we have f(x_i) = y_i (mod p), find f(k) mod\
+    \ p.\ntemplate <class mint>\ninline mint cont_lagrange(std::vector<mint> y, mint\
+    \ k) {\n    mint ans = 0;\n    const int n = y.size() - 1;\n    Comb<mint> comb(n);\n\
     \    std::vector<mint> pre(n + 1, 1), suf(n + 2, 1);\n    for (int i = 1; i <=\
     \ n; i++) pre[i] = pre[i - 1] * (k - i);\n    for (int i = n; i >= 1; i--) suf[i]\
     \ = suf[i + 1] * (k - i);\n    for (int i = 1; i <= n; i++) {\n        mint A\
@@ -46,57 +46,55 @@ data:
     \ {\n        Y.push_back(sum += (mint)i ^ k);\n    }\n    return cont_lagrange(Y,\
     \ n);\n}\n\ntemplate <class mint>\nstd::vector<mint> find_coefficient(\n    std::vector<mint>\
     \ x, std::vector<mint> y\n) {\n    // F(k) = \\prod (k - x_i): n degree, n + 1\
-    \ coefficients.\n    int n = x.size(), i;\n    assert(n == (int)y.size());\n \
-    \   std::vector<mint> F(n + 1), nF(n + 1);\n    for (i = 0, F[0] = 1; i < n; i++)\
-    \ {\n        for (int j = 0; j <= i; j++) nF[j] = 0;\n        for (int j = 0;\
-    \ j <= i + 1; j++) {\n            nF[j] += F[j] * (-x[i]);\n            if (j)\
-    \ nF[j] += F[j - 1];\n        }\n        F = nF;\n    }\n    auto div = [&](mint\
-    \ xi) {\n        std::vector<mint> res(n), G = F;\n        for (int i = n; i >\
-    \ 0; i--) {\n            res[i - 1] = G[i];\n            G[i - 1] += G[i] * xi;\n\
-    \        }\n        assert(G[0] == 0);\n        return res;\n    };\n    std::vector<mint>\
-    \ ans(n);\n    for (int i = 0; i < n; i++) {\n        mint c = y[i];\n       \
-    \ for (int j = 0; j < n; j++) {\n            if (i != j) c /= x[i] - x[j];\n \
-    \       }\n        nF = div(x[i]);\n        for (int j = 0; j < n; j++) {\n  \
-    \          ans[j] += c * nF[j];\n        }\n    }\n    return ans;\n}\n\n\n"
+    \ coefficients.\n    int n = x.size(), i;\n    std::vector<mint> F(n + 1);\n \
+    \   assert(n == (int)y.size());\n    for (i = 0, F[0] = 1; i < n; i++) {\n   \
+    \     for (int j = i + 1; j >= 0; j--) {\n            F[j] *= -x[i];\n       \
+    \     if (j) F[j] += F[j - 1];\n        }\n    }\n    mint delta, c;\n    std::vector<mint>\
+    \ ans(n), res(n);\n    auto div = [&](mint xi) {\n        delta = 0;\n       \
+    \ for (int i = n; i > 0; i--) {\n            res[i - 1] = (F[i] + delta);\n  \
+    \          delta = (F[i] + delta) * xi;\n        }\n        return res;\n    };\n\
+    \    for (int i = 0; i < n; i++) {\n        c = y[i];\n        for (int j = 0;\
+    \ j < n; j++) {\n            if (i != j) c /= x[i] - x[j];\n        }\n      \
+    \  div(x[i]);\n        for (int j = 0; j < n; j++) {\n            ans[j] += c\
+    \ * res[j];\n        }\n    }\n    return ans;\n}\n\n\n"
   code: "#ifndef AFMT_LAGRANGE\n#define AFMT_LAGRANGE\n\n#include \"comb.hpp\"\n#include\
-    \ <cassert>\n#include <vector>\n\ntemplate <class mint>\ninline mint lagrange(std::vector<mint>\
-    \ x, std::vector<mint> y, mint k) {\n    mint ans = 0, cur;\n    const int n =\
-    \ x.size();\n    for (int i = 0; i < n; i++) {\n        cur = y[i];\n        for\
-    \ (int j = 0; j < n; j++) {\n            if (j == i) continue;\n            cur\
-    \ *= (k - x[j]) / (x[i] - x[j]);\n        }\n        ans += cur;\n    }\n    return\
-    \ ans;\n}\n\n// y[0] is placeholder.\n// If for all integer x_i in [1, n], we\
-    \ have f(x_i) = y_i (mod p), find f(k) mod p.\ntemplate <class mint>\ninline mint\
-    \ cont_lagrange(std::vector<mint> y, mint k) {\n    mint ans = 0;\n    const int\
-    \ n = y.size() - 1;\n    Comb<mint> comb(n);\n    std::vector<mint> pre(n + 1,\
-    \ 1), suf(n + 2, 1);\n    for (int i = 1; i <= n; i++) pre[i] = pre[i - 1] * (k\
-    \ - i);\n    for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] * (k - i);\n   \
-    \ for (int i = 1; i <= n; i++) {\n        mint A = pre[i - 1] * suf[i + 1];\n\
-    \        mint B = comb.fac(i - 1) * comb.fac(n - i);\n        ans += ((n - i)\
-    \ & 1 ? -1 : 1) * y[i] * A / B;\n    }\n    return ans;\n}\n\n// find 1^k + 2^k\
-    \ + ... + n^k. in O(k log k) of time complexity.\ntemplate <class mint>\ninline\
-    \ mint sum_of_kth_powers(mint n, int k) {\n    mint sum = 0;\n    std::vector<mint>\
-    \ Y{0};\n    for (int i = 1; i <= k + 2; i++) {\n        Y.push_back(sum += (mint)i\
-    \ ^ k);\n    }\n    return cont_lagrange(Y, n);\n}\n\ntemplate <class mint>\n\
-    std::vector<mint> find_coefficient(\n    std::vector<mint> x, std::vector<mint>\
-    \ y\n) {\n    // F(k) = \\prod (k - x_i): n degree, n + 1 coefficients.\n    int\
-    \ n = x.size(), i;\n    assert(n == (int)y.size());\n    std::vector<mint> F(n\
-    \ + 1), nF(n + 1);\n    for (i = 0, F[0] = 1; i < n; i++) {\n        for (int\
-    \ j = 0; j <= i; j++) nF[j] = 0;\n        for (int j = 0; j <= i + 1; j++) {\n\
-    \            nF[j] += F[j] * (-x[i]);\n            if (j) nF[j] += F[j - 1];\n\
-    \        }\n        F = nF;\n    }\n    auto div = [&](mint xi) {\n        std::vector<mint>\
-    \ res(n), G = F;\n        for (int i = n; i > 0; i--) {\n            res[i - 1]\
-    \ = G[i];\n            G[i - 1] += G[i] * xi;\n        }\n        assert(G[0]\
-    \ == 0);\n        return res;\n    };\n    std::vector<mint> ans(n);\n    for\
-    \ (int i = 0; i < n; i++) {\n        mint c = y[i];\n        for (int j = 0; j\
-    \ < n; j++) {\n            if (i != j) c /= x[i] - x[j];\n        }\n        nF\
-    \ = div(x[i]);\n        for (int j = 0; j < n; j++) {\n            ans[j] += c\
-    \ * nF[j];\n        }\n    }\n    return ans;\n}\n\n#endif // AFMT_LAGRANGE\n"
+    \ <cassert>\n#include <iostream>\n#include <vector>\n\ntemplate <class mint>\n\
+    inline mint lagrange(std::vector<mint> x, std::vector<mint> y, mint k) {\n   \
+    \ mint ans = 0, cur;\n    const int n = x.size();\n    for (int i = 0; i < n;\
+    \ i++) {\n        cur = y[i];\n        for (int j = 0; j < n; j++) {\n       \
+    \     if (j == i) continue;\n            cur *= (k - x[j]) / (x[i] - x[j]);\n\
+    \        }\n        ans += cur;\n    }\n    return ans;\n}\n\n// y[0] is placeholder.\n\
+    // If for all integer x_i in [1, n], we have f(x_i) = y_i (mod p), find f(k) mod\
+    \ p.\ntemplate <class mint>\ninline mint cont_lagrange(std::vector<mint> y, mint\
+    \ k) {\n    mint ans = 0;\n    const int n = y.size() - 1;\n    Comb<mint> comb(n);\n\
+    \    std::vector<mint> pre(n + 1, 1), suf(n + 2, 1);\n    for (int i = 1; i <=\
+    \ n; i++) pre[i] = pre[i - 1] * (k - i);\n    for (int i = n; i >= 1; i--) suf[i]\
+    \ = suf[i + 1] * (k - i);\n    for (int i = 1; i <= n; i++) {\n        mint A\
+    \ = pre[i - 1] * suf[i + 1];\n        mint B = comb.fac(i - 1) * comb.fac(n -\
+    \ i);\n        ans += ((n - i) & 1 ? -1 : 1) * y[i] * A / B;\n    }\n    return\
+    \ ans;\n}\n\n// find 1^k + 2^k + ... + n^k. in O(k log k) of time complexity.\n\
+    template <class mint>\ninline mint sum_of_kth_powers(mint n, int k) {\n    mint\
+    \ sum = 0;\n    std::vector<mint> Y{0};\n    for (int i = 1; i <= k + 2; i++)\
+    \ {\n        Y.push_back(sum += (mint)i ^ k);\n    }\n    return cont_lagrange(Y,\
+    \ n);\n}\n\ntemplate <class mint>\nstd::vector<mint> find_coefficient(\n    std::vector<mint>\
+    \ x, std::vector<mint> y\n) {\n    // F(k) = \\prod (k - x_i): n degree, n + 1\
+    \ coefficients.\n    int n = x.size(), i;\n    std::vector<mint> F(n + 1);\n \
+    \   assert(n == (int)y.size());\n    for (i = 0, F[0] = 1; i < n; i++) {\n   \
+    \     for (int j = i + 1; j >= 0; j--) {\n            F[j] *= -x[i];\n       \
+    \     if (j) F[j] += F[j - 1];\n        }\n    }\n    mint delta, c;\n    std::vector<mint>\
+    \ ans(n), res(n);\n    auto div = [&](mint xi) {\n        delta = 0;\n       \
+    \ for (int i = n; i > 0; i--) {\n            res[i - 1] = (F[i] + delta);\n  \
+    \          delta = (F[i] + delta) * xi;\n        }\n        return res;\n    };\n\
+    \    for (int i = 0; i < n; i++) {\n        c = y[i];\n        for (int j = 0;\
+    \ j < n; j++) {\n            if (i != j) c /= x[i] - x[j];\n        }\n      \
+    \  div(x[i]);\n        for (int j = 0; j < n; j++) {\n            ans[j] += c\
+    \ * res[j];\n        }\n    }\n    return ans;\n}\n\n#endif // AFMT_LAGRANGE\n"
   dependsOn:
   - src/alfred/math/comb.hpp
   isVerificationFile: false
   path: src/alfred/math/lagrange.hpp
   requiredBy: []
-  timestamp: '2025-03-25 21:09:01+08:00'
+  timestamp: '2025-03-26 18:48:05+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/math/lagrange.hpp

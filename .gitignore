@@ -39,5 +39,5 @@ Git_Uploader.py
 .vscode/*
 
 .DS_Store
-.cph/*
+*.prob
 *.bin

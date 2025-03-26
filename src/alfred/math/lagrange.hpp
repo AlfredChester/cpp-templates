@@ -3,6 +3,7 @@
 
 #include "comb.hpp"
 #include <cassert>
+#include <iostream>
 #include <vector>
 
 template <class mint>
@@ -55,34 +56,32 @@ std::vector<mint> find_coefficient(
 ) {
     // F(k) = \prod (k - x_i): n degree, n + 1 coefficients.
     int n = x.size(), i;
+    std::vector<mint> F(n + 1);
     assert(n == (int)y.size());
-    std::vector<mint> F(n + 1), nF(n + 1);
     for (i = 0, F[0] = 1; i < n; i++) {
-        for (int j = 0; j <= i; j++) nF[j] = 0;
-        for (int j = 0; j <= i + 1; j++) {
-            nF[j] += F[j] * (-x[i]);
-            if (j) nF[j] += F[j - 1];
+        for (int j = i + 1; j >= 0; j--) {
+            F[j] *= -x[i];
+            if (j) F[j] += F[j - 1];
         }
-        F = nF;
     }
+    mint delta, c;
+    std::vector<mint> ans(n), res(n);
     auto div = [&](mint xi) {
-        std::vector<mint> res(n), G = F;
+        delta = 0;
         for (int i = n; i > 0; i--) {
-            res[i - 1] = G[i];
-            G[i - 1] += G[i] * xi;
+            res[i - 1] = (F[i] + delta);
+            delta = (F[i] + delta) * xi;
         }
-        assert(G[0] == 0);
         return res;
     };
-    std::vector<mint> ans(n);
     for (int i = 0; i < n; i++) {
-        mint c = y[i];
+        c = y[i];
         for (int j = 0; j < n; j++) {
             if (i != j) c /= x[i] - x[j];
         }
-        nF = div(x[i]);
+        div(x[i]);
         for (int j = 0; j < n; j++) {
-            ans[j] += c * nF[j];
+            ans[j] += c * res[j];
         }
     }
     return ans;

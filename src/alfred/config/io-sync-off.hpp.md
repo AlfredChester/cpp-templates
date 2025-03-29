@@ -30,7 +30,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
     title: verify/verify-yosupo-ds/yosupo-static-range-frequency.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
     title: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,9 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
     title: verify/verify-yosupo-ds/yosupo-weighted-dsu.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/config/io-sync-off.hpp\"\n#include <bits/stdc++.h>\n\
@@ -54,7 +54,7 @@ data:
   path: src/alfred/config/io-sync-off.hpp
   requiredBy: []
   timestamp: '2025-03-17 21:42:09+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-aizu-string/aizu-suffix-array.test.cpp
   - verify/verify-aizu-string/aizu-hashed-string.test.cpp

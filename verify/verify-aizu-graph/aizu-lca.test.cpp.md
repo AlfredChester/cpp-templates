@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/alfred/config/fast-io.hpp
     title: src/alfred/config/fast-io.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
   - icon: ':heavy_check_mark:'

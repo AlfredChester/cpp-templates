@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
     title: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/alfred/data_structure/sum.hpp\"\n\n\n\n#include <numeric>\n\
@@ -45,8 +45,8 @@ data:
     \ = false) {\n        if (!internal) {\n            n = _init.size(), sum = _init;\n\
     \        }\n        for (int i = 0; (1 << i) <= n; i++) {\n            for (int\
     \ S = 0; S < n; S++) {\n                if (S >> i & 1) sum[S] += sum[S ^ (1 <<\
-    \ i)];\n            }\n        }\n    }\n    inline T sum(int mask) { return sum[mask];\
-    \ }\n};\n\n\n"
+    \ i)];\n            }\n        }\n    }\n    inline T query(int mask) { return\
+    \ sum[mask]; }\n};\n\n\n"
   code: "#ifndef AFDS_SUM\n#define AFDS_SUM\n\n#include <numeric>\n#include <vector>\n\
     \ntemplate <class T>\nclass Sum {\nprivate:\n    int n;\n    std::vector<T> _pre,\
     \ _suf;\n\npublic:\n    Sum(void) : n(0) {}\n    template <class InitT>\n    Sum(std::vector<InitT>\
@@ -81,14 +81,14 @@ data:
     \ {\n        if (!internal) {\n            n = _init.size(), sum = _init;\n  \
     \      }\n        for (int i = 0; (1 << i) <= n; i++) {\n            for (int\
     \ S = 0; S < n; S++) {\n                if (S >> i & 1) sum[S] += sum[S ^ (1 <<\
-    \ i)];\n            }\n        }\n    }\n    inline T sum(int mask) { return sum[mask];\
-    \ }\n};\n\n#endif // AFDS_SUM\n"
+    \ i)];\n            }\n        }\n    }\n    inline T query(int mask) { return\
+    \ sum[mask]; }\n};\n\n#endif // AFDS_SUM\n"
   dependsOn: []
   isVerificationFile: false
   path: src/alfred/data_structure/sum.hpp
   requiredBy: []
-  timestamp: '2025-03-29 12:01:17+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-03-29 12:06:08+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
 documentation_of: src/alfred/data_structure/sum.hpp

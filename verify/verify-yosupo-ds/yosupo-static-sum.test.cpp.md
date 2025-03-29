@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/alfred/data_structure/sum.hpp
     title: src/alfred/data_structure/sum.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
@@ -55,9 +55,9 @@ data:
     \ {\n        if (!internal) {\n            n = _init.size(), sum = _init;\n  \
     \      }\n        for (int i = 0; (1 << i) <= n; i++) {\n            for (int\
     \ S = 0; S < n; S++) {\n                if (S >> i & 1) sum[S] += sum[S ^ (1 <<\
-    \ i)];\n            }\n        }\n    }\n    inline T sum(int mask) { return sum[mask];\
-    \ }\n};\n\n\n#line 6 \"verify/verify-yosupo-ds/yosupo-static-sum.test.cpp\"\n\n\
-    int main(int argc, char const *argv[]) {\n    int n, q, l, r;\n    optimizeIO(),\
+    \ i)];\n            }\n        }\n    }\n    inline T query(int mask) { return\
+    \ sum[mask]; }\n};\n\n\n#line 6 \"verify/verify-yosupo-ds/yosupo-static-sum.test.cpp\"\
+    \n\nint main(int argc, char const *argv[]) {\n    int n, q, l, r;\n    optimizeIO(),\
     \ std::cin >> n >> q;\n    std::vector<int> a(n);\n    for (int i = 0; i < n;\
     \ i++) {\n        std::cin >> a[i];\n    }\n    Sum<long long> S(a);\n    while\
     \ (q--) {\n        std::cin >> l >> r;\n        std::cout << S.query(l, r - 1)\
@@ -75,8 +75,8 @@ data:
   isVerificationFile: true
   path: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
   requiredBy: []
-  timestamp: '2025-03-29 12:01:17+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-29 12:06:08+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/verify-yosupo-ds/yosupo-static-sum.test.cpp
 layout: document

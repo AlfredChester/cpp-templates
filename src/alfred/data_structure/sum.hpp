@@ -91,7 +91,7 @@ public:
             }
         }
     }
-    inline T sum(int mask) { return sum[mask]; }
+    inline T query(int mask) { return sum[mask]; }
 };
 
 #endif // AFDS_SUM

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/alfred/config/io-sync-off.hpp
     title: src/alfred/config/io-sync-off.hpp
   - icon: ':heavy_check_mark:'

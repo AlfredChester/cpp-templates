@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/alfred/math/speed-of-light-power.hpp
   requiredBy: []
-  timestamp: '2025-03-22 17:56:06+08:00'
+  timestamp: '2025-03-29 12:01:17+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/alfred/math/speed-of-light-power.hpp

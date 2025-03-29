@@ -1,5 +1,5 @@
-#ifndef AFMT_PRIME
-#define AFMT_PRIME
+#ifndef AFMT_UTIL
+#define AFMT_UTIL
 
 // O(sqrt(x)) to judge if x is a prime.
 // It will be re-written in Miller-rabin sometime.
@@ -21,4 +21,4 @@ inline T lcm(T a, T b) {
     return a / gcd(a, b) * b;
 }
 
-#endif // AFMT_PRIME
+#endif // AFMT_UTIL

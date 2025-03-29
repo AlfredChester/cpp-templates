@@ -9,6 +9,7 @@ public:
     inline char nc(void) {
         return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, siz, stdin), p1 == p2) ? EOF : *p1++;
     }
+    inline void pc(char c) { putchar(c); }
     FastIO(void) { buf = (char *)malloc(siz); }
     FastIO(int n) : siz(n) { buf = (char *)malloc(siz); } // n characters.
     ~FastIO(void) { free(buf); }
@@ -38,6 +39,14 @@ inline void write(T x) {
     putchar((x % 10) ^ 48);
 }
 template <class T>
-inline void writeln(T x) { write(x), puts(""); }
+inline void writeln(T x) {
+    write(x), puts("");
+}
 template <typename T, typename... V>
-inline void fast_read(T &t, V &...v) { fast_read(t), fast_read(v...); }
+inline void writeln(T x, V... v) {
+    write(x), putchar(' '), writeln(v...);
+}
+template <typename T, typename... V>
+inline void fast_read(T &t, V &...v) {
+    fast_read(t), fast_read(v...);
+}

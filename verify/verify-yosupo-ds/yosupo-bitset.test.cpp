@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/predecessor_problem
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/dynamic-bitset.hpp"

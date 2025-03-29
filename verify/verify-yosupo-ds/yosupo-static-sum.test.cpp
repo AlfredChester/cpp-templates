@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_sum
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/sum.hpp"

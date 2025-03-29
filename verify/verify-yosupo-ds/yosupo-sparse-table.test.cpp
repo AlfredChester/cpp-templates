@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/staticrmq
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/sparse-table.hpp"

@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind_with_potential"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind_with_potential
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/weighted-dsu.hpp"

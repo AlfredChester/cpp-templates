@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/double_ended_priority_queue"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/double_ended_priority_queue
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/priority-set.hpp"

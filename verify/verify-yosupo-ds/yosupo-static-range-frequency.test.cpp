@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_frequency"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_frequency
 
 #include "../../src/alfred/config/io-sync-off.hpp"
 #include "../../src/alfred/data_structure/appear-statistics.hpp"

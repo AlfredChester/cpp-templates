@@ -33,7 +33,7 @@ def gen_section(sect_yaml):
     files = sect_yaml["files"]
 
     sect = []
-    sect.append("\\section{%s}" % name)
+    sect.append("\\section{%s}" % name.replace(" ", ""))
 
     subsects = []
     for idx, f in enumerate(files):
@@ -59,19 +59,21 @@ def gen_section(sect_yaml):
 
         if desc:
             sect.append("\\begin{mdframed}[hidealllines=true,backgroundcolor=blue!5]")
-            sect.append(desc.strip())
+            sect.append(desc.strip().replace(" ", ""))
             sect.append("\\end{mdframed}\\vspace{-10pt}")
 
         # "src/%s/%s"
-        sect.append("\\lstinputlisting[")
-        sect.append("    caption     =   {\\bf %s}," % fname)
-        sect.append("    label       =   {%s}," % fname)
-        sect.append("    language    =   %s" % lang(extension))
-        sect.append("]{../src/%s%s}" % (dirname, fname))
+        # sect.append("\\lstinputlisting[")
+        # sect.append(
+        #     "caption={\\bf %s}," % fname
+        #     + "label={%s}," % fname
+        #     + "language=%s" % lang(extension)
+        #     + "]{../src/%s%s}" % (dirname, fname)
+        # )
 
-        # sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))
-        # sect.append(code.replace("$", "{dollar}"))
-        # sect.append("\\end{lstlisting}")
+        sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))
+        sect.append(code.replace("$", "{dollar}"))
+        sect.append("\\end{lstlisting}")
 
     return "\n".join(sect)
 

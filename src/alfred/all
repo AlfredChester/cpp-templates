@@ -1,6 +1,9 @@
 #ifndef ALFRED_ALL
 #define ALFRED_ALL
 
+#include "algorithm/pair-counting.hpp"
+#include "algorithm/utils.hpp"
+
 #include "data_structure/appear-statistics.hpp"
 #include "data_structure/binary-trie.hpp"
 #include "data_structure/cancel-dsu.hpp"

@@ -63,17 +63,16 @@ def gen_section(sect_yaml):
             sect.append("\\end{mdframed}\\vspace{-10pt}")
 
         # "src/%s/%s"
-        # sect.append("\\lstinputlisting[")
-        # sect.append(
-        #     "caption={\\bf %s}," % fname
-        #     + "label={%s}," % fname
-        #     + "language=%s" % lang(extension)
-        #     + "]{../src/%s%s}" % (dirname, fname)
-        # )
+        sect.append(
+            "\\lstinputlisting[caption={\\bf%s}," % fname
+            + "label={%s}," % fname
+            + "language=%s" % lang(extension)
+            + "]{../src/%s%s}" % (dirname, fname)
+        )
 
-        sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))
-        sect.append(code.replace("$", "{dollar}"))
-        sect.append("\\end{lstlisting}")
+        # sect.append("\\begin{verbatim}[language=%s]" % lang(extension))
+        # sect.append(code.replace("$", "{dollar}"))
+        # sect.append("\\end{verbatim}")
 
     return "\n".join(sect)
 

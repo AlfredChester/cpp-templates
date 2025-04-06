@@ -1,7 +1,7 @@
 #ifndef AFDS_SLIDING_WINDOW
 #define AFDS_SLIDING_WINDOW
 
-#include <compare>
+#include <functional>
 #include <queue>
 #include <vector>
 

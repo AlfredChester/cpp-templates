@@ -14,6 +14,9 @@ struct MaxInfo {
     MaxInfo operator+(MaxInfo &x) {
         return {std::max(val, x.val)};
     }
+    inline void operator+=(MaxInfo x) {
+        val = std::max(val, x.val);
+    }
 };
 template <class T>
 struct MinInfo {
@@ -23,6 +26,9 @@ struct MinInfo {
     MinInfo(InitT x) { val = x; }
     MinInfo operator+(MinInfo &x) {
         return {std::min(val, x.val)};
+    }
+    inline void operator+=(MinInfo x) {
+        val = std::min(val, x.val);
     }
 };
 template <class T>
@@ -36,6 +42,13 @@ struct GcdInfo {
         return {std::gcd(x.val, val)};
 #else
         return {__gcd(x.val, val)};
+#endif
+    }
+    inline void operator+=(GcdInfo x) {
+#if __cplusplus >= 201703L
+        val = std::gcd(x.val, val);
+#else
+        val = __gcd(x.val, val);
 #endif
     }
 };

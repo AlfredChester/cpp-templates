@@ -3,6 +3,7 @@
 
 #include <limits>
 #include <numeric>
+#include <queue>
 #include <vector>
 
 struct NT {}; // null_type
@@ -28,25 +29,26 @@ public:
         G[u].push_back({v, w});
         G[v].push_back({u, w});
     }
-    std::vector<W> dijkstra(int s) { // by default the shortest path.
-        using Node = std::pair<W, int>;
-        std::vector<W> dis(G.size(), std::numeric_limits<W>::max());
+    template <class T = W>
+    std::pair<std::vector<T>, std::vector<int>> dijkstra(int s) { // by default the shortest path.
+        using Node = std::pair<T, int>;
+        std::vector<int> from(G.size(), -1);
+        std::vector<T> dis(G.size(), std::numeric_limits<T>::max());
         std::priority_queue<Node, std::vector<Node>, std::greater<Node>> heap;
-        heap.push({W{}, s});
+        heap.push({T{}, s});
         while (!heap.empty()) {
-            auto t = heap.top();
+            Node t = heap.top();
             heap.pop();
-            if (dis[t.second] != t.first) {
-                continue;
-            }
+            if (dis[t.second] != t.first) continue;
             for (auto &edge : G[t.second]) {
                 if (dis[edge.to] > t.first + edge.w) {
+                    from[edge.to] = t.second;
                     dis[edge.to] = t.first + edge.w;
                     heap.push({dis[edge.to], edge.to});
                 }
             }
         }
-        return dis;
+        return std::make_pair(dis, from);
     }
 };
 

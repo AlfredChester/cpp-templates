@@ -2,23 +2,23 @@
 
 #include "../../src/alfred/config/fast-io.hpp"
 #include "../../src/alfred/config/io-sync-off.hpp"
+#include "../../src/alfred/graph/graph.hpp"
+#include "../../src/alfred/graph/lca.hpp"
 #include <iostream>
 
 int n, k, c, q, u, v;
-std::vector<int> G[100010];
-
-#include "../../src/alfred/graph/lca.hpp"
 
 int main(int argc, char const *argv[]) {
+    Graph G;
     optimizeIO(), fast_read(n);
     for (int i = 0; i < n; i++) {
         fast_read(k);
         while (k--) {
             fast_read(c);
-            G[i].push_back(c);
+            G.add_directed(i, c);
         }
     }
-    LCA.init(n, 0);
+    LCAImpl LCA(G);
     fast_read(q);
     while (q--) {
         fast_read(u, v);

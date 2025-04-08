@@ -2,13 +2,15 @@
 #define AFGR_LCA
 
 #include "../data_structure/sparse-table.hpp"
+#include "graph.hpp"
 #include <vector>
 
 // requires a previous graph definition.
+template <class T = null_type>
 class LCAImpl {
 private:
-    std::vector<int> dfn, seq; // dfn and seq are (internally) zero indexed.
-    static std::vector<int> d;
+    Graph<T> G;
+    std::vector<int> dfn, seq, d; // dfn, seq and d are (internally) zero indexed.
     struct EulerTourInfo {
         int val;
         EulerTourInfo(void) : val(0) {}
@@ -21,13 +23,17 @@ private:
     inline void _dfs(int x, int fa) {
         dfn[x] = seq.size();
         seq.push_back(x), d[x] = d[fa] + 1;
-        for (auto &y : G[x]) {
-            if (y == fa) continue;
-            _dfs(y, x), seq.push_back(x);
+        for (Graph<T>::Edge &edge : G[x]) {
+            if (edge.to == fa) continue;
+            _dfs(edge.to, x), seq.push_back(edge.to);
         }
     }
 
 public:
+    LCAImpl(void) = default;
+    LCAImpl(Graph<T> _G, int rt = 1) : G(_G) {
+        init(G.G.size(), rt);
+    }
     inline void init(int n, int rt = 1) {
         d.assign(n + 1, 0), dfn.assign(n + 1, 0);
         seq.clear(), _dfs(rt, 0), lca.init(seq);
@@ -41,17 +47,6 @@ public:
     inline int dis(int u, int v) {
         return d[u] + d[v] - 2 * d[LCA(u, v)];
     }
-} LCA;
-std::vector<int> LCAImpl::d;
-
-struct LCAInfo {
-    int val;
-    LCAInfo(void) : val(-1) {}
-    template <class InitT>
-    LCAInfo(InitT x) { val = x; }
-    LCAInfo operator+(LCAInfo &x) {
-        return {LCA.LCA(val, x.val)};
-    }
-}; // for range lca.
+};
 
 #endif // AFGR_LCA

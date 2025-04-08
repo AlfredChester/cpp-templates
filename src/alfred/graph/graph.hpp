@@ -10,16 +10,17 @@ struct null_type {}; // null_type
 template <class W = null_type>
 class Graph {
 private:
-    std::vector<std::vector<Edge>> G; // (to, E)
-
-public:
     struct Edge {
         int to;
         W w;
     };
+    std::vector<std::vector<Edge>> G; // (to, E)
+
+public:
     Graph(void) {}
     Graph(int n) : G(n + 1) {}
     inline void clear(void) { G.clear(); }
+    inline size_t size(void) { return G.size(); }
     inline void resize(int n) { G.resize(n + 1); }
     std::vector<Edge> &operator[](int x) { return G[x]; }
     inline void add_directed(int u, int v, W w = W{}) {

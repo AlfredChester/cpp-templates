@@ -11,7 +11,7 @@ int n, k, c, q, u, v;
 int main(int argc, char const *argv[]) {
     optimizeIO(), fast_read(n);
 
-    Graph G(n);
+    Graph<null_type> G(n);
     for (int i = 0; i < n; i++) {
         fast_read(k);
         while (k--) {
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
             G.add_directed(i, c);
         }
     }
-    LCAImpl LCA(G, 0);
+    LCAImpl<null_type> LCA(G, 0);
 
     fast_read(q);
     while (q--) {

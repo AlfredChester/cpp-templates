@@ -32,7 +32,9 @@ struct MaxInfo {
         val = std::max(val, x.val);
     }
     inline void operator+=(RangeSetTag<T> &tag) {
-        val = tag.val, tag.useful = false;
+        if (tag.useful) {
+            val = tag.val, tag.useful = false;
+        }
     }
 };
 
@@ -49,7 +51,9 @@ struct MinInfo {
         val = std::min(val, x.val);
     }
     inline void operator+=(RangeSetTag<T> &tag) {
-        val = tag.val, tag.useful = false;
+        if (tag.useful) {
+            val = tag.val, tag.useful = false;
+        }
     }
 };
 
@@ -74,7 +78,30 @@ struct GcdInfo {
 #endif
     }
     inline void operator+=(RangeSetTag<T> &tag) {
-        val = tag.val, tag.useful = false;
+        if (tag.useful) {
+            val = tag.val, tag.useful = false;
+        }
+    }
+};
+
+template <class T>
+struct SumInfo {
+    T val;
+    int len;
+    SumInfo(void) : len(1) {}
+    template <class InitT>
+    SumInfo(InitT x) : val(x), len(1) {}
+    SumInfo operator+(SumInfo &x) {
+        return {val + x.val, len + x.len};
+    }
+    inline void operator+=(SumInfo x) {
+        val += x.val, len += x.len;
+    }
+    inline void operator+=(RangeSetTag<T> &tag) {
+        if (tag.useful) {
+            val = tag.val * len;
+            tag.useful = false;
+        }
     }
 };
 

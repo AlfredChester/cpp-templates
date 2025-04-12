@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "../data_structure/info.hpp"
 #include "../data_structure/sparse-table.hpp"
 
 class SuffixArray {

@@ -15,7 +15,9 @@ struct RangeSetTag {
         return {x.val, x.useful};
     }
     inline void operator+=(RangeSetTag x) {
-        val = x.val, useful = x.useful;
+        if (x.useful) {
+            val = x.val, useful = x.useful;
+        }
     }
 };
 

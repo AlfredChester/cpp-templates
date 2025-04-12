@@ -1,3 +1,7 @@
+#ifndef ALFRED_IO
+#define ALFRED_IO
+
+#include "../math/mod-int.hpp"
 #include <iostream>
 
 class FastIO {
@@ -38,6 +42,10 @@ inline void write(T x) {
     if (x > 9) write(x / 10);
     putchar((x % 10) ^ 48);
 }
+template <int mod>
+inline void write(ModInt<mod> x) {
+    write(x.x);
+}
 template <class T>
 inline void writeln(T x) {
     write(x), puts("");
@@ -50,3 +58,5 @@ template <typename T, typename... V>
 inline void fast_read(T &t, V &...v) {
     fast_read(t), fast_read(v...);
 }
+
+#endif // ALFRED_IO

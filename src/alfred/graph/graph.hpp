@@ -19,6 +19,13 @@ private:
 public:
     Graph(void) {}
     Graph(int n) : G(n + 1) {}
+    Graph(int n, std::vector<int> _G[]) : G(n + 1) {
+        for (int i = 0; i <= n; i++) {
+            for (auto &j : _G[i]) {
+                add_undirected(i, j);
+            }
+        }
+    }
     inline void clear(void) { G.clear(); }
     inline size_t size(void) { return G.size(); }
     inline void resize(int n) { G.resize(n + 1); }

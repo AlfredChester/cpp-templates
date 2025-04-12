@@ -12,6 +12,7 @@
 #include "data_structure/dsu.hpp"
 #include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
+#include "data_structure/info.hpp"
 #include "data_structure/priority-set.hpp"
 #include "data_structure/sliding-window.hpp"
 #include "data_structure/sparse-table.hpp"

@@ -22,7 +22,7 @@ public:
     Graph(int n, std::vector<int> _G[]) : G(n + 1) {
         for (int i = 0; i <= n; i++) {
             for (auto &j : _G[i]) {
-                add_undirected(i, j);
+                add_directed(i, j);
             }
         }
     }

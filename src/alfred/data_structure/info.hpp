@@ -5,6 +5,21 @@
 #include <numeric>
 
 template <class T>
+struct RangeSetTag {
+    T val;
+    bool useful = false;
+    RangeSetTag(void) : useful(false) {}
+    template <class InitT>
+    RangeSetTag(InitT x) : val(x), useful(true) {}
+    RangeSetTag operator+(RangeSetTag &x) {
+        return {x.val, x.useful};
+    }
+    inline void operator+=(RangeSetTag x) {
+        val = x.val, useful = x.useful;
+    }
+};
+
+template <class T>
 struct MaxInfo {
     T val;
     MaxInfo(void) { val = std::numeric_limits<T>::min(); }
@@ -15,6 +30,9 @@ struct MaxInfo {
     }
     inline void operator+=(MaxInfo x) {
         val = std::max(val, x.val);
+    }
+    inline void operator+=(RangeSetTag<T> &tag) {
+        val = tag.val, tag.useful = false;
     }
 };
 
@@ -29,6 +47,9 @@ struct MinInfo {
     }
     inline void operator+=(MinInfo x) {
         val = std::min(val, x.val);
+    }
+    inline void operator+=(RangeSetTag<T> &tag) {
+        val = tag.val, tag.useful = false;
     }
 };
 
@@ -51,6 +72,9 @@ struct GcdInfo {
 #else
         val = __gcd(x.val, val);
 #endif
+    }
+    inline void operator+=(RangeSetTag<T> &tag) {
+        val = tag.val, tag.useful = false;
     }
 };
 

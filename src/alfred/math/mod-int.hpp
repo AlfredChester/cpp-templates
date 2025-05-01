@@ -88,7 +88,7 @@ public:
     }
     value_type v;
     constexpr DynamicModInt() noexcept : v(0) {}
-    constexpr DynamicModInt(int64_t x) noexcept : v(norm(x)) {}
+    DynamicModInt(int64_t x) noexcept : v(norm(x)) {}
     static value_type norm(int64_t x) noexcept {
         value_type m = mod();
         x %= m;

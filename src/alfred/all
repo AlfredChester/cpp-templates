@@ -20,11 +20,12 @@
 #include "data_structure/weighted-dsu.hpp"
 
 #include "graph/graph.hpp"
-// #include "graph/lca.hpp" // Will be included after graph class is implemented well enough
+#include "graph/lca.hpp" // Will be included after graph class is implemented well enough
 
 #include "math/comb.hpp"
 #include "math/computation-geometry.hpp"
 #include "math/lagrange.hpp"
+#include "math/linear.hpp"
 #include "math/mod-int.hpp"
 #include "math/speed-of-light-power.hpp"
 #include "math/utils.hpp"

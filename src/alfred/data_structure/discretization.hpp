@@ -21,6 +21,10 @@ struct Mess {
         if (!initialized) init();
         return std::lower_bound(v.begin(), v.end(), x) - v.begin() + 1;
     }
+    template <class T>
+    inline void set(T &x) { x = query(x); }
+    template <typename T, typename... V>
+    inline void set(T &x, V... v) { set(x), set(v...); }
     inline bool exist(_Tp x) { return origin(query(x)) == x; }
 };
 

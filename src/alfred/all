@@ -6,10 +6,10 @@
 
 #include "data_structure/appear-statistics.hpp"
 #include "data_structure/binary-trie.hpp"
-#include "data_structure/cancel-dsu.hpp"
 #include "data_structure/chtholly.hpp"
 #include "data_structure/discretization.hpp"
-#include "data_structure/dsu.hpp"
+#include "data_structure/dsu/cancel-dsu.hpp"
+#include "data_structure/dsu/dsu.hpp"
 #include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
 #include "data_structure/info.hpp"

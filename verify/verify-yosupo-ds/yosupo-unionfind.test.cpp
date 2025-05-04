@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind
 
 #include "../../src/alfred/config/io-sync-off.hpp"
-#include "../../src/alfred/data_structure/dsu.hpp"
+#include "../../src/alfred/data_structure/dsu/dsu.hpp"
 #include <iostream>
 
 int main(int argc, char const *argv[]) {

@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind_with_potential
 
 #include "../../src/alfred/config/io-sync-off.hpp"
-#include "../../src/alfred/data_structure/weighted-dsu.hpp"
+#include "../../src/alfred/data_structure/dsu/weighted-dsu.hpp"
 #include "../../src/alfred/math/mod-int.hpp"
 #include <iostream>
 

@@ -10,6 +10,7 @@
 #include "data_structure/discretization.hpp"
 #include "data_structure/dsu/cancel-dsu.hpp"
 #include "data_structure/dsu/dsu.hpp"
+#include "data_structure/dsu/weighted-dsu.hpp"
 #include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
 #include "data_structure/info.hpp"
@@ -17,7 +18,6 @@
 #include "data_structure/sliding-window.hpp"
 #include "data_structure/sparse-table.hpp"
 #include "data_structure/sum.hpp"
-#include "data_structure/weighted-dsu.hpp"
 
 #include "graph/graph.hpp"
 #include "graph/lca.hpp" // Will be included after graph class is implemented well enough

@@ -30,8 +30,12 @@ public:
         if (l > r) return T();
         return l == 0 ? _pre[r] : _pre[r] - _pre[l - 1];
     }
-    inline const T pre(int x) { return _pre[x]; }
-    inline const T suf(int x) { return _suf[x]; }
+    inline const T pre(int x) {
+        return x < 0 ? T() : _pre[x];
+    }
+    inline const T suf(int x) {
+        return x >= n ? T() : _suf[x];
+    }
 };
 
 template <class T>

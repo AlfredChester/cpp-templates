@@ -4,9 +4,12 @@
 #include <vector>
 
 template <class mint>
-struct Comb {
+class Comb {
+private:
     int n;
     std::vector<mint> _fac, _invfac, _inv;
+
+public:
     Comb(void) : n{0}, _fac{1}, _invfac{1}, _inv{0} {}
     Comb(int n) : Comb() { init(n); }
     inline void init(int m) {
@@ -14,7 +17,7 @@ struct Comb {
         for (int i = n + 1; i <= m; i++) {
             _fac[i] = _fac[i - 1] * i;
         }
-        _invfac[m] = ~_fac[m];
+        _invfac[m] = _fac[m].inv();
         for (int i = m; i > n; i--) {
             _invfac[i - 1] = _invfac[i] * i;
             _inv[i] = _invfac[i] * _fac[i - 1];

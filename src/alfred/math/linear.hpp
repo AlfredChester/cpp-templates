@@ -25,8 +25,8 @@ struct Matrix {
 };
 
 template <class T>
-friend Matrix<T> operator*(Matrix<T> A, Matrix<T> B) {
-    assert(A.m() == B.n(), "Must be a legal matrix multiplication");
+Matrix<T> operator*(Matrix<T> A, Matrix<T> B) {
+    assert(A.m() == B.n());
     Matrix<T> ans(A.n(), B.m());
     for (size_t k = 0; k < A.m(); k++) {
         for (size_t i = 0; i < A.n(); i++) {
@@ -39,8 +39,8 @@ friend Matrix<T> operator*(Matrix<T> A, Matrix<T> B) {
 }
 
 template <class T>
-friend std::vector<T> operator*(Matrix<T> A, std::vector<T> B) {
-    assert(A.m() == B.size(), "Must be a legal matrix multiplication");
+std::vector<T> operator*(Matrix<T> A, std::vector<T> B) {
+    assert(A.m() == B.size());
     std::vector<T> ans(A.n());
     for (size_t i = 0; i < A.n(); i++) {
         for (size_t j = 0; j < A.m(); j++) {
@@ -58,7 +58,7 @@ std::vector<T> solve_equation(
 
 template <class T>
 Matrix<T> power(Matrix<T> M, long long index) {
-    assert(M.n() == M.m(), "Matrix to be powered must be a square matrix.");
+    assert(M.n() == M.m());
     Matrix<T> ans(M.n());
     while (index) {
         if (index & 1) ans = ans * M;

@@ -15,6 +15,7 @@ struct DSU {
     inline bool same(int x, int y) {
         return find(x) == find(y);
     }
+    inline int size(int u) { return siz[find(u)]; }
     // true if x and y were not in the same set, false otherwise.
     inline bool merge(int x, int y) {
         int fx = find(x), fy = find(y);

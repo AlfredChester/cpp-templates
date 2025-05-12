@@ -17,6 +17,7 @@ struct CancelDSU {
     inline bool same(int x, int y) {
         return find(x) == find(y);
     }
+    inline int size(int u) { return siz[find(u)]; }
     inline void merge(int u, int v) {
         int fu = find(u), fv = find(v);
         if (fu == fv) return S.push(-1);

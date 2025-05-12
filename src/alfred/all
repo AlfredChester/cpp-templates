@@ -20,6 +20,8 @@
 #include "data_structure/sum.hpp"
 
 #include "graph/graph.hpp"
+#include "graph/grid.hpp"
+#include "graph/hld.hpp"
 #include "graph/lca.hpp" // Will be included after graph class is implemented well enough
 
 #include "math/comb.hpp"

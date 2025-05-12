@@ -14,7 +14,7 @@
 
 ## 代码库规范
 
-我们推荐使用Google的编程规范，使代码库有一致的风格。英文原版的[链接](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml)供参考。具体与我们比较直接相关的是命名的规范：
+我们推荐使用Google的编程规范，使代码库有一致的风格。英文原版的 [链接](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml) 供参考。也可以使用代码库当中的 `.clang-format` 格式化代码。具体与我们比较直接相关的是命名的规范：
 
 * 变量名应使用小写，并能推断出名称的含义，例如`prime_count`, `current`等。使用缩写时应避免歧义。
 * 结构体、类名应用混合大小写单词拼接，其中单词首字母大写，例如`Node`, `WeightedGraph`。

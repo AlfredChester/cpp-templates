@@ -5,9 +5,12 @@
 #include <stack>
 #include <vector>
 
-struct CancelDSU {
+class CancelDSU {
+private:
     std::stack<int> S;
     std::vector<int> fa, siz;
+
+public:
     CancelDSU(int n) : fa(n + 1), siz(n + 1, 1) {
         std::iota(fa.begin(), fa.end(), 0);
     }

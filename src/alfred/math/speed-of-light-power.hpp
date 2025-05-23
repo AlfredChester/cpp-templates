@@ -5,26 +5,30 @@
 #include <cmath>
 #include <vector>
 
-template <int base, int mod>
-struct SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
+template <int base, class mint>
+class SOLPower { // Speed Of Light Power. O(sqrt(n)) ~ O(1)
     // p1 stores base^0  ~ base^sq
     // ps stores base^sq ~ base^(sq^2)
-    std::vector<int> p1, ps;
+private:
+    std::vector<mint> p1, ps;
+    static const int mod = mint::mod();
     static const bool P = is_prime(mod);
     static const int sq = std::sqrt(mod);
-    SOLPower(void) {
-        p1.push_back(1), ps.push_back(1);
+
+public:
+    SOLPower(void) : p1(sq + 1, 1) {
+        ps.push_back(1);
         for (int i = 1; i <= sq; i++) {
-            p1.push_back(1ll * p1.back() * base % mod);
+            p1[i] = p1[i - 1] * base;
         }
         ps.push_back(p1.back());
         for (int i = 2 * sq; i <= mod; i += sq) {
-            ps.push_back(1ll * ps.back() * ps[1] % mod);
+            ps.push_back(ps.back() * ps[1]);
         }
     }
-    inline int power(long long index) {
+    inline mint power(long long index) {
         if (P && index >= mod) index %= mod;
-        return 1ll * ps[index / sq] * p1[index % sq] % mod;
+        return ps[index / sq] * p1[index % sq];
     }
 };
 

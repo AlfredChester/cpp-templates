@@ -5,9 +5,14 @@
 #include <vector>
 
 template <class _Tp>
-struct Mess {
+class Mess {
+private:
     std::vector<_Tp> v;
     bool initialized = false;
+
+public:
+    Mess(void) = default;
+    Mess(std::vector<_Tp> a) : v(a) { init(); }
     inline _Tp origin(int idx) { return v[idx - 1]; }
     inline void insert(_Tp x) { v.push_back(x); }
     template <typename T, typename... V>
@@ -26,6 +31,7 @@ struct Mess {
     template <typename T, typename... V>
     inline void set(T &x, V... v) { set(x), set(v...); }
     inline bool exist(_Tp x) { return origin(query(x)) == x; }
+    inline size_t size(void) noexcept { return v.size(); }
 };
 
 #endif // AFDS_DISCRETIZATION

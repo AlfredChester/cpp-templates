@@ -32,7 +32,7 @@ inline T isqrt(T x) {
 }
 
 // Given in integer n. Returns (primes, minp)
-constexpr std::pair<std::vector<int>, std::vector<int>> euler_sieve(int n) {
+std::pair<std::vector<int>, std::vector<int>> euler_sieve(int n) {
     std::vector<int> primes, minp(n + 1);
     for (int i = 2; i <= n; i++) {
         if (minp[i] == 0) {

@@ -16,7 +16,7 @@ public:
     AppearStats(std::vector<T> &init) : n(init.size()) { _init(init); }
     inline void _init(std::vector<T> &init) {
         for (auto item : init) M.insert(item);
-        n = init.size(), M.init(), pos.resize(M.v.size());
+        n = init.size(), M.init(), pos.resize(M.size());
         for (size_t i = 0; i < n; i++) {
             pos[M.query(init[i]) - 1].push_back(i);
         }

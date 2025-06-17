@@ -6,6 +6,8 @@
 #include <iostream>
 #include <vector>
 
+// TODO: write lagrange as a class, supporting: O(n^2) init, O(n) query
+
 template <class mint>
 inline mint lagrange(std::vector<mint> x, std::vector<mint> y, mint k) {
     mint ans = 0, cur;
@@ -26,8 +28,8 @@ inline mint lagrange(std::vector<mint> x, std::vector<mint> y, mint k) {
 template <class mint>
 inline mint cont_lagrange(std::vector<mint> y, mint k) {
     mint ans = 0;
+    Comb<mint> comb(y.size());
     const int n = y.size() - 1;
-    Comb<mint> comb(n);
     std::vector<mint> pre(n + 1, 1), suf(n + 2, 1);
     for (int i = 1; i <= n; i++) pre[i] = pre[i - 1] * (k - i);
     for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] * (k - i);
@@ -69,7 +71,7 @@ std::vector<mint> find_coefficient(
     auto div = [&](mint xi) {
         delta = 0;
         for (int i = n; i > 0; i--) {
-            res[i - 1] = (F[i] + delta);
+            res[i - 1] = F[i] + delta;
             delta = (F[i] + delta) * xi;
         }
         return res;

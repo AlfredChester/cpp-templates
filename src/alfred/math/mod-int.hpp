@@ -1,10 +1,12 @@
 #ifndef AFMT_MOD_INT
 #define AFMT_MOD_INT
 
+#include <algorithm>
 #include <cassert>
 #include <cstdint>
 #include <iostream>
 #include <type_traits>
+#include <vector>
 
 template <uint32_t M>
 class ModInt {
@@ -169,5 +171,26 @@ void __print(m107 M) {
 }
 
 using dint = DynamicModInt;
+
+template <class T>
+struct VecInv {
+    const int n;
+    std::vector<T> fac, invf, v;
+    VecInv(std::vector<T> vec)
+        : n(vec.size()), fac(n, 1), invf(n), v(vec) {
+        std::sort(v.begin(), v.end()), fac[0] = v[0];
+        v.erase(std::unique(v.begin(), v.end()), v.end());
+        for (int i = 1; i < n; i++) {
+            fac[i] = fac[i - 1] * v[i];
+        }
+        invf[n - 1] = fac[n - 1].inv();
+        for (int i = n - 1; i > 0; i--) {
+            invf[i - 1] = invf[i] * v[i];
+        }
+    }
+    inline T query(int i) {
+        return i == 0 ? invf[0] : invf[i] * fac[i - 1];
+    }
+};
 
 #endif // AFMT_MOD_INT

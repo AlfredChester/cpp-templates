@@ -39,8 +39,12 @@ public:
                 if (i * p > V) break;
                 const int j = i * p;
                 fac[j] = fac[i], vis[j] = 1, fac[j][0] *= p;
-                if (fac[j][0] > fac[j][1]) std::swap(fac[j][0], fac[j][1]);
-                if (fac[j][1] > fac[j][2]) std::swap(fac[j][1], fac[j][2]);
+                if (fac[j][0] > fac[j][1]) {
+                    std::swap(fac[j][0], fac[j][1]);
+                }
+                if (fac[j][1] > fac[j][2]) {
+                    std::swap(fac[j][1], fac[j][2]);
+                }
                 if (i % p == 0) break;
             }
         }

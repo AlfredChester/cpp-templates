@@ -46,7 +46,6 @@ public:
         if (n < 0) {
             n = (-n) % (M - 1) * (M - 2);
         }
-        n %= (M - 1);
         while (n) {
             if (n & 1) res *= x;
             x *= x;

@@ -31,6 +31,11 @@ inline T isqrt(T x) {
     return res;
 }
 
+template <class T, class V>
+inline bool in_range(V v, T l, T r) {
+    return l <= v && v <= r;
+}
+
 // Given in integer n. Returns (primes, minp)
 std::pair<std::vector<int>, std::vector<int>> euler_sieve(int n) {
     std::vector<int> primes, minp(n + 1);

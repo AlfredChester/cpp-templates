@@ -44,9 +44,9 @@ public:
     constexpr ModInt pow(int64_t n) const noexcept {
         ModInt res = 1, x = *this;
         if (n < 0) {
-            x = x.inv();
-            n = -n;
+            n = (-n) % (M - 1) * (M - 2);
         }
+        n %= (M - 1);
         while (n) {
             if (n & 1) res *= x;
             x *= x;

@@ -30,6 +30,7 @@
 #include "math/linear.hpp"
 #include "math/mod-int.hpp"
 #include "math/speed-of-light-power.hpp"
+#include "math/sqrt-decomposition.hpp"
 #include "math/utils.hpp"
 
 #include "string/hashed-string.hpp"
@@ -56,5 +57,24 @@ inline void NO(void) { std::cout << "NO\n"; }
 inline void No(void) { std::cout << "No\n"; }
 inline void YES_NO(bool cond) { cond ? YES() : NO(); }
 inline void Yes_No(bool cond) { cond ? Yes() : No(); }
+
+std::ostream &operator<<(std::ostream &os, i128 n) {
+    std::string s;
+    while (n) {
+        s += '0' + n % 10;
+        n /= 10;
+    }
+    std::reverse(s.begin(), s.end());
+    return os << s;
+}
+
+std::istream &operator>>(std::istream &is, i128 &n) {
+    std::string s;
+    is >> s;
+    for (auto &c : s) {
+        n = n * 10 + (c - '0');
+    }
+    return is;
+}
 
 #endif // ALFRED_ALL

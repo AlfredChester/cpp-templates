@@ -60,7 +60,10 @@ inline void Yes_No(bool cond) { cond ? Yes() : No(); }
 
 std::ostream &operator<<(std::ostream &os, i128 n) {
     std::string s;
-    while (n) {
+    if (n < 0) {
+        os << '-', n = -n;
+    }
+    while (n > 0) {
         s += '0' + n % 10;
         n /= 10;
     }
@@ -70,10 +73,12 @@ std::ostream &operator<<(std::ostream &os, i128 n) {
 
 std::istream &operator>>(std::istream &is, i128 &n) {
     std::string s;
-    is >> s;
+    is >> s, n = 0;
     for (auto &c : s) {
+        if (c == '-') continue;
         n = n * 10 + (c - '0');
     }
+    if (s[0] == '-') n = -n;
     return is;
 }
 

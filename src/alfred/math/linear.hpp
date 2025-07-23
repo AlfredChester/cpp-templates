@@ -51,12 +51,6 @@ std::vector<T> operator*(Matrix<T> A, std::vector<T> B) {
 }
 
 template <class T>
-std::vector<T> solve_equation(
-    Matrix<T> M, std::vector<T> res
-) {
-}
-
-template <class T>
 Matrix<T> power(Matrix<T> M, long long index) {
     assert(M.n() == M.m());
     Matrix<T> ans(M.n());

@@ -174,11 +174,9 @@ using dint = DynamicModInt;
 template <class T>
 struct VecInv {
     const int n;
-    std::vector<T> fac, invf, v;
-    VecInv(std::vector<T> vec)
-        : n(vec.size()), fac(n, 1), invf(n), v(vec) {
-        std::sort(v.begin(), v.end()), fac[0] = v[0];
-        v.erase(std::unique(v.begin(), v.end()), v.end());
+    std::vector<T> fac, invf;
+    VecInv(std::vector<T> v) : n(v.size()), fac(n), invf(n) {
+        fac[0] = v[0];
         for (int i = 1; i < n; i++) {
             fac[i] = fac[i - 1] * v[i];
         }
@@ -189,6 +187,9 @@ struct VecInv {
     }
     inline T query(int i) {
         return i == 0 ? invf[0] : invf[i] * fac[i - 1];
+    }
+    inline T operator[](int x) {
+        return query(x);
     }
 };
 

@@ -7,12 +7,12 @@ template <class T>
 struct VecInv {
     const int n;
     std::vector<T> fac, invf;
-    VecInv(std::vector<T> v) : n(v.size()), fac(n), invf(n) {
-        fac[0] = v[0];
+    VecInv(std::vector<T> &v) : n(v.size()), fac(n), invf(n) {
+        if (n > 0) fac[0] = v[0];
         for (int i = 1; i < n; i++) {
             fac[i] = fac[i - 1] * v[i];
         }
-        invf[n - 1] = fac[n - 1].inv();
+        if (n > 0) invf[n - 1] = fac[n - 1].inv();
         for (int i = n - 1; i > 0; i--) {
             invf[i - 1] = invf[i] * v[i];
         }

@@ -3,11 +3,9 @@
 
 #include "comb.hpp"
 #include "vec-inv.hpp"
+#include <algorithm>
 #include <cassert>
-#include <iostream>
 #include <vector>
-
-// TODO: write lagrange as a class, supporting: O(n^2) init, O(n) query
 
 template <class mint>
 class Lagrange {
@@ -99,7 +97,7 @@ inline mint sum_of_kth_powers(mint n, int k) {
     mint sum = 0;
     std::vector<mint> Y{0};
     for (int i = 1; i <= k + 2; i++) {
-        Y.push_back(sum += (mint)i ^ k);
+        Y.push_back(sum += mint(i).pow(k));
     }
     return cont_lagrange(Y, n);
 }

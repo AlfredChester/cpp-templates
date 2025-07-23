@@ -27,7 +27,7 @@ inline void chkmin(T &x, std::initializer_list<T> Y) {
 
 template <class T>
 inline void write_vec(
-    std::vector<T> &vec, bool in_line = false
+    std::vector<T> vec, bool in_line = false
 ) {
     std::cout << vec.size() << "\n "[in_line];
     for (T &x : vec) {

@@ -8,13 +8,16 @@ struct VecInv {
     const int n;
     std::vector<T> fac, invf;
     VecInv(std::vector<T> &v) : n(v.size()), fac(n), invf(n) {
-        if (n > 0) fac[0] = v[0];
-        for (int i = 1; i < n; i++) {
-            fac[i] = fac[i - 1] * v[i];
+        T lst = 1;
+        for (int i = 0; i < n; i++) {
+            if (v[i] != 0) lst *= v[i];
+            fac[i] = lst;
         }
         if (n > 0) invf[n - 1] = fac[n - 1].inv();
         for (int i = n - 1; i > 0; i--) {
-            invf[i - 1] = invf[i] * v[i];
+            if (v[i] != 0) {
+                invf[i - 1] = invf[i] * v[i];
+            }
         }
     }
     inline T query(int i) {

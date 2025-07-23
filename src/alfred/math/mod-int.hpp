@@ -171,26 +171,4 @@ void __print(m107 M) {
 
 using dint = DynamicModInt;
 
-template <class T>
-struct VecInv {
-    const int n;
-    std::vector<T> fac, invf;
-    VecInv(std::vector<T> v) : n(v.size()), fac(n), invf(n) {
-        fac[0] = v[0];
-        for (int i = 1; i < n; i++) {
-            fac[i] = fac[i - 1] * v[i];
-        }
-        invf[n - 1] = fac[n - 1].inv();
-        for (int i = n - 1; i > 0; i--) {
-            invf[i - 1] = invf[i] * v[i];
-        }
-    }
-    inline T query(int i) {
-        return i == 0 ? invf[0] : invf[i] * fac[i - 1];
-    }
-    inline T operator[](int x) {
-        return query(x);
-    }
-};
-
 #endif // AFMT_MOD_INT

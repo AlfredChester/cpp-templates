@@ -35,8 +35,8 @@ inline mint cont_lagrange(std::vector<mint> y, mint k) {
     for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] * (k - i);
     for (int i = 1; i <= n; i++) {
         mint A = pre[i - 1] * suf[i + 1];
-        mint B = comb.fac(i - 1) * comb.fac(n - i);
-        ans += ((n - i) & 1 ? -1 : 1) * y[i] * A / B;
+        mint B = comb.invfac(i - 1) * comb.invfac(n - i);
+        ans += ((n - i) & 1 ? -1 : 1) * y[i] * A * B;
     }
     return ans;
 }

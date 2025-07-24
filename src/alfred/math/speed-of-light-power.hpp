@@ -27,7 +27,7 @@ public:
         }
     }
     inline mint power(long long index) {
-        if (P && index >= mod) index %= mod;
+        if (P && index >= mod) index %= mod - 1;
         return ps[index / sq] * p1[index % sq];
     }
 };

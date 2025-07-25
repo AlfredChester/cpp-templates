@@ -7,9 +7,10 @@
 
 // O(sqrt(x)) to judge if x is a prime.
 // It will be re-written in Miller-rabin sometime.
-constexpr bool is_prime(long long x) {
+template <class T>
+constexpr bool is_prime(T x) {
     if (x < 2) return false;
-    for (long long i = 2; i * i <= x; i++) {
+    for (T i = 2; i * i <= x; i++) {
         if (x % i == 0) return false;
     }
     return true;

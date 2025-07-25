@@ -15,9 +15,8 @@ struct VecInv {
         }
         if (n > 0) invf[n - 1] = fac[n - 1].inv();
         for (int i = n - 1; i > 0; i--) {
-            if (v[i] != 0) {
-                invf[i - 1] = invf[i] * v[i];
-            }
+            if (v[i] == 0) continue;
+            invf[i - 1] = invf[i] * v[i];
         }
     }
     inline T query(int i) {

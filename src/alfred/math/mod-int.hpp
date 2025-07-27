@@ -73,8 +73,7 @@ public:
     }
 };
 
-// 动态模数modint
-// 用法: DynamicModInt::set_mod(998244353); DynamicModInt a = 2;
+// Usage: DynamicModInt::set_mod(998244353); DynamicModInt a = 2;
 class DynamicModInt {
 public:
     using value_type = uint32_t;

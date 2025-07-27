@@ -43,6 +43,8 @@ public:
         }
         return ans;
     }
+    // Get the coefficient of the polynomial.
+    // c[i] represents the coefficient of x^i in the polynomial.
     std::vector<mint> coefficient(void) { // now O(n^2), TODO: maintain it dynamically.
         int n = x.size(), i;
         // F(k) = \prod (k - x_i): degree = n, n + 1 coefficients.
@@ -68,7 +70,6 @@ public:
                 ans[j] += c * res[j];
             }
         }
-        std::reverse(ans.begin(), ans.end());
         return ans;
     }
 };

@@ -2,7 +2,6 @@
 #define AFMT_UTIL
 
 #include <cmath>
-#include <random>
 #include <vector>
 
 // O(sqrt(x)) to judge if x is a prime.

@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       ignore_prev_result:
+        description: 'Ignore previous result'
         type: boolean
         default: false
 
@@ -38,12 +39,12 @@ jobs:
           output-path: verify_files.json
           # Specify patterns
           # include: your-own-include/
-          exclude: |
-            pdf/
-            tex/
-            scl.yaml
+          # exclude: |
+          #   pdf/
+          #   tex/
+          #   scl.yaml
           # If you have config.toml
-          config: .verify-helper/config.toml
+          config: .competitive-verifier/config.toml
       - name: parse-doxygen
         uses: competitive-verifier/actions/parse-doxygen@v2
         with:

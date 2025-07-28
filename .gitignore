@@ -41,3 +41,6 @@ Git_Uploader.py
 .DS_Store
 *.prob
 *.bin
+
+.vendor/*
+.bundle/*

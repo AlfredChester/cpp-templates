@@ -6,6 +6,7 @@
 
 #include "data_structure/appear-statistics.hpp"
 // #include "data_structure/binary-trie.hpp" // Temporary remove trie.
+#include "data_structure/cartesian.hpp"
 #include "data_structure/chtholly.hpp"
 #include "data_structure/discretization.hpp"
 #include "data_structure/dsu/cancel-dsu.hpp"

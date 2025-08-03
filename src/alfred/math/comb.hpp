@@ -33,6 +33,7 @@ public:
         return _invfac[m];
     }
     inline mint inv(int m) {
+        if (m < 0) return -inv(-m);
         if (m > n) init(m);
         return _inv[m];
     }

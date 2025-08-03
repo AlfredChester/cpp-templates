@@ -1,7 +1,7 @@
 #ifndef AFDS_CARTESIAN
 #define AFDS_CARTESIAN
 
-#include <pair>
+#include <utility>
 #include <vector>
 
 // Returns pair of (ls, rs).

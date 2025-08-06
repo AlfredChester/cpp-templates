@@ -27,8 +27,8 @@ namespace ctrandom {
     constexpr std::size_t pick_idx2(void) {
         // 在池中剔除 idx1，令它与 idx1 不重合
         uint32_t h2 = ct_str_hash(__DATE__);
-        std::size_t x = h2 % (POOL_SIZE - 1);
-        if (x == pick_idx1()) x = (x + 1) % (POOL_SIZE - 1);
+        std::size_t x = h2 % POOL_SIZE;
+        if (x == pick_idx1()) x = (x + 1) % POOL_SIZE;
         return x;
     }
 }

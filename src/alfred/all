@@ -5,7 +5,7 @@
 #include "algorithm/utils.hpp"
 
 #include "data_structure/appear-statistics.hpp"
-// #include "data_structure/binary-trie.hpp" // Temporary remove trie.
+// #include "data_structure/binary-trie.hpp" // Temporarily remove trie.
 #include "data_structure/cartesian.hpp"
 #include "data_structure/chtholly.hpp"
 #include "data_structure/discretization.hpp"
@@ -14,6 +14,7 @@
 #include "data_structure/dsu/weighted-dsu.hpp"
 #include "data_structure/dynamic-bitset.hpp"
 #include "data_structure/fenwick.hpp"
+#include "data_structure/hashmap.hpp"
 #include "data_structure/info.hpp"
 #include "data_structure/priority-set.hpp"
 #include "data_structure/sliding-window.hpp"

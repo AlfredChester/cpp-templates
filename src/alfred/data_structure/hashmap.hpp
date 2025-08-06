@@ -42,6 +42,6 @@ struct HashMap {
         }
         return it->second;
     }
-}
+};
 
 #endif

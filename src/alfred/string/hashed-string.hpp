@@ -4,6 +4,35 @@
 #include <algorithm>
 #include <vector>
 
+namespace ctrandom {
+    constexpr int MOD_POOL[] = {998244353, 1000000007, 1004535809, 1007681537};
+    constexpr int SEED_POOL[] = {233, 477, 997, 1009};
+
+    constexpr std::size_t POOL_SIZE = sizeof(MOD_POOL) / sizeof(int);
+
+    // 简单的编译时字符串哈希（BKDR）
+    constexpr uint32_t ct_str_hash(const char *s) {
+        uint32_t h = 0;
+        for (; *s; ++s) {
+            h = h * 131u + static_cast<uint8_t>(*s);
+        }
+        return h;
+    }
+
+    // 利用 __TIME__ 挑第一个索引
+    constexpr std::size_t pick_idx1(void) {
+        return ct_str_hash(__TIME__) % POOL_SIZE;
+    }
+    // 利用 __DATE__ 再挑一个，并且保证 != idx1()
+    constexpr std::size_t pick_idx2(void) {
+        // 在池中剔除 idx1，令它与 idx1 不重合
+        uint32_t h2 = ct_str_hash(__DATE__);
+        std::size_t x = h2 % (POOL_SIZE - 1);
+        if (x == pick_idx1()) x = (x + 1) % (POOL_SIZE - 1);
+        return x;
+    }
+}
+
 template <int mod, int seed>
 struct SingleHash {
     int n;
@@ -26,8 +55,14 @@ struct SingleHash {
 };
 
 struct HashedString {
-    SingleHash<998244353, 477> H1;
-    SingleHash<1000000007, 233> H2;
+    using SH1 = SingleHash<
+        ctrandom::MOD_POOL[ctrandom::pick_idx1()],
+        ctrandom::SEED_POOL[ctrandom::pick_idx1()]>;
+    using SH2 = SingleHash<
+        ctrandom::MOD_POOL[ctrandom::pick_idx2()],
+        ctrandom::SEED_POOL[ctrandom::pick_idx2()]>;
+    SH1 H1;
+    SH2 H2;
     HashedString(void) = default;
     HashedString(std::string s) : H1(s), H2(s) {}
     inline void init(std::string s) {

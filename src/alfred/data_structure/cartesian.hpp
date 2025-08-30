@@ -8,7 +8,8 @@
 template <class T, class Comp = std::less<T>>
 std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp) {
     std::vector<int> stk; // stack of right chain.
-    std::vector<std::pair<int, int>> ans(a.size());
+    std::vector<std::pair<int, int>> ans;
+    ans.assign(a.size(), make_pair(-1, -1));
     for (size_t i = 0; i < a.size(); i++) {
         int lst = -1;
         while (!stk.empty() && comp(a[i], a[stk.back()])) {

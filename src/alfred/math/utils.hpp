@@ -32,6 +32,26 @@ inline T isqrt(T x) {
     return res;
 }
 
+using i128 = __int128;
+
+template <>
+inline i128 isqrt<i128>(i128 x) {
+    i128 L = 0, R = 13043817825332782ll, mid;
+    while (L < R) {
+        mid = (L + R + 1) >> 1;
+        if (mid * mid > x) {
+            R = mid - 1;
+        } else {
+            L = mid;
+        }
+    }
+    return L;
+}
+
+inline i128 abs128(i128 x) {
+    return x < 0 ? -x : x;
+}
+
 template <class T, class V>
 inline bool in_range(V v, T l, T r) {
     return l <= v && v <= r;

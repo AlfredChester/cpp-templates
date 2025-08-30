@@ -7,13 +7,21 @@
 #include <vector>
 
 template <class T>
-inline void chkmax(T &x, T y) {
-    if (x < y) x = y;
+inline bool chkmax(T &x, T y) {
+    if (x < y) {
+        x = y;
+        return true;
+    }
+    return false;
 }
 
 template <class T>
-inline void chkmin(T &x, T y) {
-    if (x > y) x = y;
+inline bool chkmin(T &x, T y) {
+    if (x > y) {
+        x = y;
+        return true;
+    }
+    return false;
 }
 
 template <class T>

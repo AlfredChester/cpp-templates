@@ -62,6 +62,9 @@ inline void Yes_No(bool cond) { cond ? Yes() : No(); }
 
 std::ostream &operator<<(std::ostream &os, i128 n) {
     std::string s;
+    if (n == 0) {
+        return os << "0";
+    }
     if (n < 0) {
         os << '-', n = -n;
     }

@@ -55,14 +55,14 @@ struct SingleHash {
 };
 
 struct HashedString {
-    using SH1 = SingleHash<
+    SingleHash<
         ctrandom::MOD_POOL[ctrandom::pick_idx1()],
-        ctrandom::SEED_POOL[ctrandom::pick_idx1()]>;
-    using SH2 = SingleHash<
+        ctrandom::SEED_POOL[ctrandom::pick_idx1()]>
+        H1;
+    SingleHash<
         ctrandom::MOD_POOL[ctrandom::pick_idx2()],
-        ctrandom::SEED_POOL[ctrandom::pick_idx2()]>;
-    SH1 H1;
-    SH2 H2;
+        ctrandom::SEED_POOL[ctrandom::pick_idx2()]>
+        H2;
     HashedString(void) = default;
     HashedString(std::string s) : H1(s), H2(s) {}
     inline void init(std::string s) {

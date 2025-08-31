@@ -2,7 +2,9 @@
 #define AFMT_LINEAR
 
 #include <algorithm>
+#include <array>
 #include <cassert>
+#include <limits>
 #include <vector>
 
 template <class T>
@@ -124,5 +126,50 @@ Matrix<T> power(Matrix<T> M, long long index) {
     }
     return ans;
 }
+
+template <class T>
+struct XORBasis {
+    constexpr static T mx = std::numeric_limits<T>::max();
+    constexpr static int C = std::__lg(mx);
+
+    std::array<T, C> p;
+    bool has_zero = false;
+    // Insert x to the basis.
+    // Returns: successfully inserted to which digit.
+    inline int insert(T x) {
+        if (x == 0) has_zero = true;
+        for (int i = C - 1; i >= 0; i--) {
+            if (!(x >> i & 1)) continue;
+            if (p[i] == 0) {
+                p[i] = x;
+                return i;
+            } else x ^= p[i];
+        }
+        return -1;
+    }
+    inline T max(T ans = 0) {
+        for (int i = C - 1; i >= 0; i--) {
+            ans = std::max(ans, ans ^ p[i]);
+        }
+        return ans;
+    }
+    inline T min(T ans) {
+        for (int i = C - 1; i >= 0; i--) {
+            ans = std::min(ans, ans ^ p[i]);
+        }
+        return ans;
+    }
+    inline T min(void) {
+        T lst = 0;
+        bool all_zero = true;
+        if (has_zero) return 0;
+        for (int i = C - 1; i >= 0; i--) {
+            if (p[i] != 0) {
+                all_zero = false, lst = p[i];
+            }
+        }
+        return all_zero ? mx : lst;
+    }
+};
 
 #endif // !AFMT_LINEAR

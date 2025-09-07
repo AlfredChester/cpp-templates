@@ -162,22 +162,23 @@ struct XORBasis {
         return ans;
     }
     inline int size(void) { return siz; }
-    inline void rebuild(void) {
+    std::vector<T> rebuild(void) {
         for (int i = C - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (p[i] >> j & 1) p[i] ^= p[j];
             }
         }
-    }
-    inline T kth(size_t k) { // kth minimum
-        rebuild();
         std::vector<T> narr;
         for (int i = 0; i < C; i++) {
             if (p[i] != 0) narr.push_back(p[i]);
         }
+        assert(narr.size() == (size_t)siz);
+        return narr;
+    }
+    inline T kth(size_t k) { // kth minimum
         T ans = 0;
         assert(k >= 1);
-        assert(narr.size() == (size_t)siz);
+        auto narr = rebuild();
         if (k > 1 || !has_zero) {
             k -= has_zero;
             assert(k < (1ull << siz));
@@ -188,11 +189,11 @@ struct XORBasis {
         return ans;
     }
     inline size_t rank(T x) {
-        rebuild();
         size_t ans = 0;
-        for (int i = C - 1; i >= 0; i--) {
-            if (x >= p[i]) {
-                ans |= 1ull << i, x ^= p[i];
+        auto narr = rebuild();
+        for (int i = siz - 1; i >= 0; i--) {
+            if (x >= narr[i]) {
+                ans |= 1ull << i, x ^= narr[i];
             }
         }
         return ans + has_zero;

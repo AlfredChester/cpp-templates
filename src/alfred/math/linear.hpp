@@ -178,14 +178,24 @@ struct XORBasis {
         T ans = 0;
         assert(k >= 1);
         assert(narr.size() == (size_t)siz);
-        if (k > 1 || !zero) {
-            k -= zero;
+        if (k > 1 || !has_zero) {
+            k -= has_zero;
             assert(k < (1ull << siz));
             for (int i = siz - 1; i >= 0; i--) {
                 if (k >> i & 1) ans ^= narr[i];
             }
         }
         return ans;
+    }
+    inline size_t rank(T x) {
+        rebuild();
+        size_t ans = 0;
+        for (int i = C - 1; i >= 0; i--) {
+            if (x >= p[i]) {
+                ans |= 1ull << i, x ^= p[i];
+            }
+        }
+        return ans + has_zero;
     }
 };
 

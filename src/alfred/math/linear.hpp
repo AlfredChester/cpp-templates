@@ -146,6 +146,7 @@ struct XORBasis {
                 return i;
             } else x ^= p[i];
         }
+        has_zero = true;
         return -1;
     }
     inline T max(T ans = 0) {
@@ -161,6 +162,31 @@ struct XORBasis {
         return ans;
     }
     inline int size(void) { return siz; }
+    inline void rebuild(void) {
+        for (int i = C - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (p[i] >> j & 1) p[i] ^= p[j];
+            }
+        }
+    }
+    inline T kth(size_t k) { // kth minimum
+        rebuild();
+        std::vector<T> narr;
+        for (int i = 0; i < C; i++) {
+            if (p[i] != 0) narr.push_back(p[i]);
+        }
+        T ans = 0;
+        assert(k >= 1);
+        assert(narr.size() == (size_t)siz);
+        if (k > 1 || !zero) {
+            k -= zero;
+            assert(k < (1ull << siz));
+            for (int i = siz - 1; i >= 0; i--) {
+                if (k >> i & 1) ans ^= narr[i];
+            }
+        }
+        return ans;
+    }
 };
 
 #endif // !AFMT_LINEAR

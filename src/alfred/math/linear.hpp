@@ -146,7 +146,6 @@ struct XORBasis {
                 return i;
             } else x ^= p[i];
         }
-        has_zero = true;
         return -1;
     }
     inline T max(T ans = 0) {

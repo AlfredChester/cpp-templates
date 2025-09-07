@@ -132,6 +132,7 @@ struct XORBasis {
     constexpr static T mx = std::numeric_limits<T>::max();
     constexpr static int C = std::__lg(mx);
 
+    int siz = 0;
     std::array<T, C> p;
     bool has_zero = false;
     // Insert x to the basis.
@@ -141,7 +142,7 @@ struct XORBasis {
         for (int i = C - 1; i >= 0; i--) {
             if (!(x >> i & 1)) continue;
             if (p[i] == 0) {
-                p[i] = x;
+                p[i] = x, siz++;
                 return i;
             } else x ^= p[i];
         }
@@ -159,17 +160,7 @@ struct XORBasis {
         }
         return ans;
     }
-    inline T min(void) {
-        T lst = 0;
-        bool all_zero = true;
-        if (has_zero) return 0;
-        for (int i = C - 1; i >= 0; i--) {
-            if (p[i] != 0) {
-                all_zero = false, lst = p[i];
-            }
-        }
-        return all_zero ? mx : lst;
-    }
+    inline int size(void) { return siz; }
 };
 
 #endif // !AFMT_LINEAR

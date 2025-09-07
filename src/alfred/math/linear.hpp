@@ -130,7 +130,7 @@ Matrix<T> power(Matrix<T> M, long long index) {
 template <class T>
 struct XORBasis {
     constexpr static T mx = std::numeric_limits<T>::max();
-    constexpr static int C = std::__lg(mx);
+    constexpr static int C = std::numeric_limits<T>::digits;
 
     int siz = 0;
     std::array<T, C> p;
@@ -169,6 +169,7 @@ struct XORBasis {
             }
         }
         std::vector<T> narr;
+        narr.reserve(siz);
         for (int i = 0; i < C; i++) {
             if (p[i] != 0) narr.push_back(p[i]);
         }
@@ -178,25 +179,32 @@ struct XORBasis {
     inline T kth(size_t k) { // kth minimum
         T ans = 0;
         assert(k >= 1);
-        auto narr = rebuild();
-        if (k > 1 || !has_zero) {
-            k -= has_zero;
-            assert(k < (1ull << siz));
-            for (int i = siz - 1; i >= 0; i--) {
-                if (k >> i & 1) ans ^= narr[i];
-            }
+        auto narr = rebuild(); // narr[0] = smallest by MSB; narr[i] corresponds to bit i in k's binary (LSB -> narr[0])
+        if (has_zero) {
+            if (k == 1) return 0;
+            else --k;
+        }
+        assert(k < (1ull << siz));
+        // map bit i of k to narr[i] (LSB -> narr[0])
+        for (int i = 0; i < siz; i++) {
+            if ((k >> i) & 1ULL) ans ^= narr[i];
         }
         return ans;
     }
-    inline size_t rank(T x) {
+    inline size_t rank(T x) const {
         size_t ans = 0;
-        auto narr = rebuild();
-        for (int i = siz - 1; i >= 0; i--) {
-            if (x >= narr[i]) {
-                ans |= 1ull << i, x ^= narr[i];
+        auto narr = rebuild(); // narr ordered by increasing MSB
+        for (int i = (int)narr.size() - 1; i >= 0; --i) {
+            T b = narr[i];
+            int hb = std::__lg(b); 
+            if (((x >> hb) & 1U) != 0) {
+                x ^= b;
+                ans |= (1ULL << i);
             }
         }
-        return ans + has_zero;
+        // after reduction, x should be 0 iff representable
+        assert(x == 0 && "rank(x): x is not representable by this basis");
+        return ans + (has_zero ? 1ULL : 0ULL); // 1-based
     }
 };
 

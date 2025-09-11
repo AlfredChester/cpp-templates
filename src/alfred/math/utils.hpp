@@ -74,4 +74,24 @@ std::pair<std::vector<int>, std::vector<int>> euler_sieve(int n) {
     return std::make_pair(primes, minp);
 }
 
+template <class T>
+inline T ceilDiv(T n, T m) {
+    if (m < 0) m = -m, n = -n;
+    if (n >= 0) {
+        return (n + m - 1) / m;
+    } else {
+        return n / m;
+    }
+}
+
+template <class T>
+inline T floorDiv(T n, T m) {
+    if (m < 0) m = -m, n = -n;
+    if (n >= 0) {
+        return n / m;
+    } else {
+        return (n - m + 1) / m;
+    }
+}
+
 #endif // AFMT_UTIL

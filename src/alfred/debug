@@ -18,6 +18,18 @@ using std::string;
 
 const long long dbg_inf = 9e18 + 19260817;
 
+std::string _bin(long long v) {
+    assert(v >= 0);
+    std::string res;
+    if (v == 0) return "0";
+    while (v > 0) {
+        res += char((v & 1) | 48);
+        v >>= 1;
+    }
+    std::reverse(res.begin(), res.end());
+    return res;
+}
+
 void __print(int x) { cerr << x; }
 void __print(long x) { cerr << x; }
 void __print(long long x) {

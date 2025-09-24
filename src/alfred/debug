@@ -30,6 +30,15 @@ std::string _bin(long long v) {
     return res;
 }
 
+std::string _bin(long long v, int d) {
+    assert(v >= 0);
+    std::string res;
+    for (int i = d - 1; i >= 0; i--) {
+        res += char((v >> i & 1) | 48);
+    }
+    return res;
+}
+
 void __print(int x) { cerr << x; }
 void __print(long x) { cerr << x; }
 void __print(long long x) {

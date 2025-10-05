@@ -31,7 +31,10 @@ public:
     template <typename T, typename... V>
     inline void set(T &x, V... v) { set(x), set(v...); }
     inline bool exist(_Tp x) { return origin(query(x)) == x; }
-    inline size_t size(void) noexcept { return v.size(); }
+    inline size_t size(void) noexcept {
+        if (!initialized) init();
+        return v.size();
+    }
 };
 
 #endif // AFDS_DISCRETIZATION

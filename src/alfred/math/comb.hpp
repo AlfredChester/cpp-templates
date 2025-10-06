@@ -45,6 +45,9 @@ public:
         if (n < m || m < 0) return 0;
         return fac(n) * invfac(n - m);
     }
+    inline mint catalan(int n) {
+        return binom(2 * n, n) - binom(2 * n, n - 1);
+    }
 };
 
 #endif // AFMT_COMB

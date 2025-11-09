@@ -10,7 +10,8 @@ private:
     char *buf, *p1, *p2;
     char *obuf, *op;
 
-    inline void flush_output(void) {
+    inline void flush_output() {
+        size_t len = size_t(op - obuf);
         fwrite(obuf, 1, len, stdout), op = obuf;
     }
 
@@ -19,7 +20,8 @@ public:
         if (p1 == p2) {
             p2 = (p1 = buf) + fread(buf, 1, chunk, stdin);
             if (p1 == p2) return EOF;
-        } else return *p1++;
+        }
+        return *p1++;
     }
     inline void pc(char c) {
         if (op == obuf + chunk) flush_output();

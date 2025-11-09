@@ -6,8 +6,8 @@
 
 class FastIO {
 private:
-    char *buf, *p1, *p2, *obuf, *op;
     static const int chunk = 1 << 18;
+    char *ibuf, *p1, *p2, *obuf, *op, *oe;
 
     inline void flush_output(int len = chunk) {
         fwrite(obuf, 1, len, stdout), op = obuf;
@@ -16,22 +16,22 @@ private:
 public:
     inline char nc(void) {
         if (p1 == p2) {
-            p2 = (p1 = buf) + fread(buf, 1, chunk, stdin);
+            p2 = (p1 = ibuf) + fread(ibuf, 1, chunk, stdin);
             if (p1 == p2) return EOF;
         }
         return *p1++;
     }
     inline void pc(char c) {
-        if (op == obuf + chunk) flush_output();
+        if (op == oe) flush_output();
         *op++ = c;
     }
     FastIO(void) {
-        p1 = p2 = buf = (char *)(malloc(chunk));
-        op = obuf = (char *)(malloc(chunk));
+        p1 = p2 = ibuf = (char *)(malloc(chunk));
+        op = obuf = (char *)(malloc(chunk)), oe = obuf + chunk;
     }
     ~FastIO(void) {
         flush_output(op - obuf);
-        free(buf), free(obuf);
+        free(ibuf), free(obuf);
     }
     inline void flush(void) {
         flush_output(op - obuf);

@@ -16,8 +16,7 @@ std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp) {
             lst = stk.back(), stk.pop_back();
         }
         if (!stk.empty()) ans[stk.back()].second = i;
-        if (lst != -1) ans[i].first = lst;
-        stk.push_back(i);
+        ans[i].first = lst, stk.push_back(i);
     }
     return ans;
 }

@@ -6,12 +6,10 @@
 
 class FastIO {
 private:
-    int chunk = 1 << 18;
-    char *buf, *p1, *p2;
-    char *obuf, *op;
+    char *buf, *p1, *p2, *obuf, *op;
+    static const int chunk = 1 << 18;
 
-    inline void flush_output() {
-        size_t len = size_t(op - obuf);
+    inline void flush_output(int len = chunk) {
         fwrite(obuf, 1, len, stdout), op = obuf;
     }
 
@@ -27,19 +25,17 @@ public:
         if (op == obuf + chunk) flush_output();
         *op++ = c;
     }
-    FastIO(void) : chunk(1 << 18) {
-        p1 = p2 = buf = (char *)(malloc(chunk));
-        op = obuf = (char *)(malloc(chunk));
-    }
-    FastIO(int _chunk) : chunk(_chunk) {
+    FastIO(void) {
         p1 = p2 = buf = (char *)(malloc(chunk));
         op = obuf = (char *)(malloc(chunk));
     }
     ~FastIO(void) {
-        flush_output();
+        flush_output(op - obuf);
         free(buf), free(obuf);
     }
-    inline void flush(void) { flush_output(); }
+    inline void flush(void) {
+        flush_output(op - obuf);
+    }
 } __buf;
 
 inline void pc(char c) { __buf.pc(c); }

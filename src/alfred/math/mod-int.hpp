@@ -13,6 +13,9 @@ class ModInt {
 public:
     using value_type = uint32_t;
     static constexpr value_type mod() noexcept { return M; }
+    static constexpr ModInt sgn(int t) {
+        return t & 1 ? M - 1 : 1;
+    }
     value_type v;
     constexpr ModInt() noexcept : v(0) {}
     constexpr ModInt(int64_t x) noexcept : v(norm(x)) {}

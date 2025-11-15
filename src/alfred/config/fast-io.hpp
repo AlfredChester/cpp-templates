@@ -38,7 +38,8 @@ public:
     }
 } __buf;
 
-inline void pc(char c) { __buf.pc(c); }
+#define getchar()  __buf.nc()
+#define putchar(x) __buf.pc(x)
 
 template <class T>
 inline void fast_read(T &x) {

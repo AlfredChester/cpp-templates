@@ -6,7 +6,7 @@
 
 // Returns pair of (ls, rs).
 template <class T, class Comp = std::less<T>>
-std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp) {
+std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp = Comp()) {
     std::vector<int> stk; // stack of right chain.
     std::vector<std::pair<int, int>> ans;
     ans.assign(a.size(), std::make_pair(-1, -1));

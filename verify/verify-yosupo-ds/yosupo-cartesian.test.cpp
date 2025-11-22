@@ -11,9 +11,7 @@ int main(int argc, char const *argv[]) {
     std::vector<int> a(n), res(n);
     for (auto &x : a) std::cin >> x;
 
-    auto ans = cartesian(a);
-
-    int p = std::min_element(a.begin(), a.end()) - a.begin();
+    auto [p, ans] = cartesian(a);
 
     for (int i = 0; i < n; i++) {
         if (ans[i].first != -1) {

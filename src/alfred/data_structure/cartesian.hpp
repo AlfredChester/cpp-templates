@@ -4,9 +4,10 @@
 #include <utility>
 #include <vector>
 
-// Returns pair of (ls, rs).
+// Returns pairs of (rt, vec(ls, rs)).
 template <class T, class Comp = std::less<T>>
-std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp = Comp()) {
+std::pair<int, std::vector<std::pair<int, int>>>
+cartesian(std::vector<T> a, Comp comp = Comp()) {
     std::vector<int> stk; // stack of right chain.
     std::vector<std::pair<int, int>> ans;
     ans.assign(a.size(), std::make_pair(-1, -1));
@@ -18,7 +19,7 @@ std::vector<std::pair<int, int>> cartesian(std::vector<T> a, Comp comp = Comp())
         if (!stk.empty()) ans[stk.back()].second = i;
         ans[i].first = lst, stk.push_back(i);
     }
-    return ans;
+    return std::make_pair(stk[0], ans);
 }
 
 #endif

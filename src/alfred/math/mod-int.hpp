@@ -171,6 +171,20 @@ void __print(m107 M) {
     std::cerr << M;
 }
 
+template <class mint>
+constexpr mint findPrimitiveRoot(void) {
+    mint i = 2;
+    const int P = mint::mod();
+    int k = __builtin_ctz(P - 1);
+    while (true) {
+        if (i.pow((P - 1) / 2) != 1) {
+            break;
+        }
+        i += 1;
+    }
+    return i.pow((P - 1) >> k);
+}
+
 using dint = DynamicModInt;
 
 #endif // AFMT_MOD_INT

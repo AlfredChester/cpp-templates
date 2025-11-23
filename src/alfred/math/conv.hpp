@@ -78,4 +78,37 @@ inline std::vector<long long> add_convll(
 }
 */
 
+template <uint32_t mod>
+inline std::vector<ModInt<mod>> and_conv(
+    std::vector<ModInt<mod>> f,
+    std::vector<ModInt<mod>> g
+);
+
+template <class T>
+inline std::vector<T> and_conv(
+    std::vector<T> f, std::vector<T> g
+);
+
+template <uint32_t mod>
+inline std::vector<ModInt<mod>> or_conv(
+    std::vector<ModInt<mod>> f,
+    std::vector<ModInt<mod>> g
+);
+
+template <class T>
+inline std::vector<T> or_conv(
+    std::vector<T> f, std::vector<T> g
+);
+
+template <uint32_t mod>
+inline std::vector<ModInt<mod>> xor_conv(
+    std::vector<ModInt<mod>> f,
+    std::vector<ModInt<mod>> g
+);
+
+template <class T>
+inline std::vector<T> xor_conv(
+    std::vector<T> f, std::vector<T> g
+);
+
 #endif

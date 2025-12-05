@@ -28,6 +28,7 @@
 
 #include "math/comb.hpp"
 #include "math/computation-geometry.hpp"
+#include "math/conv.hpp"
 #include "math/lagrange.hpp"
 #include "math/linear.hpp"
 #include "math/mod-int.hpp"

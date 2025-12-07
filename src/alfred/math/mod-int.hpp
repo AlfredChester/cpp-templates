@@ -163,11 +163,8 @@ public:
 using m998 = ModInt<998244353>;
 using m107 = ModInt<1000000007>;
 
-void __print(m998 M) {
-    std::cerr << M;
-}
-
-void __print(m107 M) {
+template <int mod>
+void __print(ModInt<mod> M) {
     std::cerr << M;
 }
 

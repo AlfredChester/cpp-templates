@@ -1,0 +1,13 @@
+contents:
+  - name: algorithm
+    directory: algorithm
+  - name: config
+    directory: config
+  - name: data_structure
+    directory: data_structure
+  - name: graph
+    directory: graph
+  - name: math
+    directory: math
+  - name: string
+    directory: string

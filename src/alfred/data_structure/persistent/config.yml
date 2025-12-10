@@ -1,0 +1,4 @@
+contents:
+  - name: partial-persistent-array
+    codes:
+      - partial-persistent-array.hpp

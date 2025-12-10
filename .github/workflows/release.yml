@@ -1,0 +1,51 @@
+name: Release PDF
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+          # cache not work because restriction between different tags
+          # cache: 'pip'
+      - run: |
+          pip install -r requirements.txt
+          python main.py --output-file output.tex
+          python main.py --config-file config-compact.yml --output-file output-compact.tex
+      - run: |
+          chmod +x script.sh
+          ./script.sh
+      - uses: xu-cheng/latex-action@v4
+        with:
+          root_file: |
+            output.tex
+            output-compact.tex
+          latexmk_use_xelatex: true
+          extra_fonts: |
+            ./fonts/*.otf
+            ./fonts/*.ttf
+      - name: Rename Output Files
+        run: |
+          for f in output*.pdf; do
+            if [ ! -e "$f" ]; then
+              continue
+            fi
+            base="${f%.*}"
+            ext=".${f##*.}"
+            mv -- "$f" "${base}_${{ github.ref_name }}${ext}"
+          done
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*_${{ github.ref_name }}.pdf"

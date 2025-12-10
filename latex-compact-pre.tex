@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{lmodern}
+\usepackage{listings,xcolor}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage[colorlinks, linkcolor=blue, anchorcolor=blue, citecolor=green]{hyperref}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+
+% 页面布局紧凑设置
+\geometry{a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm} % 减小边距
+\setlength{\footskip}{20pt} % 减小页脚间距
+
+% 字体设置
+\setCJKmainfont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+\setCJKsansfont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+\setCJKmonofont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+
+\setmainfont{Inconsolata LGC Nerd Font Mono}
+\setsansfont{Inconsolata LGC Nerd Font Mono}
+\setmonofont{Inconsolata LGC Nerd Font Mono}
+
+% 取消首行缩进和减小行间距
+\setlength{\parindent}{0pt} % 无首行缩进
+\setstretch{1.0} % 行距调整为 1.0
+
+% 页眉页脚紧凑设置
+\setlength{\headheight}{13pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark} % 页眉左侧显示章节名
+\fancyfoot[C]{\thepage} % 页脚中间显示页码
+
+% 代码样式设置
+\lstdefinestyle{cppstyle}{
+  language=C++, % 语言设置为 C++
+  basicstyle=\ttfamily\small\linespread{1.0}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+\lstdefinestyle{pythonstyle}{
+  language=Python, % 语言设置为 Python
+  basicstyle=\ttfamily\small\linespread{1.0}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+\lstdefinestyle{javastyle}{
+  language=Java, % 语言设置为 Java
+  basicstyle=\ttfamily\small\linespread{1.0}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+
+% 标题样式设置
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{1em}{}
+
+% 目录样式设置
+\usepackage{tocloft}
+\cftsetindents{subsection}{1.2em}{2.5em}
+\cftsetindents{subsubsection}{2.5em}{3.5em}
+
+% 封面设置
+\title{{PLACEHOLDER:TITLE}}
+\author{{PLACEHOLDER:AUTHOR}}
+\date{\today}
+
+\begin{document}
+
+% 封面内容
+\maketitle
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\newpage

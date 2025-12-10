@@ -1,0 +1,7 @@
+contents:
+  - name: hashed-string
+    codes:
+      - hashed-string.hpp
+  - name: suffix-array
+    codes:
+      - suffix-array.hpp

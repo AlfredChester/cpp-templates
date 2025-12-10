@@ -1,0 +1,334 @@
+\documentclass{article}
+\usepackage[fontset=none]{ctex}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{lmodern}
+\usepackage{listings,xcolor}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage[colorlinks, linkcolor=blue, anchorcolor=blue, citecolor=green]{hyperref} % 超链接颜色设置
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+
+% 页面布局设置
+\geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm} % 页面大小和边距
+
+% 字体设置
+\setCJKmainfont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+\setCJKsansfont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+\setCJKmonofont{Source Han Sans HW SC}[
+  ItalicFont={Source Han Sans HW SC},
+  ItalicFeatures={FakeSlant=0.2}
+]
+
+\setmainfont{Inconsolata LGC Nerd Font Mono}
+\setsansfont{Inconsolata LGC Nerd Font Mono}
+\setmonofont{Inconsolata LGC Nerd Font Mono}
+
+% 取消首行缩进和设置行间距
+\setlength{\parindent}{0pt} 
+
+% 页眉页脚设置
+\setlength{\headheight}{13pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark} % 页眉左侧显示章节名
+\fancyfoot[C]{\thepage} % 页脚中间显示页码
+
+% 代码样式设置
+\lstdefinestyle{cppstyle}{
+  language=C++, % 语言设置为 C++
+  basicstyle=\ttfamily\small\linespread{1.1}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+\lstdefinestyle{pythonstyle}{
+  language=Python, % 语言设置为 Python
+  basicstyle=\ttfamily\small\linespread{1.1}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+\lstdefinestyle{javastyle}{
+  language=Java, % 语言设置为 Java
+  basicstyle=\ttfamily\small\linespread{1.1}\selectfont,
+  keywordstyle=\color{blue}\bfseries, % 关键字颜色
+  commentstyle=\color{gray}\itshape, % 注释颜色，斜体
+  stringstyle=\color{red}, % 字符串颜色
+  numbers=left, % 行号显示在左侧
+  numberstyle=\small\color{gray}, % 行号样式
+  stepnumber=1, % 行号递增
+  numbersep=10pt, % 行号和代码的间隔
+  backgroundcolor=\color{gray!5},
+  showspaces=false, % 不显示空格
+  showstringspaces=false, % 字符串中不显示空格
+  breaklines=true, % 自动换行
+  frame=single, % 给代码添加边框
+  rulecolor=\color{black!30}, % 边框颜色
+  tabsize=4, % 设置 Tab 宽度
+  captionpos=b % 标题位置
+}
+
+% 标题样式设置
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% 目录样式设置
+\usepackage{tocloft}
+\cftsetindents{subsection}{1.5em}{3em}
+\cftsetindents{subsubsection}{3em}{4em}
+
+% 封面设置
+\title{Alfred's ICPC Templates}
+\author{Alfred Chester}
+\date{\today}
+
+\begin{document}
+
+% 封面内容
+\maketitle
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\newpage\section{algorithm}
+
+\subsection{pair-counting}
+
+\lstinputlisting[style=cppstyle]{src/alfred/algorithm/pair-counting.hpp}
+
+\subsection{utils}
+
+\lstinputlisting[style=cppstyle]{src/alfred/algorithm/utils.hpp}
+
+\section{config}
+
+\subsection{c-cpp-properties}
+
+\lstinputlisting{src/alfred/config/c-cpp-properties.json}
+
+\subsection{cpp}
+
+\lstinputlisting{src/alfred/config/cpp.json}
+
+\subsection{fast-io}
+
+\lstinputlisting[style=cppstyle]{src/alfred/config/fast-io.hpp}
+
+\subsection{io-sync-off}
+
+\lstinputlisting[style=cppstyle]{src/alfred/config/io-sync-off.hpp}
+
+\subsection{launch}
+
+\lstinputlisting{src/alfred/config/launch.json}
+
+\subsection{optimize-header}
+
+\lstinputlisting[style=cppstyle]{src/alfred/config/optimize-header.h}
+
+\subsection{settings}
+
+\lstinputlisting{src/alfred/config/settings.json}
+
+\subsection{tasks}
+
+\lstinputlisting{src/alfred/config/tasks.json}
+
+\section{data\_structure}
+
+\subsection{appear-statistics}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/appear-statistics.hpp}
+
+\subsection{binary-trie}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/binary-trie.hpp}
+
+\subsection{cartesian}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/cartesian.hpp}
+
+\subsection{chtholly}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/chtholly.hpp}
+
+\subsection{discretization}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/discretization.hpp}
+
+\subsection{dsu}
+
+\subsubsection{cancel-dsu}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/dsu/cancel-dsu.hpp}
+
+\subsubsection{dsu}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/dsu/dsu.hpp}
+
+\subsubsection{weighted-dsu}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/dsu/weighted-dsu.hpp}
+
+\subsection{dynamic-bitset}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/dynamic-bitset.hpp}
+
+\subsection{fenwick}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/fenwick.hpp}
+
+\subsection{hashmap}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/hashmap.hpp}
+
+\subsection{info}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/info.hpp}
+
+\subsection{pbds-balance-tree}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/pbds-balance-tree.hpp}
+
+\subsection{persistent}
+
+\subsubsection{partial-persistent-array}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/persistent/partial-persistent-array.hpp}
+
+\subsection{priority-set}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/priority-set.hpp}
+
+\subsection{sliding-window}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/sliding-window.hpp}
+
+\subsection{sparse-table}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/sparse-table.hpp}
+
+\subsection{sum}
+
+\lstinputlisting[style=cppstyle]{src/alfred/data_structure/sum.hpp}
+
+\section{graph}
+
+\subsection{graph}
+
+\lstinputlisting[style=cppstyle]{src/alfred/graph/graph.hpp}
+
+\subsection{grid}
+
+\lstinputlisting[style=cppstyle]{src/alfred/graph/grid.hpp}
+
+\subsection{hld}
+
+\lstinputlisting[style=cppstyle]{src/alfred/graph/hld.hpp}
+
+\subsection{lca}
+
+\lstinputlisting[style=cppstyle]{src/alfred/graph/lca.hpp}
+
+\subsection{twosat}
+
+\lstinputlisting[style=cppstyle]{src/alfred/graph/twosat.hpp}
+
+\section{math}
+
+\subsection{comb}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/comb.hpp}
+
+\subsection{computation-geometry}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/computation-geometry.hpp}
+
+\subsection{conv}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/conv.hpp}
+
+\subsection{flat-geometry}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/flat-geometry.hpp}
+
+\subsection{gcd}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/gcd.hpp}
+
+\subsection{lagrange}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/lagrange.hpp}
+
+\subsection{linear}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/linear.hpp}
+
+\subsection{mod-int}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/mod-int.hpp}
+
+\subsection{speed-of-light-power}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/speed-of-light-power.hpp}
+
+\subsection{sqrt-decomposition}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/sqrt-decomposition.hpp}
+
+\subsection{utils}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/utils.hpp}
+
+\subsection{vec-inv}
+
+\lstinputlisting[style=cppstyle]{src/alfred/math/vec-inv.hpp}
+
+\section{string}
+
+\subsection{hashed-string}
+
+\lstinputlisting[style=cppstyle]{src/alfred/string/hashed-string.hpp}
+
+\subsection{suffix-array}
+
+\lstinputlisting[style=cppstyle]{src/alfred/string/suffix-array.hpp}
+\end{document}

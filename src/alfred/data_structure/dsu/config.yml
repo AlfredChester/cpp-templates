@@ -1,0 +1,10 @@
+contents:
+  - name: cancel-dsu
+    codes:
+      - cancel-dsu.hpp
+  - name: dsu
+    codes:
+      - dsu.hpp
+  - name: weighted-dsu
+    codes:
+      - weighted-dsu.hpp

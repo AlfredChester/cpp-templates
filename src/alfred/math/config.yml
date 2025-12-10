@@ -1,0 +1,37 @@
+contents:
+  - name: comb
+    codes:
+      - comb.hpp
+  - name: computation-geometry
+    codes:
+      - computation-geometry.hpp
+  - name: conv
+    codes:
+      - conv.hpp
+  - name: flat-geometry
+    codes:
+      - flat-geometry.hpp
+  - name: gcd
+    codes:
+      - gcd.hpp
+  - name: lagrange
+    codes:
+      - lagrange.hpp
+  - name: linear
+    codes:
+      - linear.hpp
+  - name: mod-int
+    codes:
+      - mod-int.hpp
+  - name: speed-of-light-power
+    codes:
+      - speed-of-light-power.hpp
+  - name: sqrt-decomposition
+    codes:
+      - sqrt-decomposition.hpp
+  - name: utils
+    codes:
+      - utils.hpp
+  - name: vec-inv
+    codes:
+      - vec-inv.hpp

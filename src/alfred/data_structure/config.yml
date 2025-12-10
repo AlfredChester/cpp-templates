@@ -1,0 +1,47 @@
+contents:
+  - name: appear-statistics
+    codes:
+      - appear-statistics.hpp
+  - name: binary-trie
+    codes:
+      - binary-trie.hpp
+  - name: cartesian
+    codes:
+      - cartesian.hpp
+  - name: chtholly
+    codes:
+      - chtholly.hpp
+  - name: discretization
+    codes:
+      - discretization.hpp
+  - name: dsu
+    directory: dsu
+  - name: dynamic-bitset
+    codes:
+      - dynamic-bitset.hpp
+  - name: fenwick
+    codes:
+      - fenwick.hpp
+  - name: hashmap
+    codes:
+      - hashmap.hpp
+  - name: info
+    codes:
+      - info.hpp
+  - name: pbds-balance-tree
+    codes:
+      - pbds-balance-tree.hpp
+  - name: persistent
+    directory: persistent
+  - name: priority-set
+    codes:
+      - priority-set.hpp
+  - name: sliding-window
+    codes:
+      - sliding-window.hpp
+  - name: sparse-table
+    codes:
+      - sparse-table.hpp
+  - name: sum
+    codes:
+      - sum.hpp

@@ -44,3 +44,7 @@ Git_Uploader.py
 
 .vendor/*
 .bundle/*
+output.tex
+*.aux
+*.log
+*.pdf

@@ -4,7 +4,7 @@
 
 [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://alfredchester.github.io/cpp-templates/)
 
-本仓库借鉴了[南京大学 ACM-ICPC 代码库](https://github.com/nju-icpc/code-library-legacy/) 和 [competitive-verifier/competitive-verifier](https://github.com/competitive-verifier/competitive-verifier) 的结构及相关代码，在此表示由衷感谢。
+本仓库借鉴了[南京大学 ACM-ICPC 代码库](https://github.com/nju-icpc/code-library-legacy/)、[XCPC-Templates](https://github.com/llleixx/XCPC-Templates) 和 [competitive-verifier/competitive-verifier](https://github.com/competitive-verifier/competitive-verifier) 的结构及相关代码，在此表示由衷感谢。
 
 ## 重要注意事项及已知的bug
 

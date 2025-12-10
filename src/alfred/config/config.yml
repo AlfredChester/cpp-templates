@@ -2,9 +2,6 @@ contents:
   - name: c-cpp-properties
     codes:
       - c-cpp-properties.json
-  - name: cpp
-    codes:
-      - cpp.json
   - name: fast-io
     codes:
       - fast-io.hpp
@@ -17,9 +14,3 @@ contents:
   - name: optimize-header
     codes:
       - optimize-header.h
-  - name: settings
-    codes:
-      - settings.json
-  - name: tasks
-    codes:
-      - tasks.json

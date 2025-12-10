@@ -48,8 +48,6 @@ process_directory() {
         base_name="${filename%.py}"
       elif [[ "$filename" == *.h ]]; then
         base_name="${filename%.h}"
-      elif [[ "$filename" == *.json ]]; then
-        base_name="${filename%.json}"
       elif [[ "$filename" == *-pre.tex ]]; then
         base_name="${filename%-pre.tex}"
       elif [[ "$filename" == *-post.tex ]]; then

@@ -14,3 +14,6 @@ contents:
   - name: twosat
     codes:
       - twosat.hpp
+  - name: maxflow
+    codes:
+      - maxflow.hpp

@@ -2,6 +2,7 @@
 #define ALFRED_ALL
 
 #include "algorithm/pair-counting.hpp"
+#include "algorithm/radix-sort.hpp"
 #include "algorithm/utils.hpp"
 
 #include "data_structure/appear-statistics.hpp"
@@ -25,6 +26,7 @@
 #include "graph/grid.hpp"
 #include "graph/hld.hpp"
 #include "graph/lca.hpp" // Will be included after graph class is implemented well enough
+#include "graph/maxflow.hpp"
 
 #include "math/comb.hpp"
 #include "math/computation-geometry.hpp"

@@ -1,10 +1,10 @@
 contents:
-  - name: cancel-dsu
-    codes:
-      - cancel-dsu.hpp
-  - name: dsu
+  - name: 普通并查集
     codes:
       - dsu.hpp
-  - name: weighted-dsu
+  - name: 可撤销并查集
+    codes:
+      - cancel-dsu.hpp
+  - name: 带权并查集
     codes:
       - weighted-dsu.hpp

@@ -1,13 +1,13 @@
 contents:
-  - name: algorithm
-    directory: algorithm
-  - name: config
+  - name: 环境配置
     directory: config
-  - name: data_structure
+  - name: 算法
+    directory: algorithm
+  - name: 数据结构
     directory: data_structure
-  - name: graph
+  - name: 图论
     directory: graph
-  - name: math
+  - name: 数学
     directory: math
-  - name: string
+  - name: 字符串
     directory: string

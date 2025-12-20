@@ -1,37 +1,37 @@
 contents:
-  - name: comb
+  - name: 组合数
     codes:
       - comb.hpp
-  - name: computation-geometry
+  - name: 计算几何（旧）
     codes:
       - computation-geometry.hpp
-  - name: conv
-    codes:
-      - conv.hpp
-  - name: flat-geometry
+  - name: 计算几何（新）
     codes:
       - flat-geometry.hpp
-  - name: gcd
+  - name: 卷积
+    codes:
+      - conv.hpp
+  - name: 按值域预处理的快速 gcd
     codes:
       - gcd.hpp
-  - name: lagrange
+  - name: 拉格朗日插值
     codes:
       - lagrange.hpp
-  - name: linear
+  - name: 线性代数
     codes:
       - linear.hpp
-  - name: mod-int
+  - name: modint
     codes:
       - mod-int.hpp
-  - name: speed-of-light-power
+  - name: 光速幂
     codes:
       - speed-of-light-power.hpp
-  - name: sqrt-decomposition
+  - name: 数论分块
     codes:
       - sqrt-decomposition.hpp
-  - name: utils
+  - name: 数学工具
     codes:
       - utils.hpp
-  - name: vec-inv
+  - name: 数列逆元
     codes:
       - vec-inv.hpp

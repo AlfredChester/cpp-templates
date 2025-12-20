@@ -1,19 +1,19 @@
 contents:
-  - name: graph
+  - name: 图
     codes:
       - graph.hpp
-  - name: grid
+  - name: 网格图信息
     codes:
       - grid.hpp
-  - name: hld
+  - name: 树链剖分
     codes:
       - hld.hpp
-  - name: lca
+  - name: 最近公共祖先
     codes:
       - lca.hpp
-  - name: twosat
+  - name: 2-SAT
     codes:
       - twosat.hpp
-  - name: maxflow
+  - name: 最大流
     codes:
       - maxflow.hpp

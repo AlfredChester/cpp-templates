@@ -1,47 +1,47 @@
 contents:
-  - name: appear-statistics
+  - name: 区间出现次数统计
     codes:
       - appear-statistics.hpp
-  - name: binary-trie
+  - name: 01字典树
     codes:
       - binary-trie.hpp
-  - name: cartesian
+  - name: 笛卡尔树
     codes:
       - cartesian.hpp
-  - name: chtholly
+  - name: 珂朵莉树
     codes:
       - chtholly.hpp
-  - name: discretization
+  - name: 离散化
     codes:
       - discretization.hpp
-  - name: dsu
+  - name: 并查集
     directory: dsu
-  - name: dynamic-bitset
+  - name: 动态 bitset（效率极低）
     codes:
       - dynamic-bitset.hpp
-  - name: fenwick
+  - name: 树状数组
     codes:
       - fenwick.hpp
-  - name: hashmap
+  - name: 哈希表
     codes:
       - hashmap.hpp
-  - name: info
+  - name: 信息结构体
     codes:
       - info.hpp
-  - name: pbds-balance-tree
+  - name: pbds 平衡树
     codes:
       - pbds-balance-tree.hpp
-  - name: persistent
+  - name: 可持久化数据结构
     directory: persistent
-  - name: priority-set
+  - name: 可删堆
     codes:
       - priority-set.hpp
-  - name: sliding-window
+  - name: 滑动窗口
     codes:
       - sliding-window.hpp
-  - name: sparse-table
+  - name: ST 表
     codes:
       - sparse-table.hpp
-  - name: sum
+  - name: 前缀和
     codes:
       - sum.hpp

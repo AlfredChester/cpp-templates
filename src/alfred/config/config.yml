@@ -1,16 +1,13 @@
 contents:
-  - name: c-cpp-properties
+  - name: IntelliSense 配置
     codes:
       - c-cpp-properties.json
-  - name: fast-io
-    codes:
-      - fast-io.hpp
-  - name: io-sync-off
-    codes:
-      - io-sync-off.hpp
-  - name: launch
+  - name: 调试配置
     codes:
       - launch.json
-  - name: optimize-header
+  - name: 快读快写
+    codes:
+      - fast-io.hpp
+  - name: 火车头
     codes:
       - optimize-header.h

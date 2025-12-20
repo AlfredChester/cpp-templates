@@ -1,7 +1,7 @@
 contents:
-  - name: pair-counting
+  - name: 逆序对
     codes:
       - pair-counting.hpp
-  - name: utils
+  - name: 工具
     codes:
       - utils.hpp

@@ -1,7 +1,7 @@
 contents:
-  - name: hashed-string
+  - name: 字符串哈希
     codes:
       - hashed-string.hpp
-  - name: suffix-array
+  - name: 后缀数组
     codes:
       - suffix-array.hpp

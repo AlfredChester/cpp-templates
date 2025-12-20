@@ -39,6 +39,8 @@ jobs:
           output-path: verify_files.json
           # Specify patterns
           # include: your-own-include/
+          exclude: |
+            main.py
           # exclude: |
           #   pdf/
           #   tex/

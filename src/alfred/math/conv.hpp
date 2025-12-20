@@ -6,7 +6,7 @@
 
 namespace detail {
     template <class mint>
-    void NTT(std::vector<mint> &f, const std::vector<int> &r, int lim, int flag) {
+    inline void NTT(std::vector<mint> &f, const std::vector<int> &r, int lim, int flag) {
         const int mod = mint::mod();
         mint gmod = findPrimitiveRoot<mint>();
         for (int i = 0; i < lim; i++) {
@@ -30,6 +30,17 @@ namespace detail {
             for (auto &x : f) x *= inv;
         }
     }
+
+    inline const std::vector<int> &get_rev(int lim) {
+        static std::vector<int> rev;
+        if ((int)rev.size() != lim) {
+            rev.resize(lim);
+            for (int i = 0; i < lim; i++) {
+                rev[i] = (rev[i >> 1] >> 1) | ((i & 1) ? (lim >> 1) : 0);
+            }
+        }
+        return rev;
+    }
 }
 
 // (*, +) convolution for modint
@@ -43,11 +54,7 @@ inline std::vector<ModInt<mod>> add_conv(
     for (lim = 1; lim < len; lim <<= 1);
     f.resize(lim, 0), g.resize(lim, 0);
 
-    std::vector<int> rev(lim, 0);
-    for (int i = 0; i < lim; i++) {
-        rev[i] = rev[i >> 1] >> 1;
-        if (i & 1) rev[i] |= lim >> 1;
-    }
+    const auto &rev = detail::get_rev(lim);
     detail::NTT(f, rev, lim, 1);
     detail::NTT(g, rev, lim, 1);
     for (int i = 0; i < lim; i++) {

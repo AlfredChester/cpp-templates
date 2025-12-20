@@ -5,6 +5,12 @@
 #include <vector>
 
 namespace detail {
+    inline constexpr int ceil_pw2(int len) {
+        int res = 1;
+        while (res < len) res *= 2;
+        return res;
+    }
+
     template <class mint>
     inline void NTT(std::vector<mint> &f, const std::vector<int> &r, int lim, int flag) {
         const int mod = mint::mod();
@@ -41,6 +47,80 @@ namespace detail {
         }
         return rev;
     }
+
+    template <class T>
+    inline void fmt_and(std::vector<T> &a, T c) {
+        const int n = a.size();
+        for (int d = 2; d <= n; d *= 2) {
+            const int len = d >> 1;
+            for (int i = 0; i < n; i += d) {
+                for (int j = 0; j < len; j++) {
+                    a[i + j] += c * a[i + j + len];
+                }
+            }
+        }
+    }
+
+    template <class T>
+    inline void fmt_or(std::vector<T> &a, T c) {
+        const int n = a.size();
+        for (int d = 2; d <= n; d *= 2) {
+            const int len = d >> 1;
+            for (int i = 0; i < n; i += d) {
+                for (int j = 0; j < len; j++) {
+                    a[i + j + len] += c * a[i + j];
+                }
+            }
+        }
+    }
+
+    template <uint32_t mod>
+    inline void fwt(std::vector<ModInt<mod>> &a, ModInt<mod> c) {
+        ModInt<mod> tmp;
+        const int n = a.size();
+        for (int d = 2; d <= n; d *= 2) {
+            const int len = d >> 1;
+            for (int i = 0; i < n; i += d) {
+                for (int j = 0; j < len; j++) {
+                    tmp = a[i + j];
+                    a[i + j] = (tmp + a[i + j + len]) * c;
+                    a[i + j + len] = (tmp - a[i + j + len]) * c;
+                }
+            }
+        }
+    }
+
+    template <class T>
+    inline void fwt(std::vector<T> &a) {
+        T tmp;
+        const int n = a.size();
+        for (int d = 2; d <= n; d *= 2) {
+            const int len = d >> 1;
+            for (int i = 0; i < n; i += d) {
+                for (int j = 0; j < len; j++) {
+                    tmp = a[i + j];
+                    a[i + j] = tmp + a[i + j + len];
+                    a[i + j + len] = tmp - a[i + j + len];
+                }
+            }
+        }
+    }
+
+    template <class T>
+    inline void ifwt(std::vector<T> &a) {
+        T tmp;
+        const int n = a.size();
+        for (int d = 2; d <= n; d *= 2) {
+            const int len = d >> 1;
+            for (int i = 0; i < n; i += d) {
+                for (int j = 0; j < len; j++) {
+                    tmp = a[i + j];
+                    a[i + j] = (tmp + a[i + j + len]) >> 1;
+                    a[i + j + len] = (tmp - a[i + j + len]) >> 1;
+                }
+            }
+        }
+    }
 }
 
 // (*, +) convolution for modint
@@ -71,8 +151,8 @@ inline std::vector<long long> add_conv_ll(
     const std::vector<long long> &g
 ) {
     if (f.empty() || g.empty()) return {};
-    int len = f.size() + g.size() - 1, lim;
-    for (lim = 1; lim < len; lim <<= 1);
+    int len = f.size() + g.size() - 1;
+    int lim = detail::ceil_pw2(len);
 
     auto run = [&](auto tag) {
         using Mint = decltype(tag);
@@ -114,37 +194,49 @@ inline std::vector<long long> add_conv_ll(
     return c;
 }
 
-template <uint32_t mod>
-inline std::vector<ModInt<mod>> and_conv(
-    std::vector<ModInt<mod>> f,
-    std::vector<ModInt<mod>> g
-);
-
 template <class T>
 inline std::vector<T> and_conv(
     std::vector<T> f, std::vector<T> g
-);
-
-template <uint32_t mod>
-inline std::vector<ModInt<mod>> or_conv(
-    std::vector<ModInt<mod>> f,
-    std::vector<ModInt<mod>> g
-);
+) {
+    int len = detail::ceil_pw2(std::max(f.size(), g.size()));
+    f.resize(len), detail::fmt_and(f, T(1));
+    g.resize(len), detail::fmt_and(g, T(1));
+    for (int i = 0; i < len; i++) f[i] *= g[i];
+    return detail::fmt_and(f, T(-1)), f;
+}
 
 template <class T>
 inline std::vector<T> or_conv(
     std::vector<T> f, std::vector<T> g
-);
+) {
+    int len = detail::ceil_pw2(std::max(f.size(), g.size()));
+    f.resize(len), detail::fmt_or(f, T(1));
+    g.resize(len), detail::fmt_or(g, T(1));
+    for (int i = 0; i < len; i++) f[i] *= g[i];
+    return detail::fmt_or(f, T(-1)), f;
+}
 
 template <uint32_t mod>
 inline std::vector<ModInt<mod>> xor_conv(
     std::vector<ModInt<mod>> f,
     std::vector<ModInt<mod>> g
-);
+) {
+    int len = detail::ceil_pw2(std::max(f.size(), g.size()));
+    f.resize(len), detail::fwt(f, ModInt<mod>(1));
+    g.resize(len), detail::fwt(g, ModInt<mod>(1));
+    for (int i = 0; i < len; i++) f[i] *= g[i];
+    return detail::fwt(f, ModInt<mod>(2).inv()), f;
+}
 
 template <class T>
 inline std::vector<T> xor_conv(
     std::vector<T> f, std::vector<T> g
-);
+) {
+    int len = detail::ceil_pw2(std::max(f.size(), g.size()));
+    f.resize(len), detail::fwt(f);
+    g.resize(len), detail::fwt(g);
+    for (int i = 0; i < len; i++) f[i] *= g[i];
+    return detail::ifwt(f), f;
+}
 
 #endif

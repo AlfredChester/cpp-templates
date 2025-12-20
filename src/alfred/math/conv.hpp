@@ -6,7 +6,7 @@
 
 namespace detail {
     template <class mint>
-    void NTT(std::vector<mint> &f, std::vector<int> &r, int lim, int flag) {
+    void NTT(std::vector<mint> &f, const std::vector<int> &r, int lim, int flag) {
         const int mod = mint::mod();
         mint gmod = findPrimitiveRoot<mint>();
         for (int i = 0; i < lim; i++) {
@@ -44,7 +44,6 @@ inline std::vector<ModInt<mod>> add_conv(
     f.resize(lim, 0), g.resize(lim, 0);
 
     std::vector<int> rev(lim, 0);
-    std::vector<ModInt<mod>> h(lim, 0);
     for (int i = 0; i < lim; i++) {
         rev[i] = rev[i >> 1] >> 1;
         if (i & 1) rev[i] |= lim >> 1;
@@ -52,10 +51,11 @@ inline std::vector<ModInt<mod>> add_conv(
     detail::NTT(f, rev, lim, 1);
     detail::NTT(g, rev, lim, 1);
     for (int i = 0; i < lim; i++) {
-        h[i] = f[i] * g[i];
+        f[i] *= g[i];
     }
-    detail::NTT(h, rev, lim, -1);
-    return h.resize(len), h;
+    detail::NTT(f, rev, lim, -1);
+    f.resize(len);
+    return f;
 }
 
 // (*, +) convolution for long long
@@ -64,6 +64,19 @@ inline std::vector<long long> add_conv_ll(
     const std::vector<long long> &g
 ) {
     if (f.empty() || g.empty()) return {};
+    int len = f.size() + g.size() - 1, lim;
+    for (lim = 1; lim < len; lim <<= 1);
+
+    auto run = [&](auto tag) {
+        using Mint = decltype(tag);
+        std::vector<Mint> tf, tg;
+        tf.reserve(lim);
+        for (auto x : f) tf.emplace_back(x);
+        tg.reserve(lim);
+        for (auto x : g) tg.emplace_back(x);
+        return add_conv(std::move(tf), std::move(tg));
+    };
+
     static constexpr uint64_t m1 = 754974721;
     static constexpr uint64_t m2 = 167772161;
     static constexpr uint64_t m3 = 469762049;
@@ -71,19 +84,9 @@ inline std::vector<long long> add_conv_ll(
     static constexpr uint64_t m13 = m1 * m3;
     static constexpr uint64_t m23 = m2 * m3;
     static constexpr uint64_t m123 = m1 * m2 * m3;
-    auto c1 = add_conv(
-        std::vector<ModInt<m1>>(f.begin(), f.end()),
-        std::vector<ModInt<m1>>(g.begin(), g.end())
-    );
-    auto c2 = add_conv(
-        std::vector<ModInt<m2>>(f.begin(), f.end()),
-        std::vector<ModInt<m2>>(g.begin(), g.end())
-    );
-    auto c3 = add_conv(
-        std::vector<ModInt<m3>>(f.begin(), f.end()),
-        std::vector<ModInt<m3>>(g.begin(), g.end())
-    );
-    const int len = c1.size();
+    auto c1 = run(ModInt<m1>());
+    auto c2 = run(ModInt<m2>());
+    auto c3 = run(ModInt<m3>());
     std::vector<long long> c(len);
     static constexpr uint64_t i1 = ModInt<m1>(m2 * m3).inv().val();
     static constexpr uint64_t i2 = ModInt<m2>(m1 * m3).inv().val();

@@ -14,7 +14,7 @@
     for (TYPE *it = (FR) + LEN; it != (FR); it--)                    \
         (TO)[--bucket[(it[-1] >> BIT) & ((1 << W) - 1)]] = it[-1];
 
-template <class T, const unsigned w = 8>
+template <class T, const unsigned w = 4>
 static void radix_sort(T a[], const size_t n) {
     static std::vector<T> b_vec;
     if (b_vec.size() < n) {

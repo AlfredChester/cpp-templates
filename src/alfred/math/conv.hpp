@@ -157,10 +157,9 @@ inline std::vector<long long> add_conv_ll(
     auto run = [&](auto tag) {
         using Mint = decltype(tag);
         std::vector<Mint> tf, tg;
-        tf.reserve(lim);
-        for (auto x : f) tf.emplace_back(x);
-        tg.reserve(lim);
-        for (auto x : g) tg.emplace_back(x);
+        tf.reserve(lim), tg.reserve(lim);
+        for (auto &x : f) tf.emplace_back(x);
+        for (auto &x : g) tg.emplace_back(x);
         return add_conv(std::move(tf), std::move(tg));
     };
 

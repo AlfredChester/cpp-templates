@@ -5,3 +5,6 @@ contents:
   - name: 后缀数组
     codes:
       - suffix-array.hpp
+  - name: 模糊匹配
+    codes:
+      - fuzz-matching.hpp

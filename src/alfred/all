@@ -38,6 +38,7 @@
 #include "math/sqrt-decomposition.hpp"
 #include "math/utils.hpp"
 
+#include "string/fuzz-matching.hpp"
 #include "string/hashed-string.hpp"
 #include "string/suffix-array.hpp"
 

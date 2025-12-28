@@ -1,6 +1,7 @@
 #ifndef AFMT_MOD_INT
 #define AFMT_MOD_INT
 
+#include "integer-types.hpp"
 #include <algorithm>
 #include <cassert>
 #include <cstdint>
@@ -8,7 +9,7 @@
 #include <type_traits>
 #include <vector>
 
-template <uint32_t M>
+template <uint32_t M> // requires M <= 2^31
 class ModInt {
 public:
     using value_type = uint32_t;
@@ -17,13 +18,15 @@ public:
         return t & 1 ? M - 1 : 1;
     }
     value_type v;
-    constexpr ModInt() noexcept : v(0) {}
-    constexpr ModInt(int64_t x) noexcept : v(norm(x)) {}
-    static constexpr value_type norm(int64_t x) noexcept {
-        x %= M;
-        if (x < 0) x += M;
-        return static_cast<value_type>(x);
+    constexpr ModInt(void) noexcept : v(0) {}
+    template <class T, is_signed_int_t<T> * = nullptr>
+    constexpr ModInt(T _v) {
+        int64_t x = (int64_t)(_v % (int64_t)(mod()));
+        if (x < 0) x += mod();
+        v = (uint32_t)(x);
     }
+    template <class T, is_unsigned_int_t<T> * = nullptr>
+    constexpr ModInt(T _v) { v = (uint32_t)(_v % mod()); }
     constexpr value_type val() const noexcept { return v; }
     constexpr ModInt operator+() const noexcept { return *this; }
     constexpr ModInt operator-() const noexcept { return ModInt(v ? M - v : 0); }
@@ -33,8 +36,8 @@ public:
         return *this;
     }
     constexpr ModInt &operator-=(const ModInt &rhs) noexcept {
-        v += M - rhs.v;
-        if (v >= M) v -= M;
+        v -= rhs.v;
+        if (v >= M) v += M; // real < 0 <=> unsigned >= M
         return *this;
     }
     constexpr ModInt &operator*=(const ModInt &rhs) noexcept {
@@ -49,16 +52,13 @@ public:
         if (n < 0) {
             n = (-n) % (M - 1) * (M - 2);
         }
-        while (n) {
+        while (n > 0) {
             if (n & 1) res *= x;
-            x *= x;
-            n >>= 1;
+            x *= x, n >>= 1;
         }
         return res;
     }
-    constexpr ModInt inv() const noexcept {
-        return pow(M - 2);
-    }
+    constexpr ModInt inv(void) const noexcept { return pow(M - 2); }
     friend constexpr ModInt operator+(ModInt l, const ModInt &r) noexcept { return l += r; }
     friend constexpr ModInt operator-(ModInt l, const ModInt &r) noexcept { return l -= r; }
     friend constexpr ModInt operator*(ModInt l, const ModInt &r) noexcept { return l *= r; }
@@ -70,8 +70,7 @@ public:
     }
     friend std::istream &operator>>(std::istream &is, ModInt &x) {
         int64_t t;
-        is >> t;
-        x = ModInt(t);
+        is >> t, x = ModInt(t);
         return is;
     }
 };

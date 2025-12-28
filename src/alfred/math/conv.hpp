@@ -155,8 +155,8 @@ inline std::vector<long long> add_conv_ll(
     int lim = detail::ceil_pw2(len);
 
     auto run = [&](auto tag) {
-        using Mint = decltype(tag);
-        std::vector<Mint> tf, tg;
+        using mint = decltype(tag);
+        std::vector<mint> tf, tg;
         tf.reserve(lim), tg.reserve(lim);
         for (auto &x : f) tf.emplace_back(x);
         for (auto &x : g) tg.emplace_back(x);

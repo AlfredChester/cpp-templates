@@ -20,14 +20,15 @@ public:
     value_type v;
     constexpr ModInt(void) noexcept : v(0) {}
     template <class T, is_signed_int_t<T> *_ = nullptr>
-    constexpr ModInt(T _v) {
-        int64_t x = (int64_t)(_v % (int64_t)(mod()));
-        if (x < 0) x += mod();
-        v = (uint32_t)(x);
-    }
+    constexpr ModInt(T _v) : v(value_type(norm(_v))) {}
     template <class T, is_unsigned_int_t<T> *_ = nullptr>
-    constexpr ModInt(T _v) { v = (uint32_t)(_v % mod()); }
+    constexpr ModInt(T _v) : v(value_type(_v % M)) {}
     constexpr value_type val() const noexcept { return v; }
+    constexpr value_type norm(int64_t v) {
+        v %= M;
+        if (v < 0) v += M;
+        return v;
+    }
     constexpr ModInt operator+() const noexcept { return *this; }
     constexpr ModInt operator-() const noexcept { return ModInt(v ? M - v : 0); }
     constexpr ModInt &operator+=(const ModInt &rhs) noexcept {

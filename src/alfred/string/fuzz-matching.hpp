@@ -4,13 +4,14 @@
 #include "../math/conv.hpp"
 #include <string>
 
-template <uint32_t mod>
-std::vector<ModInt<mod>> __fuzz_matching(
+// template <uint32_t mod>
+std::vector<long long> __fuzz_matching(
     int n, int m, char fuzz,
     std::vector<int> &pat, std::vector<int> &txt
 ) {
-    using mint = ModInt<mod>;
-    std::vector<mint> pp[3], pt(n, 1);
+    // using mint = ModInt<mod>;
+    using i64 = long long;
+    std::vector<i64> pp[3], pt(n, 1);
     for (int i = 0; i < 3; i++) pp[i].resize(n);
     for (int i = 0; i < n; i++) pp[0][i] = pat[i];
     for (int i = 1; i < 3; i++) {
@@ -18,11 +19,11 @@ std::vector<ModInt<mod>> __fuzz_matching(
             pp[i][j] = pp[i - 1][j] * pat[j];
         }
     }
-    const mint c[3]{1, -2, 1};
-    std::vector<mint> res, ans(n);
+    const i64 c[3]{1, -2, 1};
+    std::vector<i64> res, ans(n);
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < n; j++) pt[j] *= txt[j];
-        res = add_conv(std::move(pp[2 - i]), pt);
+        res = add_conv_ll(std::move(pp[2 - i]), pt);
         for (int j = 0; j < n; j++) {
             ans[j] += c[i] * res[j];
         }

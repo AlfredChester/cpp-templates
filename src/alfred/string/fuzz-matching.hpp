@@ -23,7 +23,7 @@ std::vector<long long> __fuzz_matching(
     std::vector<i64> res, ans(n);
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < n; j++) pt[j] *= txt[j];
-        res = add_conv_ll(std::move(pp[2 - i]), pt);
+        res = add_conv_ll(pp[2 - i], pt);
         for (int j = 0; j < n; j++) {
             ans[j] += c[i] * res[j];
         }
@@ -50,7 +50,8 @@ std::vector<int> fuzz_matching(
     for (int i = 0; i < n; i++) {
         t[i] = h[(uint8_t)txt[i]];
     }
-    auto f = __fuzz_matching<998244353>(n, m, fuzz, p, t);
+    // auto f = __fuzz_matching<998244353>(n, m, fuzz, p, t);
+    auto f = __fuzz_matching(n, m, fuzz, p, t);
     for (int i = 0; i + m <= n; i++) {
         if (f[i + m - 1] == 0) res.push_back(i);
     }

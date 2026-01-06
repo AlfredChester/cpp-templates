@@ -24,6 +24,7 @@
 
 #include "graph/graph.hpp"
 #include "graph/grid.hpp"
+#include "graph/twosat.hpp"
 #include "graph/hld.hpp"
 #include "graph/lca.hpp" // Will be included after graph class is implemented well enough
 #include "graph/maxflow.hpp"

@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
 
     if (TS.has_solution()) {
         std::cout << "s SATISFIABLE\nv ";
-        std::vector<int> res = TS.solve(n);
+        std::vector<int> res = TS.solve();
         for (int i = 0; i < n; i++) {
             if (res[i] == 0) {
                 std::cout << -(i + 1) << ' ';

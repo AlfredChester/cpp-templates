@@ -8,7 +8,12 @@ template <class T>
 struct WeightedDSU {
     std::vector<int> fa;
     std::vector<T> w;
+    WeightedDSU(void) = default;
     WeightedDSU(int n) : fa(n + 1), w(n + 1) {
+        std::iota(fa.begin(), fa.end(), 0);
+    }
+    inline void init(int n) {
+        n++, fa.resize(n), w.resize(n);
         std::iota(fa.begin(), fa.end(), 0);
     }
     inline int find(int x) {

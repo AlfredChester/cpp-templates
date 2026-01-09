@@ -6,7 +6,12 @@
 
 struct DSU {
     std::vector<int> fa, siz;
+    DSU(void) = default;
     DSU(int n) : fa(n + 1), siz(n + 1, 1) {
+        std::iota(fa.begin(), fa.end(), 0);
+    }
+    inline void init(int n) {
+        n++, fa.resize(n), siz.assign(n, 1);
         std::iota(fa.begin(), fa.end(), 0);
     }
     inline int find(int x) {

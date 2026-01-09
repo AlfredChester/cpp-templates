@@ -9,7 +9,12 @@ private:
     std::vector<int> fa, siz, S;
 
 public:
+    CancelDSU(void) = default;
     CancelDSU(int n) : fa(n + 1), siz(n + 1, 1) {
+        std::iota(fa.begin(), fa.end(), 0);
+    }
+    inline void init(int n) {
+        n++, fa.resize(n), siz.assign(n, 1);
         std::iota(fa.begin(), fa.end(), 0);
     }
     inline int find(int x) {

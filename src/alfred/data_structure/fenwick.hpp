@@ -11,21 +11,25 @@ struct Fenwick {
     Fenwick(int len) : n(len + 2), c(len + 2) {}
     inline void init(int _n) { n = _n + 2, c.resize(n); }
     inline int lowbit(int x) { return x & -x; }
-    inline void merge(T &x, T &y) { x = x + y; }
-    inline T subtract(T x, T y) { return x - y; }
     inline void update(int pos, T x) {
-        for (pos++; pos < n; pos += lowbit(pos)) merge(c[pos], x);
+        if (++pos >= n) return;
+        for (; pos < n; pos += lowbit(pos)) {
+            c[pos] += x;
+        }
     }
     inline void clear(void) {
         for (auto &x : c) x = T();
     }
     inline T query(int pos) {
         T ans = T();
-        for (pos++; pos; pos ^= lowbit(pos)) merge(ans, c[pos]);
+        if (++pos >= n) pos = n - 1;
+        for (; pos; pos ^= lowbit(pos)) {
+            ans += c[pos];
+        }
         return ans;
     }
     inline T query(int l, int r) {
-        return subtract(query(r), query(l - 1));
+        return query(r) - query(l - 1);
     }
     inline int kth(T k) {
         int ans = 0;

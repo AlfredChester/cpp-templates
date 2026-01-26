@@ -75,6 +75,23 @@ std::pair<std::vector<int>, std::vector<int>> euler_sieve(int n) {
 }
 
 template <class T>
+std::vector<std::pair<T, int>> factorize(T n) { // O(sqrt(n)) factorization.
+    std::vector<std::pair<T, int>> vec;
+    for (T i = 2; i * i <= n; i++) {
+        int cnt = 0;
+        if (n % i != 0) continue;
+        while (n % i == 0) {
+            n /= i, cnt++;
+        }
+        vec.push_back({i, cnt});
+    }
+    if (n != 1) {
+        vec.push_back({n, 1});
+    }
+    return vec;
+}
+
+template <class T>
 inline T ceilDiv(T n, T m) {
     if (m < 0) m = -m, n = -n;
     if (n >= 0) {

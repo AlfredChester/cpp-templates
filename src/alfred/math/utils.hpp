@@ -16,16 +16,6 @@ constexpr bool is_prime(T x) {
 }
 
 template <class T>
-inline T gcd(T a, T b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-
-template <class T>
-inline T lcm(T a, T b) {
-    return a / gcd(a, b) * b;
-}
-
-template <class T>
 inline T isqrt(T x) {
     T res = std::sqrt(x);
     if (res * res > x) res--;

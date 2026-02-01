@@ -14,7 +14,7 @@ struct Double {
     static constexpr int sgn(long double x) {
         return (x > eps) - (x < -eps);
     }
-    constexpr long double val(void) const { return val; }
+    // constexpr long double val(void) const { return val; }
     constexpr operator long double(void) const { return val; }
     constexpr bool operator==(const Double &rhs) const { return sgn(val - rhs.val) == 0; }
     constexpr bool operator!=(const Double &rhs) const { return sgn(val - rhs.val) != 0; }

@@ -31,15 +31,15 @@ struct Fenwick {
     inline T query(int l, int r) {
         return query(r) - query(l - 1);
     }
-    inline int kth(T k) {
-        int ans = 0;
-        for (int i = 1 << std::__lg(c.size() - 1); i; i >>= 1) {
-            if (ans + i < (int)c.size() && c[ans + i] <= k) {
-                k -= c[ans + i], ans += i;
-            }
-        }
-        return ans;
-    }
+    // inline int kth(T k) {
+    //     int ans = 0;
+    //     for (int i = 1 << std::__lg(c.size() - 1); i; i >>= 1) {
+    //         if (ans + i < (int)c.size() && c[ans + i] <= k) {
+    //             k -= c[ans + i], ans += i;
+    //         }
+    //     }
+    //     return ans;
+    // }
 };
 
 #endif // AFDS_FENWICK

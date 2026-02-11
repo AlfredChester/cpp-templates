@@ -31,11 +31,12 @@ public:
         if (op == oe) flush_output();
         *op++ = c;
     }
-    inline void ps(char *s, size_t len) {
+    inline void ps(const char *s, size_t len) {
         // do memcpy magic here
+        size_t d = 0;
         while (len > 0) {
             size_t cp = min(len, oe - op);
-            memcpy(op, s, cp), s += cp, len -= cp;
+            memcpy(op, s + d, cp), d += cp, len -= cp;
             if ((op += cp) == oe) flush_output();
         }
     }
@@ -106,7 +107,7 @@ inline void write(T x) {
 template <int mod>
 inline void write(ModInt<mod> x) { write(x.x); }
 inline void write(const std::string &s) {
-    __buf.ps(s.c_str(), s.size());
+    __buf.ps(s.data(), s.size());
 }
 template <typename T, typename... V>
 inline void write(T x, V... v) {

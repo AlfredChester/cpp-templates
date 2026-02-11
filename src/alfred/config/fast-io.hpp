@@ -2,7 +2,9 @@
 #define ALFRED_IO
 
 #include "../math/mod-int.hpp"
-#include <iostream>
+#include <cstdlib>  // for malloc, free
+#include <cstring>  // for memcpy
+#include <iostream> // for fwrite, fread, std::string
 
 class FastIO {
 private:
@@ -11,6 +13,10 @@ private:
 
     inline void flush_output(int len = chunk) {
         fwrite(obuf, 1, len, stdout), op = obuf;
+    }
+
+    inline size_t min(const size_t &a, const size_t &b) { // avoid including <algorithm>
+        return a < b ? a : b;
     }
 
 public:
@@ -24,6 +30,14 @@ public:
     inline void pc(char c) {
         if (op == oe) flush_output();
         *op++ = c;
+    }
+    inline void ps(char *s, size_t len) {
+        // do memcpy magic here
+        while (len > 0) {
+            size_t cp = min(len, oe - op);
+            memcpy(op, s, cp), s += cp, len -= cp;
+            if ((op += cp) == oe) flush_output();
+        }
     }
     FastIO(void) {
         p1 = p2 = ibuf = (char *)(malloc(chunk));
@@ -41,11 +55,22 @@ public:
 #define getchar()  __buf.nc()
 #define putchar(x) __buf.pc(x)
 
-template <class T>
+// specialized for unsigned int: no negative sign handling
+template <class T, is_unsigned_int_t<T> *_ = nullptr>
+inline void fast_read(T &x) {
+    x = 0;
+    static char c = __buf.nc();
+    while (c < '0' || c > '9') c = __buf.nc();
+    while (c >= '0' && c <= '9') {
+        x = (x << 1) + (x << 3) + (c ^ 48), c = __buf.nc();
+    }
+}
+
+template <class T, is_signed_int_t<T> *_ = nullptr>
 inline void fast_read(T &x) {
     x = 0;
     static bool neg = false;
-    static char c = __buf.nc();
+    static char c = __buf.nc(); // it runs ok though initialized only once
     while (c < '0' || c > '9') {
         neg = (c == '-'), c = __buf.nc();
     }
@@ -54,17 +79,34 @@ inline void fast_read(T &x) {
     }
     if (neg) x = -x;
 }
+
+inline void fast_read(std::string &s) {
+    s.clear();
+    static char c = __buf.nc();
+    while (c == ' ' || c == '\n') {
+        c = __buf.nc();
+    }
+    while (c != ' ' && c != '\n') {
+        s.push_back(c), c = __buf.nc();
+    }
+}
+
 template <class T>
 inline void write(T x) {
+    int cnt = 0;
+    static char buf[40];
     if (x < 0) {
-        __buf.pc('-'), x = -x;
+        buf[cnt++] = '-', x = -x;
     }
-    if (x > 9) write(x / 10);
-    __buf.pc((x % 10) ^ 48);
+    do {
+        buf[cnt++] = (x % 10) ^ 48, x /= 10;
+    } while (x);
+    while (cnt--) __buf.pc(buf[cnt]);
 }
 template <int mod>
-inline void write(ModInt<mod> x) {
-    write(x.x);
+inline void write(ModInt<mod> x) { write(x.x); }
+inline void write(const std::string &s) {
+    __buf.ps(s.c_str(), s.size());
 }
 template <typename T, typename... V>
 inline void write(T x, V... v) {

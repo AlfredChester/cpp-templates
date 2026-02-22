@@ -4,43 +4,50 @@
 #include <utility>
 #include <vector>
 
-template <class K, class V, size_t SIZE = 3301>
-struct HashMap {
-    std::vector<std::pair<K, V>> vec[SIZE];
-    HashMap(void) {}
-    inline int hash_key(K key) { return key % SIZE; }
-    inline auto find_it(int h, K key) {
-        return std::find_if(vec[h].begin(), vec[h].end(), [&](auto kv) {
-            return kv.first == key;
-        });
+template <class K, class V>
+struct HashedMap {
+    using u32 = unsigned int;
+    struct Node {
+        K key;
+        V val;
+        u32 ne;
+    };
+    u32 lim, mask, tot;
+    std::vector<u32> fi;
+    std::vector<Node> e;
+    inline void init(u32 sz) {
+        sz += 1;
+        u32 lim = 1;
+        while (lim < sz) lim <<= 1;
+        fi.assign(lim, 0), tot = 0;
+        mask = lim - 1, e.resize(sz);
     }
-    inline void inc(K key) {
-        int h = hash_key(key);
-        auto it = find_it(h, key);
-        if (it == vec[h].end()) {
-            vec[h].emplace_back(key, 1);
-            return;
+    inline void inc(K x) {
+        u32 u = x & mask;
+        for (u32 i = fi[u]; i; i = e[i].ne) {
+            if (e[i].key == x) {
+                e[i].val++;
+                return;
+            }
         }
-        it->second++;
+        e[++tot] = {x, 1, fi[u]}, fi[u] = tot;
     }
-    inline void dec(K key) {
-        int h = hash_key(key);
-        auto it = find_it(h, key);
-        if (it == vec[h].end()) {
-            return;
+    inline void dec(K x) {
+        u32 u = x & mask;
+        for (u32 i = fi[u]; i; i = e[i].ne) {
+            if (e[i].key == x) {
+                e[i].val--;
+                return;
+            }
         }
-        it->second--;
-        if (it->second == 0) {
-            vec[h].erase(it);
-        }
+        e[++tot] = {x, 1, fi[u]}, fi[u] = tot;
     }
-    inline V get(K key) {
-        int h = hash_key(key);
-        auto it = find_it(h, key);
-        if (it == vec[h].end()) {
-            return 0;
+    inline V query(K x) {
+        u32 u = x & mask;
+        for (u32 i = fi[u]; i; i = e[i].ne) {
+            if (e[i].key == x) return e[i].val;
         }
-        return it->second;
+        return 0;
     }
 };
 

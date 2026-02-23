@@ -5,7 +5,7 @@
 #include <vector>
 
 template <class K, class V>
-struct HashedMap {
+struct HashMap { // HashMap for integer keys.
     using u32 = unsigned int;
     struct Node {
         K key;
@@ -16,38 +16,47 @@ struct HashedMap {
     std::vector<u32> fi;
     std::vector<Node> e;
     inline void init(u32 sz) {
-        sz += 1;
         u32 lim = 1;
-        while (lim < sz) lim <<= 1;
+        for (sz++; lim < sz; lim <<= 1);
         fi.assign(lim, 0), tot = 0;
         mask = lim - 1, e.resize(sz);
     }
-    inline void inc(K x) {
+    inline void inc(K x, V delta) {
         u32 u = x & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) {
-                e[i].val++;
+                e[i].val += delta;
                 return;
             }
         }
-        e[++tot] = {x, 1, fi[u]}, fi[u] = tot;
+        e[++tot] = {x, V() + delta, fi[u]}, fi[u] = tot;
     }
-    inline void dec(K x) {
+    inline void set(K x, V v) {
         u32 u = x & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) {
-                e[i].val--;
+                e[i].val = v;
                 return;
             }
         }
-        e[++tot] = {x, 1, fi[u]}, fi[u] = tot;
+        e[++tot] = {x, v, fi[u]}, fi[u] = tot;
     }
-    inline V query(K x) {
+    // this method does not create new element, returns V() by default.
+    inline V get(K x) {
         u32 u = x & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) return e[i].val;
         }
-        return 0;
+        return V();
+    }
+    // this method creates new element.
+    inline V &operator[](K x) {
+        u32 u = x & mask;
+        for (u32 i = fi[u]; i; i = e[i].ne) {
+            if (e[i].key == x) return e[i].val;
+        }
+        e[++tot] = {x, V(), fi[u]}, fi[u] = tot;
+        return e[tot].val;
     }
 };
 

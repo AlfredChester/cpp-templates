@@ -1,6 +1,7 @@
 #ifndef AFDS_HASHMAP
 #define AFDS_HASHMAP
 
+#include "splitmix.hpp"
 #include <utility>
 #include <vector>
 
@@ -12,6 +13,7 @@ struct HashMap { // HashMap for integer keys.
         V val;
         u32 ne;
     };
+    Splitmix<K> hash;
     u32 lim, mask, tot;
     std::vector<u32> fi;
     std::vector<Node> e;
@@ -22,7 +24,7 @@ struct HashMap { // HashMap for integer keys.
         mask = lim - 1, e.resize(sz);
     }
     inline void inc(K x, V delta) {
-        u32 u = x & mask;
+        u32 u = hash(x) & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) {
                 e[i].val += delta;
@@ -32,7 +34,7 @@ struct HashMap { // HashMap for integer keys.
         e[++tot] = {x, V() + delta, fi[u]}, fi[u] = tot;
     }
     inline void set(K x, V v) {
-        u32 u = x & mask;
+        u32 u = hash(x) & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) {
                 e[i].val = v;
@@ -43,7 +45,7 @@ struct HashMap { // HashMap for integer keys.
     }
     // this method does not create new element, returns V() by default.
     inline V get(K x) {
-        u32 u = x & mask;
+        u32 u = hash(x) & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) return e[i].val;
         }
@@ -51,7 +53,7 @@ struct HashMap { // HashMap for integer keys.
     }
     // this method creates new element.
     inline V &operator[](K x) {
-        u32 u = x & mask;
+        u32 u = hash(x) & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) return e[i].val;
         }

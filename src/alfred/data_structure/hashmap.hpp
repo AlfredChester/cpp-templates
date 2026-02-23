@@ -5,6 +5,8 @@
 #include <utility>
 #include <vector>
 
+std::vector<bool> s;
+
 template <class K, class V>
 struct HashMap { // HashMap for integer keys.
     using u32 = unsigned int;
@@ -23,7 +25,7 @@ struct HashMap { // HashMap for integer keys.
         fi.assign(lim, 0), tot = 0;
         mask = lim - 1, e.resize(sz);
     }
-    inline void inc(K x, V delta) {
+    inline void inc(K x, const V &delta) {
         u32 u = hash(x) & mask;
         for (u32 i = fi[u]; i; i = e[i].ne) {
             if (e[i].key == x) {

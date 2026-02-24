@@ -94,15 +94,17 @@ inline void fast_read(std::string &s) {
 
 template <class T>
 inline void write(T x) {
-    int cnt = 0;
-    static char buf[40];
+    bool neg = false;
     if (x < 0) {
-        buf[cnt++] = '-', x = -x;
+        neg = true, x = -x;
     }
+    int it = 40;
+    static char buf[40];
     do {
-        buf[cnt++] = (x % 10) ^ 48, x /= 10;
+        buf[--it] = (x % 10) ^ 48, x /= 10;
     } while (x);
-    while (cnt--) __buf.pc(buf[cnt]);
+    if (neg) buf[--it] = '-';
+    __buf.ps(buf + it, 40 - it);
 }
 template <int mod>
 inline void write(ModInt<mod> x) { write(x.x); }

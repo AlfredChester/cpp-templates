@@ -130,6 +130,18 @@ inline std::vector<ModInt<mod>> add_conv(
     std::vector<ModInt<mod>> g
 ) {
     if (f.empty() || g.empty()) return {};
+    if (f.size() < g.size()) {
+        std::swap(f, g);
+    }
+    if (g.size() < 128) {
+        std::vector<ModInt<mod>> h(f.size() + g.size() - 1);
+        for (size_t i = 0; i < f.size(); i++) {
+            for (size_t j = 0; j < g.size(); j++) {
+                h[i + j] += f[i] * g[j];
+            }
+        }
+        return h;
+    }
     int len = f.size() + g.size() - 1, lim;
     for (lim = 1; lim < len; lim <<= 1);
     f.resize(lim, 0), g.resize(lim, 0);

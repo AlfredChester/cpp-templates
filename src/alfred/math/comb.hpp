@@ -41,6 +41,10 @@ public:
         if (n < m || m < 0) return 0;
         return fac(n) * invfac(m) * invfac(n - m);
     }
+    inline mint ibinom(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return invfac(n) * fac(m) * fac(n - m);
+    }
     inline mint perm(int n, int m) {
         if (n < m || m < 0) return 0;
         return fac(n) * invfac(n - m);

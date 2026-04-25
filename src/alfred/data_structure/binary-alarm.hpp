@@ -45,7 +45,7 @@ struct BinaryAlarm {
         }
     }
     inline int monitor(const std::vector<int> &pos, T v) {
-        alm.emplace_back(V, v, T(0), pos);
+        alm.emplace_back(V - 1, v, T(0), pos);
         const int id = alm.size() - 1;
         if (v != 0) {
             for (auto &p : pos) {

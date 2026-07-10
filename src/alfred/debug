@@ -10,6 +10,7 @@
  */
 
 #include <bits/stdc++.h>
+#include <cassert>
 
 #ifdef DEBUG
 using std::cerr;

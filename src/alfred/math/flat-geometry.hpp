@@ -1,4 +1,3 @@
-// TODO Next generation of flat geometry.
 #ifndef AFMT_FLAT_GEOMETRY
 #define AFMT_FLAT_GEOMETRY
 
@@ -6,91 +5,61 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
+#include <type_traits>
 
 #ifndef AFMT_FLAT_GEOMETRY_EPS
 #define AFMT_FLAT_GEOMETRY_EPS 1e-9
 #endif
 
-// Recommended eps is 0.25 * given precision
-struct Double {
-    static constexpr double eps = AFMT_FLAT_GEOMETRY_EPS;
-    long double val;
-
-    constexpr Double(long double v = 0) : val(v) {}
-    static constexpr int sgn(long double x) {
+// Helper to handle floating point comparisons safely
+template <class T>
+constexpr int sgn(T x, double eps = AFMT_FLAT_GEOMETRY_EPS) {
+    if constexpr (std::is_floating_point_v<T>) {
         return (x > eps) - (x < -eps);
+    } else {
+        return (x > 0) - (x < 0);
     }
-    // constexpr long double val(void) const { return val; }
-    explicit constexpr operator long double(void) const { return val; }
-    friend constexpr bool operator==(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) == 0; }
-    friend constexpr bool operator!=(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) != 0; }
-    friend constexpr bool operator<(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) < 0; }
-    friend constexpr bool operator>(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) > 0; }
-    friend constexpr bool operator<=(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) <= 0; }
-    friend constexpr bool operator>=(const Double &lhs, const Double &rhs) { return sgn(lhs.val - rhs.val) >= 0; }
-    constexpr Double operator+(void) const { return *this; }
-    constexpr Double operator-(void) const { return Double(-val); }
-    constexpr Double &operator+=(const Double &rhs) {
-        val += rhs.val;
-        return *this;
-    }
-    constexpr Double &operator-=(const Double &rhs) {
-        val -= rhs.val;
-        return *this;
-    }
-    constexpr Double &operator*=(const Double &rhs) {
-        val *= rhs.val;
-        return *this;
-    }
-    constexpr Double &operator/=(const Double &rhs) {
-        val /= rhs.val;
-        return *this;
-    }
-    friend constexpr Double operator+(Double l, const Double &r) { return l += r; }
-    friend constexpr Double operator-(Double l, const Double &r) { return l -= r; }
-    friend constexpr Double operator*(Double l, const Double &r) { return l *= r; }
-    friend constexpr Double operator/(Double l, const Double &r) { return l /= r; }
-    friend std::ostream &operator<<(std::ostream &os, const Double &x) { return os << x.val; }
-    friend std::istream &operator>>(std::istream &is, Double &x) { return is >> x.val; }
-    friend Double sqrt(const Double &x) { return Double(std::sqrt(x.val)); }
-    friend Double abs(const Double &x) { return Double(std::abs(x.val)); }
-};
+}
 
 template <class T>
 struct Vec {
     T x, y;
     constexpr Vec(T _x = 0, T _y = 0) : x(_x), y(_y) {}
-    constexpr T norm(void) const { return x * x + y * y; }
-    constexpr Vec operator+(void) const noexcept { return *this; }
-    constexpr Vec operator-(void) const noexcept { return Vec(-x, -y); }
-    constexpr Vec &operator+=(const Vec &rhs) noexcept {
-        return x += rhs.x, y += rhs.y, *this;
+    
+    constexpr T norm2() const { return x * x + y * y; }
+    inline double norm() const { return std::sqrt(static_cast<double>(norm2())); }
+    
+    constexpr Vec operator+(const Vec &rhs) const { return Vec(x + rhs.x, y + rhs.y); }
+    constexpr Vec operator-(const Vec &rhs) const { return Vec(x - rhs.x, y - rhs.y); }
+    constexpr Vec operator*(T d) const { return Vec(x * d, y * d); }
+    constexpr Vec operator/(T d) const { return Vec(x / d, y / d); }
+    
+    constexpr Vec &operator+=(const Vec &rhs) { x += rhs.x; y += rhs.y; return *this; }
+    constexpr Vec &operator-=(const Vec &rhs) { x -= rhs.x; y -= rhs.y; return *this; }
+    constexpr Vec &operator*=(T d) { x *= d; y *= d; return *this; }
+    constexpr Vec &operator/=(T d) { x /= d; y /= d; return *this; }
+    
+    constexpr Vec operator+() const { return *this; }
+    constexpr Vec operator-() const { return Vec(-x, -y); }
+    
+    constexpr bool operator==(const Vec &rhs) const {
+        return sgn(x - rhs.x) == 0 && sgn(y - rhs.y) == 0;
     }
-    constexpr Vec &operator-=(const Vec &rhs) noexcept {
-        return x -= rhs.x, y -= rhs.y, *this;
+    constexpr bool operator!=(const Vec &rhs) const { return !(*this == rhs); }
+    
+    // Strict weak ordering for std::sort (avoids eps to ensure transitivity)
+    constexpr bool operator<(const Vec &rhs) const {
+        if (x != rhs.x) return x < rhs.x;
+        return y < rhs.y;
     }
-    constexpr Vec &operator*=(const T &d) noexcept {
-        return x *= d, y *= d, *this;
+    
+    friend constexpr Vec operator*(T d, const Vec &v) { return v * d; }
+    
+    friend std::ostream &operator<<(std::ostream &os, const Vec &v) {
+        return os << "(" << v.x << ", " << v.y << ")";
     }
-    constexpr Vec &operator/=(const T &d) noexcept {
-        return x /= d, y /= d, *this;
-    }
-    friend constexpr Vec operator+(Vec l, const Vec &r) noexcept { return l += r; }
-    friend constexpr Vec operator-(Vec l, const Vec &r) noexcept { return l -= r; }
-    friend constexpr Vec operator*(const T &l, Vec r) noexcept { return r *= l; }
-    friend constexpr Vec operator*(Vec l, const T &r) noexcept { return l *= r; }
-    friend constexpr Vec operator/(Vec l, const T &r) noexcept { return l /= r; }
-    friend constexpr bool operator==(const Vec &l, const Vec &r) noexcept {
-        return l.x == r.x && l.y == r.y;
-    }
-    friend constexpr bool operator!=(const Vec &l, const Vec &r) noexcept {
-        return l.x != r.x || l.y != r.y;
-    }
-    friend std::ostream &operator<<(std::ostream &out, const Vec &P) {
-        return out << "(" << P.x << ", " << P.y << ")";
-    }
-    friend std::istream &operator>>(std::istream &in, Vec &P) {
-        return in >> P.x >> P.y;
+    friend std::istream &operator>>(std::istream &is, Vec &v) {
+        return is >> v.x >> v.y;
     }
 };
 
@@ -98,57 +67,128 @@ template <class T>
 using Point = Vec<T>;
 
 template <class T>
-inline T dot(const Vec<T> &a, const Vec<T> &b) {
+constexpr T dot(const Vec<T> &a, const Vec<T> &b) {
     return a.x * b.x + a.y * b.y;
 }
 
 template <class T>
-inline T cross(const Vec<T> &a, const Vec<T> &b) {
+constexpr T cross(const Vec<T> &a, const Vec<T> &b) {
     return a.x * b.y - a.y * b.x;
+}
+
+template <class T>
+constexpr T cross(const Point<T> &o, const Point<T> &a, const Point<T> &b) {
+    return cross(a - o, b - o);
+}
+
+// Rotates a vector counter-clockwise by `angle` (in radians)
+template <class T>
+inline Vec<double> rotate(const Vec<T> &v, double angle) {
+    double c = std::cos(angle), s = std::sin(angle);
+    return Vec<double>(v.x * c - v.y * s, v.x * s + v.y * c);
+}
+
+// Rotates a vector 90 degrees counter-clockwise
+template <class T>
+constexpr Vec<T> rotate90(const Vec<T> &v) {
+    return Vec<T>(-v.y, v.x);
 }
 
 template <class T>
 struct PolarAngleComparator {
     Point<T> o;
-    Vec<T> base; // vector (x - o), counterclockwise, from base (included).
+    Vec<T> base;
+    
     PolarAngleComparator(
         const Point<T> &o = Point<T>(0, 0),
         const Vec<T> &base = Vec<T>(1, 0)
     ) : o(o), base(base) {}
 
     inline int get_half(const Vec<T> &v) const {
-        T crs = cross(base, v);
-        if (crs > T(0)) return 0;   // counterclockwise to base
-        if (crs < T(0)) return 1;   // clockwise to base
-        return dot(base, v) < T(0); // collinear to base, but opposite direction
+        int c = sgn(cross(base, v));
+        if (c > 0) return 0;
+        if (c < 0) return 1;
+        return sgn(dot(base, v)) < 0;
     }
 
     inline bool operator()(const Point<T> &a, const Point<T> &b) const {
-        Vec<T> va(a.x - o.x, a.y - o.y);
-        Vec<T> vb(b.x - o.x, b.y - o.y);
+        Vec<T> va = a - o, vb = b - o;
         int ha = get_half(va), hb = get_half(vb);
-        return ha != hb ? ha < hb : cross(va, vb) > T(0);
+        if (ha != hb) return ha < hb;
+        int c = sgn(cross(va, vb));
+        if (c != 0) return c > 0;
+        return va.norm2() < vb.norm2();
     }
 };
 
+// Monotone chain convex hull. O(N log N).
+// By default `strict = true` removes collinear points on edges.
 template <class T>
-std::vector<Point<T>> convex_hull(std::vector<Point<T>> P) { // graham scan, O(n log n)
-    if (P.size() <= 1) return P;
-
-    std::vector<Point<T>> H;
-
-    auto cmp = [&](Point<T> &A, Point<T> &B) {
-        return A.y != B.y ? A.y < B.y : A.x < B.x;
+std::vector<Point<T>> convex_hull(std::vector<Point<T>> P, bool strict = true) {
+    int n = P.size(), k = 0;
+    if (n <= 1) return P;
+    std::sort(P.begin(), P.end());
+    
+    std::vector<Point<T>> H(2 * n);
+    auto check = [&](const Point<T> &a, const Point<T> &b, const Point<T> &c) {
+        int s = sgn(cross(a, b, c));
+        return strict ? (s <= 0) : (s < 0);
     };
-
-    std::swap(P[0], *std::min_element(P.begin(), P.end(), cmp));
-    std::sort(P.begin() + 1, P.end(), PolarAngleComparator<T>(P[0]));
-    for (const auto &p : P) {
-        while (H.size() >= 2 && cross(H.back() - H[H.size() - 2], p - H.back()) <= T(0)) H.pop_back();
-        H.push_back(p);
+    
+    for (int i = 0; i < n; ++i) {
+        while (k >= 2 && check(H[k - 2], H[k - 1], P[i])) k--;
+        H[k++] = P[i];
     }
-    H.push_back(P[0]);
+    for (int i = n - 2, t = k + 1; i >= 0; --i) {
+        while (k >= t && check(H[k - 2], H[k - 1], P[i])) k--;
+        H[k++] = P[i];
+    }
+    H.resize(k - 1);
     return H;
+}
+
+template <class T>
+struct Line {
+    Point<T> a, b;
+    Line() {}
+    Line(Point<T> a, Point<T> b) : a(a), b(b) {}
+    Vec<T> dir() const { return b - a; }
+};
+
+template <class T>
+struct Segment : Line<T> {
+    using Line<T>::Line;
+};
+
+// Projection of point p onto line l
+template <class T>
+Point<double> projection(const Point<T> &p, const Line<T> &l) {
+    Vec<T> d = l.dir();
+    double t = static_cast<double>(dot(p - l.a, d)) / d.norm2();
+    return Point<double>(l.a.x + d.x * t, l.a.y + d.y * t);
+}
+
+// Reflection of point p across line l
+template <class T>
+Point<double> reflection(const Point<T> &p, const Line<T> &l) {
+    Point<double> proj = projection(p, l);
+    return Point<double>(2.0 * proj.x - p.x, 2.0 * proj.y - p.y);
+}
+
+// Distance from point p to line l
+template <class T>
+double distance(const Point<T> &p, const Line<T> &l) {
+    return std::abs(cross(p - l.a, l.dir())) / l.dir().norm();
+}
+
+// Polygon area
+template <class T>
+double polygon_area(const std::vector<Point<T>> &poly) {
+    double res = 0;
+    for (size_t i = 0, n = poly.size(); i < n; ++i) {
+        res += static_cast<double>(cross(poly[i], poly[(i + 1) % n]));
+    }
+    return std::abs(res) / 2.0;
 }
 
 #endif

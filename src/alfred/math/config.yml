@@ -5,6 +5,9 @@ contents:
   - name: 计算几何（新）
     codes:
       - flat-geometry.hpp
+  - name: 计算几何（jiangly）
+    codes:
+      - ../../jiangly/math/09B-Flat-Geometry.hpp
   - name: 类欧几里得 (floor_sum)
     codes:
       - floor-sum.hpp

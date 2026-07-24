@@ -1,53 +1,27 @@
 contents:
-  - name: 区间出现次数统计
-    codes:
-      - appear-statistics.hpp
   - name: 二进制警报
     codes:
       - binary-alarm.hpp
-  - name: 01字典树
-    codes:
-      - binary-trie.hpp
   - name: 笛卡尔树
     codes:
       - cartesian.hpp
   - name: 珂朵莉树
     codes:
       - chtholly.hpp
-  - name: 离散化
-    codes:
-      - discretization.hpp
   - name: 并查集
     directory: dsu
   - name: 动态 bitset（效率极低）
     codes:
       - dynamic-bitset.hpp
-  - name: 树状数组
-    codes:
-      - fenwick.hpp
   - name: 哈希表
     codes:
       - hashmap.hpp
-  - name: 信息结构体
-    codes:
-      - info.hpp
   - name: pbds 平衡树
     codes:
       - pbds-balance-tree.hpp
-  - name: 可持久化数据结构
-    directory: persistent
-  - name: 可删堆
-    codes:
-      - priority-set.hpp
   - name: 滑动窗口
     codes:
       - sliding-window.hpp
-  - name: ST 表
-    codes:
-      - sparse-table.hpp
   - name: 安全哈希 (Splitmix)
     codes:
       - splitmix.hpp
-  - name: 前缀和
-    codes:
-      - sum.hpp

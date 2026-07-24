@@ -2,6 +2,6 @@ contents:
   - name: 快读快写
     codes:
       - fast-io.hpp
-  - name: 火车头
+  - name: Intellisense 配置
     codes:
-      - optimize-header.h
+      - c-cpp-properties.json

@@ -1,4 +1,0 @@
-contents:
-  - name: 部分可持久化数组
-    codes:
-      - partial-persistent-array.hpp

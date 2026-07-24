@@ -1,16 +1,4 @@
 contents:
-  - name: 图
-    codes:
-      - graph.hpp
-  - name: 网格图信息
-    codes:
-      - grid.hpp
-  - name: 树链剖分
-    codes:
-      - hld.hpp
-  - name: 最近公共祖先
-    codes:
-      - lca.hpp
   - name: 2-SAT
     codes:
       - twosat.hpp

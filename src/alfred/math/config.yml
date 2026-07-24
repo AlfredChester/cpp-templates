@@ -2,9 +2,6 @@ contents:
   - name: 组合数
     codes:
       - comb.hpp
-  - name: 计算几何（旧）
-    codes:
-      - computation-geometry.hpp
   - name: 计算几何（新）
     codes:
       - flat-geometry.hpp
@@ -26,15 +23,3 @@ contents:
   - name: modint
     codes:
       - mod-int.hpp
-  - name: 光速幂
-    codes:
-      - speed-of-light-power.hpp
-  - name: 数论分块
-    codes:
-      - sqrt-decomposition.hpp
-  - name: 数学工具
-    codes:
-      - utils.hpp
-  - name: 数列逆元
-    codes:
-      - vec-inv.hpp

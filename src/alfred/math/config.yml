@@ -26,3 +26,6 @@ contents:
   - name: modint
     codes:
       - mod-int.hpp
+  - name: 素性（jiangly）
+    codes:
+      - ../../jiangly/math/08-Prime.hpp
